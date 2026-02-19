@@ -34,13 +34,43 @@ def main() -> int:
     ap.add_argument("--slug", required=True, help="filename slug without extension")
     ap.add_argument("--title", required=True)
     ap.add_argument("--body-path", required=True, help="path to markdown body (without leading # title)")
+    ap.add_argument(
+        "--image-keywords",
+        default="",
+        help="comma-separated keywords for Wikimedia Commons image (no API key)",
+    )
     args = ap.parse_args()
 
     posts_dir = REPO_DIR / "posts"
     posts_dir.mkdir(parents=True, exist_ok=True)
 
     body = Path(args.body_path).read_text(encoding="utf-8").strip() + "\n"
-    md = f"# {args.title}\n\n" + body
+
+    img_block = ""
+    credit_block = ""
+    if args.image_keywords.strip():
+        # Fetch Commons image and embed as raw HTML line (generator keeps <img> as-is)
+        import json as _json
+        import subprocess as _sub
+
+        r = _sub.check_output(
+            [
+                "python3",
+                "scripts/commons_image.py",
+                "--slug",
+                args.slug,
+                "--keywords",
+                args.image_keywords,
+            ],
+            cwd=str(REPO_DIR),
+        )
+        meta = _json.loads(r.decode("utf-8"))
+        img_block = meta.get("img_html", "").strip() + "\n\n"
+        credit = meta.get("credit", "").strip()
+        if credit:
+            credit_block = "\n\n---\n\n" + credit + "\n"
+
+    md = f"# {args.title}\n\n" + img_block + body + credit_block
 
     out_path = posts_dir / f"{args.slug}.md"
     if out_path.exists():

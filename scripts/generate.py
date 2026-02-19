@@ -107,6 +107,9 @@ def render_post(md_path: str, cfg: dict, *, slug: str) -> str:
         if line.startswith('- '):
             paras.append(f"<p>• {line[2:].strip()}</p>")
             continue
+        if line.strip().startswith('<img '):
+            paras.append(line.strip())
+            continue
         if line.strip():
             paras.append(f"<p>{line.strip()}</p>")
     body='\n'.join(paras)

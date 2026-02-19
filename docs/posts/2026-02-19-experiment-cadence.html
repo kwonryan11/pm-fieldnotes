@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주간 실험 리듬(Experiment Cadence): PM 팀을 학습 머신으로 만드는 법 | PM Fieldnotes</title>
+<meta name="description" content="많은 PM 팀은 할 일은 많은데 학습은 쌓이지 않는다. 이유는 업무가 티켓/요청 처리 중심으로 흘러가고, 성공/실패를 판정할 **실험 단위**가 없기 때문이다. 그 결과 회의는 늘고, 지표는 흔들리고, 팀은 ‘바쁜데 성과가 없는’ 상태에 빠진다. 주간 실험 리듬(Experiment cadence)은 한 주를 “가설→실행→">
+<link rel="canonical" href="https://kwonryan11.github.io/pm-fieldnotes/posts/2026-02-19-experiment-cadence.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="주간 실험 리듬(Experiment Cadence): PM 팀을 학습 머신으로 만드는 법">
+<meta property="og:description" content="많은 PM 팀은 할 일은 많은데 학습은 쌓이지 않는다. 이유는 업무가 티켓/요청 처리 중심으로 흘러가고, 성공/실패를 판정할 **실험 단위**가 없기 때문이다. 그 결과 회의는 늘고, 지표는 흔들리고, 팀은 ‘바쁜데 성과가 없는’ 상태에 빠진다. 주간 실험 리듬(Experiment cadence)은 한 주를 “가설→실행→">
+<meta property="og:url" content="https://kwonryan11.github.io/pm-fieldnotes/posts/2026-02-19-experiment-cadence.html">
+<meta name="twitter:card" content="summary">
+<style>:root{
+  --bg:#0b0f19;
+  --panel:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --brand:#7c3aed;
+  --brand2:#22d3ee;
+  --ring:rgba(124,58,237,.35);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --radius:16px;
+  --max:860px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", sans-serif;
+  background: radial-gradient(1200px 600px at 15% 10%, rgba(124,58,237,.25), transparent 60%),
+              radial-gradient(900px 500px at 80% 20%, rgba(34,211,238,.18), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+a{color:var(--brand2); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:14px 16px; border-radius:var(--radius);
+  background: rgba(15, 23, 42, .75);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+.logo{
+  width:34px; height:34px; border-radius:12px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  box-shadow: 0 0 0 6px rgba(124,58,237,.08);
+}
+.tagline{color:var(--muted); font-size:14px}
+.card{
+  margin-top:18px;
+  padding:22px 20px;
+  border-radius:var(--radius);
+  background: rgba(15,23,42,.72);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.h1{font-size:34px; line-height:1.15; margin:4px 0 12px}
+.h2{font-size:18px; color:var(--muted); margin:0 0 8px}
+.meta{color:var(--muted); font-size:13px}
+hr{border:none; border-top:1px solid rgba(255,255,255,.08); margin:18px 0}
+ul{padding-left:18px}
+li{margin:10px 0}
+small{color:var(--muted)}
+.post p{margin:10px 0}
+.post h2{margin:26px 0 10px; font-size:20px}
+.kbd{font-family:var(--mono); font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.2)}
+.footer{margin-top:18px; color:var(--muted); font-size:13px}</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand"><div class="logo"></div><div>
+        <div>PM Fieldnotes</div>
+        <div class="tagline">실전 PM 노트: 기획, 지표, 운영, 자동화</div>
+      </div></div>
+      <div class="meta"><span class="kbd">PM • Ops • Metrics • Automation</span></div>
+    </div>
+
+    <div class="card post">
+      <div class="meta"><a href="../index.html">← 홈으로</a></div>
+      <h1 class="h1">주간 실험 리듬(Experiment Cadence): PM 팀을 학습 머신으로 만드는 법</h1>
+      <h2>문제: “실험”이 아니라 “요청 처리”만 하다 보면 제품이 늙는다</h2>
+<p>많은 PM 팀은 할 일은 많은데 학습은 쌓이지 않는다. 이유는 업무가 티켓/요청 처리 중심으로 흘러가고, 성공/실패를 판정할 **실험 단위**가 없기 때문이다. 그 결과 회의는 늘고, 지표는 흔들리고, 팀은 ‘바쁜데 성과가 없는’ 상태에 빠진다.</p>
+<h2>왜 중요한가: 실험 리듬은 제품의 ‘학습 속도’를 만든다</h2>
+<p>주간 실험 리듬(Experiment cadence)은 한 주를 “가설→실행→측정→회고” 사이클로 고정한다. 이 리듬이 생기면 우선순위가 감이 아니라 **검증 가능성**으로 정렬되고, 작은 개선이 누적되어 KPI가 안정화된다.</p>
+<h2>프레임: 1주 1실험을 만드는 5단계</h2>
+<p>1) **NSM/핵심 KPI 1개를 고정**한다(나머지는 경고지표로).</p>
+<p>2) 백로그를 “아이디어”가 아니라 **가설 문장**으로 바꾼다: ‘만약 X를 하면 Y가 Z만큼 개선될 것이다’.</p>
+<p>3) 실험을 **최소 단위(MVP 실험)**로 쪼갠다(1~3일 내 배포/검증).</p>
+<p>4) 측정은 “모든 지표”가 아니라 **1개 성공지표 + 2개 가드레일**로 끝낸다.</p>
+<p>5) 금요일 회고는 ‘잘했나’가 아니라 **다음 실험을 더 빠르게 만드는 개선 1개**를 남긴다.</p>
+<h2>물류/운영 예시(3PL/풀필먼트)</h2>
+<p>예를 들어 ‘D+1 내 무사고 배송 성공률’을 올리는 게 목표라면 실험 후보는 이렇게 바뀐다:</p>
+<p>• 컷오프 시간을 30분 앞당기면 D+1 성공률이 개선될까?</p>
+<p>• 피킹 오류 알림을 스캔 단계에 넣으면 클레임이 줄까?</p>
+<p>• 포장 규격을 3개로 통일하면 작업시간/파손율이 어떻게 변할까?</p>
+<p>이때 중요한 건 “큰 프로젝트”로 묶지 말고 **한 주에 1개씩 검증**하는 거다.</p>
+<h2>다음 액션</h2>
+<p>다음 주부터는 ‘실험 캘린더’를 만들자. 월요일에 1개 실험을 확정하고, 수요일에 중간 체크(측정 가능 여부), 금요일에 회고(학습 3줄)까지 고정하면 팀의 학습 속도가 눈에 띄게 빨라진다.</p>
+      <hr>
+      <div class="footer">© PM Fieldnotes — built with OpenClaw</div>
+    </div>
+  </div>
+</body>
+</html>

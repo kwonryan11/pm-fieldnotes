@@ -53,22 +53,28 @@ def main() -> int:
         import json as _json
         import subprocess as _sub
 
-        r = _sub.check_output(
-            [
-                "python3",
-                "scripts/commons_image.py",
-                "--slug",
-                args.slug,
-                "--keywords",
-                args.image_keywords,
-            ],
-            cwd=str(REPO_DIR),
-        )
-        meta = _json.loads(r.decode("utf-8"))
-        img_block = meta.get("img_html", "").strip() + "\n\n"
-        credit = meta.get("credit", "").strip()
-        if credit:
-            credit_block = "\n\n---\n\n" + credit + "\n"
+        try:
+            r = _sub.check_output(
+                [
+                    "python3",
+                    "scripts/commons_image.py",
+                    "--slug",
+                    args.slug,
+                    "--keywords",
+                    args.image_keywords,
+                ],
+                cwd=str(REPO_DIR),
+                stderr=_sub.STDOUT,
+            )
+            meta = _json.loads(r.decode("utf-8"))
+            img_block = meta.get("img_html", "").strip() + "\n\n"
+            credit = meta.get("credit", "").strip()
+            if credit:
+                credit_block = "\n\n---\n\n" + credit + "\n"
+        except Exception as e:
+            # Don't block publishing if image fetch fails (rate-limit etc.)
+            img_block = ""
+            credit_block = "\n\n---\n\nImage credit: (skipped — Commons rate-limit or fetch error)\n"
 
     md = f"# {args.title}\n\n" + img_block + body + credit_block
 

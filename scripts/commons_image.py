@@ -61,7 +61,7 @@ def main() -> int:
         "gsrlimit": "5",
         "prop": "imageinfo",
         "iiprop": "url|extmetadata",
-        "iiurlwidth": "1600",
+        # Avoid thumbnail generation (Commons can rate-limit thumb requests).
     }
     url = WIKI_API + "?" + urllib.parse.urlencode(params)
     data = http_json(url)
@@ -99,7 +99,8 @@ def main() -> int:
     # title like "File:Something.jpg"
     source_url = "https://commons.wikimedia.org/wiki/" + urllib.parse.quote(title.replace(" ", "_"))
 
-    img_url = ii.get("thumburl") or ii.get("url")
+    # Prefer original file URL to avoid thumbnail rate-limits.
+    img_url = ii.get("url")
     if not img_url:
         raise SystemExit("missing image url")
 
@@ -113,10 +114,14 @@ def main() -> int:
     local_name = sanitize_filename(args.slug) + ext
     local_path = OUT_DIR / local_name
 
-    # Download
+    # Download (be gentle with rate limits)
     req = urllib.request.Request(img_url, headers={"User-Agent": "openclaw-pm-fieldnotes/1.0"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        local_path.write_bytes(r.read())
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            local_path.write_bytes(r.read())
+    except Exception as e:
+        # If Commons rate-limits, skip image instead of failing publish.
+        raise SystemExit(f"download failed: {e}")
 
     rel_path = f"assets/images/{local_name}"
 

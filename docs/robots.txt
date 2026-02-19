@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kwonryan11.github.io/pm-fieldnotes/sitemap.xml

@@ -88,10 +88,13 @@ small{color:var(--muted)}
 """.strip()
 
 
-def render_post(md_path: str, cfg: dict) -> str:
+def render_post(md_path: str, cfg: dict, *, slug: str) -> str:
     md=open(md_path,'r',encoding='utf-8').read()
     title=md_title(md)
     excerpt=md_excerpt(md)
+
+    base = (cfg.get('base_url') or '').rstrip('/')
+    canonical = f"{base}/posts/{slug}.html" if base else f"posts/{slug}.html"
 
     # basic markdown-ish rendering
     paras=[]
@@ -115,8 +118,12 @@ def render_post(md_path: str, cfg: dict) -> str:
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
 <title>{title} | {cfg['title']}</title>
 <meta name=\"description\" content=\"{excerpt}\">
+<link rel=\"canonical\" href=\"{canonical}\">
+<meta property=\"og:type\" content=\"article\">
 <meta property=\"og:title\" content=\"{title}\">
 <meta property=\"og:description\" content=\"{excerpt}\">
+<meta property=\"og:url\" content=\"{canonical}\">
+<meta name=\"twitter:card\" content=\"summary\">
 <style>{_theme_css()}</style>
 </head>
 <body>
@@ -133,6 +140,7 @@ def render_post(md_path: str, cfg: dict) -> str:
       <div class=\"meta\"><a href=\"../index.html\">← 홈으로</a></div>
       <h1 class=\"h1\">{title}</h1>
       {body}
+      <hr>
       <div class=\"footer\">© {cfg['title']} — built with OpenClaw</div>
     </div>
   </div>
@@ -148,7 +156,7 @@ def main():
     items=[]
     for p in posts:
         slug=os.path.splitext(os.path.basename(p))[0]
-        html=render_post(p,cfg)
+        html=render_post(p,cfg,slug=slug)
         (out/'posts'/f'{slug}.html').write_text(html,encoding='utf-8')
         md=open(p,'r',encoding='utf-8').read()
         items.append((slug, md_title(md), md_excerpt(md)))
@@ -157,6 +165,9 @@ def main():
         f"<li><a href=\"posts/{slug}.html\">{title}</a><br><small>{ex}</small></li>" for slug,title,ex in items
     ])
 
+    base = (cfg.get('base_url') or '').rstrip('/')
+    canonical = f"{base}/" if base else "index.html"
+
     index=f"""<!doctype html>
 <html lang=\"{cfg['language']}\">
 <head>
@@ -164,8 +175,13 @@ def main():
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
 <title>{cfg['title']}</title>
 <meta name=\"description\" content=\"{cfg['description']}\">
+<link rel=\"canonical\" href=\"{canonical}\">
+<meta property=\"og:type\" content=\"website\">
 <meta property=\"og:title\" content=\"{cfg['title']}\">
 <meta property=\"og:description\" content=\"{cfg['description']}\">
+<meta property=\"og:url\" content=\"{canonical}\">
+<meta name=\"twitter:card\" content=\"summary\">
+<link rel=\"alternate\" type=\"application/rss+xml\" title=\"{cfg['title']} RSS\" href=\"{base}/rss.xml\" />
 <style>{_theme_css()}</style>
 </head>
 <body>
@@ -188,6 +204,57 @@ def main():
 </html>"""
 
     (out/'index.html').write_text(index,encoding='utf-8')
+
+    # robots.txt + sitemap.xml + rss.xml for SEO
+    base = (cfg.get('base_url') or '').rstrip('/')
+
+    robots = "\n".join([
+        "User-agent: *",
+        "Allow: /",
+        f"Sitemap: {base}/sitemap.xml" if base else "",
+        "",
+    ]).strip() + "\n"
+    (out/'robots.txt').write_text(robots, encoding='utf-8')
+
+    # sitemap
+    urls = []
+    if base:
+        urls.append(f"{base}/")
+        for slug, _t, _ex in items:
+            urls.append(f"{base}/posts/{slug}.html")
+
+    sitemap_items = "\n".join([f"  <url><loc>{u}</loc></url>" for u in urls])
+    sitemap = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" \
+              "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n" \
+              f"{sitemap_items}\n" \
+              "</urlset>\n"
+    (out/'sitemap.xml').write_text(sitemap, encoding='utf-8')
+
+    # rss
+    def xml_escape(s: str) -> str:
+        return (s or "").replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+
+    rss_items = []
+    for slug, t, ex in items[:20]:
+        link = f"{base}/posts/{slug}.html" if base else f"posts/{slug}.html"
+        rss_items.append(
+            "<item>"
+            f"<title>{xml_escape(t)}</title>"
+            f"<link>{xml_escape(link)}</link>"
+            f"<guid>{xml_escape(link)}</guid>"
+            f"<description>{xml_escape(ex)}</description>"
+            "</item>"
+        )
+
+    rss = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" \
+          "<rss version=\"2.0\"><channel>" \
+          f"<title>{xml_escape(cfg['title'])}</title>" \
+          f"<link>{xml_escape(base + '/') if base else ''}</link>" \
+          f"<description>{xml_escape(cfg['description'])}</description>" \
+          + "".join(rss_items) + \
+          "</channel></rss>\n"
+
+    (out/'rss.xml').write_text(rss, encoding='utf-8')
 
 if __name__=='__main__':
     main()

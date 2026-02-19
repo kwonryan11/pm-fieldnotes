@@ -2,5 +2,6 @@
   "title": "PM Fieldnotes",
   "description": "실전 PM 노트: 기획, 지표, 운영, 자동화",
   "language": "ko",
-  "timezone": "Asia/Seoul"
+  "timezone": "Asia/Seoul",
+  "base_url": "https://kwonryan11.github.io/pm-fieldnotes"
 }

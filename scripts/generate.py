@@ -56,7 +56,7 @@ def render_post(md_path: str, cfg: dict) -> str:
 
 def main():
     cfg=load_cfg()
-    out=Path('public')
+    out=Path('docs')
     (out/'posts').mkdir(parents=True, exist_ok=True)
 
     posts=sorted(glob.glob('posts/*.md'))[::-1]

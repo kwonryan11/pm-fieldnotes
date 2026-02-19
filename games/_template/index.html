@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Game Template</title>
+  <style>
+    :root{--bg:#0b0f19;--panel:#0f172a;--text:#e5e7eb;--muted:#9ca3af;--brand:#22d3ee;--brand2:#7c3aed;}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR",sans-serif;background:var(--bg);color:var(--text);}
+    .wrap{max-width:920px;margin:0 auto;padding:20px;}
+    .card{background:rgba(15,23,42,.82);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;}
+    .top{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:12px}
+    a{color:var(--brand)}
+    h1{font-size:18px;margin:0}
+    .meta{color:var(--muted);font-size:13px}
+    canvas{width:100%;max-width:720px;height:auto;border-radius:12px;background:#050814;display:block;margin:12px auto;touch-action:manipulation;}
+    .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+    button{border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.2);color:var(--text);padding:10px 12px;border-radius:12px;font-weight:700}
+    button:focus{outline:2px solid rgba(34,211,238,.35);outline-offset:2px}
+    .hint{color:var(--muted);font-size:14px;line-height:1.5}
+    @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto;animation:none;transition:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <div>
+          <h1 id="title">Mini Game</h1>
+          <div class="meta">조작: <b>Space</b> / <b>Tap</b> · <span id="status">Ready</span></div>
+        </div>
+        <div class="meta"><a href="../../index.html">← 블로그 홈</a></div>
+      </div>
+
+      <p class="hint" id="desc">이 파일은 새 게임을 시작하기 위한 템플릿입니다. 게임 설명 2문장 + 조작 1줄로 끝내세요.</p>
+
+      <canvas id="c" width="720" height="480" aria-label="게임 캔버스"></canvas>
+
+      <div class="row">
+        <button id="btnStart">Start</button>
+        <button id="btnRestart">Restart</button>
+        <button id="btnMute" aria-pressed="false">Mute</button>
+      </div>
+
+      <p class="hint" id="a11y">접근성: 키보드로도 플레이 가능해야 하고, 자동 사운드 재생은 금지입니다(유저 인터랙션 이후 재생).</p>
+    </div>
+  </div>
+
+<script>
+(() => {
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('status');
+  const btnStart = document.getElementById('btnStart');
+  const btnRestart = document.getElementById('btnRestart');
+  const btnMute = document.getElementById('btnMute');
+
+  let running = false;
+  let muted = false;
+
+  function setStatus(s){ statusEl.textContent = s; }
+
+  function reset(){
+    running = false;
+    setStatus('Ready');
+    draw();
+  }
+
+  function start(){
+    running = true;
+    setStatus('Running');
+    loop();
+  }
+
+  function toggleMute(){
+    muted = !muted;
+    btnMute.setAttribute('aria-pressed', String(muted));
+    btnMute.textContent = muted ? 'Unmute' : 'Mute';
+  }
+
+  function action(){
+    if (!running) start();
+    // TODO: main action
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = '#0f172a';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = '#e5e7eb';
+    ctx.font = '700 22px system-ui';
+    ctx.fillText('Game Template', 22, 44);
+
+    ctx.fillStyle = '#9ca3af';
+    ctx.font = '14px system-ui';
+    ctx.fillText('Implement your loop here. Keep it tiny. Mobile-first.', 22, 72);
+
+    ctx.strokeStyle = 'rgba(34,211,238,.35)';
+    ctx.strokeRect(16, 92, canvas.width-32, canvas.height-110);
+  }
+
+  let last = 0;
+  function loop(ts=0){
+    if (!running) return;
+    const dt = Math.min(0.05, (ts-last)/1000 || 0);
+    last = ts;
+
+    // TODO: update(dt)
+
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  // Events
+  btnStart.addEventListener('click', start);
+  btnRestart.addEventListener('click', reset);
+  btnMute.addEventListener('click', toggleMute);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.code === 'Space' || e.code === 'Enter'){
+      e.preventDefault();
+      action();
+    }
+  });
+
+  canvas.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    action();
+  });
+
+  reset();
+})();
+</script>
+</body>
+</html>

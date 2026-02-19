@@ -154,6 +154,7 @@ def main():
     cfg=load_cfg()
     out=Path('docs')
     (out/'posts').mkdir(parents=True, exist_ok=True)
+    (out/'games').mkdir(parents=True, exist_ok=True)
 
     posts=sorted(glob.glob('posts/*.md'))[::-1]
     items=[]
@@ -163,6 +164,61 @@ def main():
         (out/'posts'/f'{slug}.html').write_text(html,encoding='utf-8')
         md=open(p,'r',encoding='utf-8').read()
         items.append((slug, md_title(md), md_excerpt(md)))
+
+    # games: copy static directories into docs/games
+    game_dirs = []
+    for d in sorted(glob.glob('games/*')):
+        base = os.path.basename(d)
+        if base.startswith('_'):
+            continue
+        if not os.path.isdir(d):
+            continue
+        if os.path.exists(os.path.join(d, 'index.html')):
+            game_dirs.append(base)
+
+    # naive copy (clean then copy) to keep docs in sync
+    import shutil
+    for gd in game_dirs:
+        src = Path('games')/gd
+        dst = out/'games'/gd
+        if dst.exists():
+            shutil.rmtree(dst)
+        shutil.copytree(src, dst)
+
+    # games index
+    games_list = "\n".join([
+        f"<li><a href=\"{gd}/index.html\">{gd}</a></li>" for gd in game_dirs
+    ]) or "<li><small>아직 게임이 없습니다.</small></li>"
+
+    games_index = f"""<!doctype html>
+<html lang=\"{cfg['language']}\">
+<head>
+<meta charset=\"utf-8\">
+<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+<title>Games | {cfg['title']}</title>
+<meta name=\"description\" content=\"PM Fieldnotes 미니 웹게임 아카이브\">
+<style>{_theme_css()}</style>
+</head>
+<body>
+  <div class=\"wrap\">
+    <div class=\"nav\">
+      <div class=\"brand\"><div class=\"logo\"></div><div>
+        <div>{cfg['title']}</div>
+        <div class=\"tagline\">{cfg['description']}</div>
+      </div></div>
+      <div class=\"meta\"><a href=\"../index.html\">← 홈</a></div>
+    </div>
+
+    <div class=\"card\">
+      <div class=\"h2\">게임 목록</div>
+      <ul>{games_list}</ul>
+      <div class=\"footer\">© {cfg['title']} — built with OpenClaw</div>
+    </div>
+  </div>
+</body>
+</html>"""
+
+    (out/'games'/'index.html').write_text(games_index, encoding='utf-8')
 
     index_items='\n'.join([
         f"<li><a href=\"posts/{slug}.html\">{title}</a><br><small>{ex}</small></li>" for slug,title,ex in items
@@ -194,7 +250,7 @@ def main():
         <div>{cfg['title']}</div>
         <div class=\"tagline\">{cfg['description']}</div>
       </div></div>
-      <div class=\"meta\"><span class=\"kbd\">매일 발행</span></div>
+      <div class=\"meta\"><span class=\"kbd\">매일 발행</span> · <a href=\"games/index.html\">Games</a></div>
     </div>
 
     <div class=\"card\">
@@ -223,8 +279,11 @@ def main():
     urls = []
     if base:
         urls.append(f"{base}/")
+        urls.append(f"{base}/games/index.html")
         for slug, _t, _ex in items:
             urls.append(f"{base}/posts/{slug}.html")
+        for gd in game_dirs:
+            urls.append(f"{base}/games/{gd}/index.html")
 
     sitemap_items = "\n".join([f"  <url><loc>{u}</loc></url>" for u in urls])
     sitemap = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" \

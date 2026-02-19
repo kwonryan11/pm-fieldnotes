@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>North Star Metric: 지표가 팀을 하나로 만드는 방법 | PM Fieldnotes</title>
+<meta name="description" content="대부분의 PM 조직은 대시보드가 풍부해질수록 오히려 의사결정 속도가 느려진다. 원인은 데이터가 없어서가 아니라, **무엇을 최적화하는지(목표함수)가 불명확**하기 때문이다. 이때 필요한 게 North Star Metric(NSM)이다. NSM은 “우리가 고객가치를 제대로 전달하고 있는가?”를 1개의 숫자로 압축한다. NS">
+<link rel="canonical" href="https://kwonryan11.github.io/pm-fieldnotes/posts/2026-02-19-north-star-metric.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="North Star Metric: 지표가 팀을 하나로 만드는 방법">
+<meta property="og:description" content="대부분의 PM 조직은 대시보드가 풍부해질수록 오히려 의사결정 속도가 느려진다. 원인은 데이터가 없어서가 아니라, **무엇을 최적화하는지(목표함수)가 불명확**하기 때문이다. 이때 필요한 게 North Star Metric(NSM)이다. NSM은 “우리가 고객가치를 제대로 전달하고 있는가?”를 1개의 숫자로 압축한다. NS">
+<meta property="og:url" content="https://kwonryan11.github.io/pm-fieldnotes/posts/2026-02-19-north-star-metric.html">
+<meta name="twitter:card" content="summary">
+<style>:root{
+  --bg:#0b0f19;
+  --panel:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --brand:#7c3aed;
+  --brand2:#22d3ee;
+  --ring:rgba(124,58,237,.35);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --radius:16px;
+  --max:860px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", sans-serif;
+  background: radial-gradient(1200px 600px at 15% 10%, rgba(124,58,237,.25), transparent 60%),
+              radial-gradient(900px 500px at 80% 20%, rgba(34,211,238,.18), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+a{color:var(--brand2); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:14px 16px; border-radius:var(--radius);
+  background: rgba(15, 23, 42, .75);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+.logo{
+  width:34px; height:34px; border-radius:12px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  box-shadow: 0 0 0 6px rgba(124,58,237,.08);
+}
+.tagline{color:var(--muted); font-size:14px}
+.card{
+  margin-top:18px;
+  padding:22px 20px;
+  border-radius:var(--radius);
+  background: rgba(15,23,42,.72);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.h1{font-size:34px; line-height:1.15; margin:4px 0 12px}
+.h2{font-size:18px; color:var(--muted); margin:0 0 8px}
+.meta{color:var(--muted); font-size:13px}
+hr{border:none; border-top:1px solid rgba(255,255,255,.08); margin:18px 0}
+ul{padding-left:18px}
+li{margin:10px 0}
+small{color:var(--muted)}
+.post p{margin:10px 0}
+.post h2{margin:26px 0 10px; font-size:20px}
+.kbd{font-family:var(--mono); font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.2)}
+.footer{margin-top:18px; color:var(--muted); font-size:13px}</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand"><div class="logo"></div><div>
+        <div>PM Fieldnotes</div>
+        <div class="tagline">실전 PM 노트: 기획, 지표, 운영, 자동화</div>
+      </div></div>
+      <div class="meta"><span class="kbd">PM • Ops • Metrics • Automation</span></div>
+    </div>
+
+    <div class="card post">
+      <div class="meta"><a href="../index.html">← 홈으로</a></div>
+      <h1 class="h1">North Star Metric: 지표가 팀을 하나로 만드는 방법</h1>
+      <h2>문제: 지표는 많은데 팀이 한 방향으로 못 간다</h2>
+<p>대부분의 PM 조직은 대시보드가 풍부해질수록 오히려 의사결정 속도가 느려진다. 원인은 데이터가 없어서가 아니라, **무엇을 최적화하는지(목표함수)가 불명확**하기 때문이다. 이때 필요한 게 North Star Metric(NSM)이다.</p>
+<h2>North Star Metric이 해주는 일</h2>
+<p>NSM은 “우리가 고객가치를 제대로 전달하고 있는가?”를 1개의 숫자로 압축한다. NSM이 있으면 우선순위 논쟁이 “감”에서 “가설→실험→검증”으로 바뀐다. 단, NSM은 매출 같은 결과지표가 아니라 **가치 전달의 선행지표**여야 한다.</p>
+<h2>NSM 선정 체크리스트(5문장)</h2>
+<p>• 고객이 ‘와’라고 느끼는 순간을 한 문장으로 정의할 수 있는가?</p>
+<p>• 그 순간을 자주 만들수록 리텐션/재구매가 증가하는가?</p>
+<p>• 팀이 직접 영향(레버)을 줄 수 있는가?</p>
+<p>• 게임/조작이 어려운가(가짜 성장 방지)?</p>
+<p>• 주 단위로 트렌드를 보고 학습할 수 있는가?</p>
+<h2>물류/3PL 예시로 감 잡기</h2>
+<p>K-Beauty 풀필먼트에서 “배송완료 건수”는 커져도 고객가치가 아닐 수 있다(반품/CS 폭증 가능). 대신 NSM 후보를 **‘D+1 내 무사고 배송 성공률’** 또는 **‘주간 반복 출고 고객 수’**처럼 잡으면 품질/재구매와 연결된다. 그리고 NSM을 올리는 레버(컷오프, 피킹 정확도, 포장 표준화, 예측 재고)를 실험 단위로 쪼갤 수 있다.</p>
+<h2>다음 액션</h2>
+<p>이번 주에 NSM 후보 2~3개를 만들고, 각 후보에 대해 “레버 3개 + 경고지표 2개(품질/CS/반품)”를 세트로 정의해보자. 지표는 줄일수록 강해진다.</p>
+      <hr>
+      <div class="footer">© PM Fieldnotes — built with OpenClaw</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -89,42 +89,125 @@ small{color:var(--muted)}
 
 
 def render_post(md_path: str, cfg: dict, *, slug: str) -> str:
-    md=open(md_path,'r',encoding='utf-8').read()
-    title=md_title(md)
-    excerpt=md_excerpt(md)
+    import html as _html
+    import re as _re
+
+    md = open(md_path, 'r', encoding='utf-8').read()
+    title = md_title(md)
+    excerpt = md_excerpt(md)
 
     base = (cfg.get('base_url') or '').rstrip('/')
     canonical = f"{base}/posts/{slug}.html" if base else f"posts/{slug}.html"
 
-    # basic markdown-ish rendering
-    paras=[]
-    for line in md.splitlines():
-        if line.startswith('# '):
+    def _inline_md(s: str) -> str:
+        """Very small markdown-ish inline renderer (no external deps).
+
+        Supports:
+        - **bold**
+        - *italic*
+        - `code`
+        - [text](url)
+        - footnote refs like [^1]
+        """
+        s = _html.escape(s, quote=True)
+
+        # links
+        s = _re.sub(r"\[([^\]]+?)\]\((https?://[^\s\)]+)\)", r"<a href=\"\2\">\1</a>", s)
+
+        # code
+        s = _re.sub(r"`([^`]+?)`", r"<code>\1</code>", s)
+
+        # bold then italic
+        s = _re.sub(r"\*\*([^*]+?)\*\*", r"<strong>\1</strong>", s)
+        s = _re.sub(r"(?<!\*)\*([^*]+?)\*(?!\*)", r"<em>\1</em>", s)
+
+        # footnote refs
+        s = _re.sub(r"\[\^(\d+)\]", r"<sup class=\"fn\">[\1]</sup>", s)
+        return s
+
+    def _fix_img_src(tag: str) -> str:
+        # Posts are under /posts/*.html, assets are under /assets/.
+        # If Commons helper produced src="assets/...", rewrite to "../assets/...".
+        return tag.replace('src="assets/', 'src="../assets/')
+
+    # basic block rendering with list support
+    blocks: list[str] = []
+    in_list: list[str] | None = None
+
+    def flush_list() -> None:
+        nonlocal in_list
+        if in_list is None:
+            return
+        items = "\n".join([f"<li>{_inline_md(x)}</li>" for x in in_list])
+        blocks.append(f"<ul>\n{items}\n</ul>")
+        in_list = None
+
+    for raw in md.splitlines():
+        line = raw.rstrip("\n")
+        s = line.strip()
+
+        if not s:
+            flush_list()
             continue
-        if line.startswith('## '):
-            paras.append(f"<h2>{line[3:].strip()}</h2>")
+
+        if s.startswith('# '):
+            # H1 is rendered separately
+            flush_list()
             continue
-        if line.startswith('- '):
-            paras.append(f"<p>• {line[2:].strip()}</p>")
+
+        if s.startswith('## '):
+            flush_list()
+            blocks.append(f"<h2>{_inline_md(s[3:].strip())}</h2>")
             continue
-        if line.strip().startswith('<img '):
-            paras.append(line.strip())
+
+        if s in ('---', '***'):
+            flush_list()
+            blocks.append('<hr>')
             continue
-        if line.strip():
-            paras.append(f"<p>{line.strip()}</p>")
-    body='\n'.join(paras)
+
+        if s.startswith('- '):
+            if in_list is None:
+                in_list = []
+            in_list.append(s[2:].strip())
+            continue
+
+        if s.startswith('[^') and ']: ' in s:
+            # footnote definition
+            flush_list()
+            m = _re.match(r"\[\^(\d+)\]:\s*(.*)$", s)
+            if m:
+                n, rest = m.group(1), m.group(2)
+                blocks.append(f"<p class=\"footnote\"><sup class=\"fn\">[{n}]</sup> {_inline_md(rest)}</p>")
+            else:
+                blocks.append(f"<p>{_inline_md(s)}</p>")
+            continue
+
+        if s.startswith('<img '):
+            flush_list()
+            blocks.append(_fix_img_src(s))
+            continue
+
+        blocks.append(f"<p>{_inline_md(s)}</p>")
+
+    flush_list()
+    body = "\n".join(blocks)
+
+    # escape meta fields safely (avoid breaking attributes)
+    meta_title = _html.escape(title, quote=True)
+    meta_site = _html.escape(cfg['title'], quote=True)
+    meta_desc = _html.escape(excerpt, quote=True)
 
     return f"""<!doctype html>
 <html lang=\"{cfg['language']}\">
 <head>
 <meta charset=\"utf-8\">
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-<title>{title} | {cfg['title']}</title>
-<meta name=\"description\" content=\"{excerpt}\">
+<title>{meta_title} | {meta_site}</title>
+<meta name=\"description\" content=\"{meta_desc}\">
 <link rel=\"canonical\" href=\"{canonical}\">
 <meta property=\"og:type\" content=\"article\">
-<meta property=\"og:title\" content=\"{title}\">
-<meta property=\"og:description\" content=\"{excerpt}\">
+<meta property=\"og:title\" content=\"{meta_title}\">
+<meta property=\"og:description\" content=\"{meta_desc}\">
 <meta property=\"og:url\" content=\"{canonical}\">
 <meta name=\"twitter:card\" content=\"summary\">
 <style>{_theme_css()}</style>
@@ -133,18 +216,18 @@ def render_post(md_path: str, cfg: dict, *, slug: str) -> str:
   <div class=\"wrap\">
     <div class=\"nav\">
       <div class=\"brand\"><div class=\"logo\"></div><div>
-        <div>{cfg['title']}</div>
-        <div class=\"tagline\">{cfg['description']}</div>
+        <div>{meta_site}</div>
+        <div class=\"tagline\">{_html.escape(cfg['description'], quote=True)}</div>
       </div></div>
       <div class=\"meta\"><span class=\"kbd\">PM • Ops • Metrics • Automation</span></div>
     </div>
 
     <div class=\"card post\">
       <div class=\"meta\"><a href=\"../index.html\">← 홈으로</a></div>
-      <h1 class=\"h1\">{title}</h1>
+      <h1 class=\"h1\">{meta_title}</h1>
       {body}
       <hr>
-      <div class=\"footer\">© {cfg['title']} — built with OpenClaw</div>
+      <div class=\"footer\">© {meta_site} — built with OpenClaw</div>
     </div>
   </div>
 </body>

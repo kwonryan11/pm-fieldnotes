@@ -246,10 +246,9 @@ def main():
         src = _esc(it.get('source_name') or it.get('source') or '')
         axis = ','.join(it.get('market_axis') or it.get('axis') or [])
         url = it.get('url') or ''
-        local = _esc(it.get('local_path') or '')
         summary = _esc(it.get('summary') or '')
         link = f"<a href=\"{_esc(url)}\">원문</a>" if url else ""
-        lis.append(f"<li><b>{title}</b><br><small>{src} • {axis}</small><br><small>{summary}</small><br><small>local: {local}</small> {link}</li>")
+        lis.append(f"<li><b>{title}</b><br><small>{src} • {axis}</small><br><small>{summary}</small><br>{link}</li>")
 
     cat_list = '\n'.join(lis) or '<li><small>아직 카탈로그 아이템이 없습니다.</small></li>'
 

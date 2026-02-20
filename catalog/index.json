@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-02-20T13:24:01.457963+00:00",
+  "generated_at": "2026-02-20T13:38:34.363439+00:00",
   "items": [
     {
       "id": "rss_wwwfederalreservegov_d40e2a887de7",
@@ -109,6 +109,18 @@
       "local_path": "",
       "hash": "",
       "published_at": "Fri, 30 Jan 2026 15:59:00 -0500"
+    },
+    {
+      "id": "rss_cointelegraphcom_810d34a6ef1f",
+      "title": "Stablecoin A7A5 grows parallel system for sanctioned companies",
+      "url": "https://cointelegraph.com/news/stablecoin-a7a5-parallel-network-sanctioned-companies?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source_name": "cointelegraph.com",
+      "market_axis": [],
+      "access_level": "public",
+      "summary": "<p style=\"float:right; margin:0 0 10px 15px; width:240px;\"><img src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzcyMjMtYzUzYi03YjRhLThiMDEtNjI0Y2NhOTkwMzExLmpwZw==.jpg\" alt=\"Stablecoin A7A5 grows parallel system for sanctioned companies\" class=\"type:primaryImage\"></p><p>Stablecoin ecosystem A7A5 has faced accusations of sanctions evasion and, according to some analysts, is creating an alternative, sanctions-free financial network.</p>",
+      "local_path": "",
+      "hash": "",
+      "published_at": "Fri, 20 Feb 2026 13:32:33 +0000"
     },
     {
       "id": "rss_wwwcoindeskcom_51e2c0296688",

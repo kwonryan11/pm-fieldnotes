@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>물류 운영 PM의 KPI 함정: ‘출고건수’ 대신 ‘리드타임’을 보라 | PM Fieldnotes</title>
+<meta name="description" content="&lt;img src=&quot;assets/images/2026-02-21-lead-time-kpi-trap.jpg&quot; alt=&quot;barcode scanner warehouse pallet racking forklift truck&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:auto;border-radius:">
+<link rel="canonical" href="https://kwonryan11.github.io/pm-fieldnotes/posts/2026-02-21-lead-time-kpi-trap.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="물류 운영 PM의 KPI 함정: ‘출고건수’ 대신 ‘리드타임’을 보라">
+<meta property="og:description" content="&lt;img src=&quot;assets/images/2026-02-21-lead-time-kpi-trap.jpg&quot; alt=&quot;barcode scanner warehouse pallet racking forklift truck&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:auto;border-radius:">
+<meta property="og:url" content="https://kwonryan11.github.io/pm-fieldnotes/posts/2026-02-21-lead-time-kpi-trap.html">
+<meta name="twitter:card" content="summary">
+<style>:root{
+  --bg:#0b0f19;
+  --panel:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --brand:#7c3aed;
+  --brand2:#22d3ee;
+  --ring:rgba(124,58,237,.35);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --radius:16px;
+  --max:860px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", sans-serif;
+  background: radial-gradient(1200px 600px at 15% 10%, rgba(124,58,237,.25), transparent 60%),
+              radial-gradient(900px 500px at 80% 20%, rgba(34,211,238,.18), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+a{color:var(--brand2); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:14px 16px; border-radius:var(--radius);
+  background: rgba(15, 23, 42, .75);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+.logo{
+  width:34px; height:34px; border-radius:12px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  box-shadow: 0 0 0 6px rgba(124,58,237,.08);
+}
+.tagline{color:var(--muted); font-size:14px}
+.card{
+  margin-top:18px;
+  padding:22px 20px;
+  border-radius:var(--radius);
+  background: rgba(15,23,42,.72);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.h1{font-size:34px; line-height:1.15; margin:4px 0 12px}
+.h2{font-size:18px; color:var(--muted); margin:0 0 8px}
+.meta{color:var(--muted); font-size:13px}
+hr{border:none; border-top:1px solid rgba(255,255,255,.08); margin:18px 0}
+ul{padding-left:18px}
+li{margin:10px 0}
+small{color:var(--muted)}
+.post p{margin:10px 0}
+.post h2{margin:26px 0 10px; font-size:20px}
+.kbd{font-family:var(--mono); font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.2)}
+.footer{margin-top:18px; color:var(--muted); font-size:13px}</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand"><div class="logo"></div><div>
+        <div>PM Fieldnotes</div>
+        <div class="tagline">실전 PM 노트: 기획, 지표, 운영, 자동화</div>
+      </div></div>
+      <div class="meta"><span class="kbd">PM • Ops • Metrics • Automation</span></div>
+    </div>
+
+    <div class="card post">
+      <div class="meta"><a href="../index.html">← 홈으로</a></div>
+      <h1 class="h1">물류 운영 PM의 KPI 함정: ‘출고건수’ 대신 ‘리드타임’을 보라</h1>
+      <img src="../assets/images/2026-02-21-lead-time-kpi-trap.jpg" alt="barcode scanner warehouse pallet racking forklift truck" loading="lazy" style="width:100%;height:auto;border-radius:16px;margin:16px 0;">
+<h2>문제: 숫자는 늘었는데 고객 불만이 줄지 않는다</h2>
+<p>운영/물류에서 흔한 상황이다. 출고건수, 처리라인 속도 같은 볼륨 KPI는 좋아 보이는데, CS는 그대로이고 리턴/누락 이슈가 반복된다. 원인은 대개 “측정이 쉬운 것”을 목표로 삼아, 실제 고객 경험(제때/정확히/온전하게)과 KPI가 어긋나는 데 있다.</p>
+<h2>왜 중요한가: KPI는 팀의 행동을 바꾼다</h2>
+<p>KPI는 보고용이 아니라 의사결정 장치다. 출고건수만 보면 피킹 검증을 생략하거나, 마감 직전 몰아치기 같은 행동이 합리화된다. 그 결과 오배송·파손·분실이 늘고, 재작업과 3PL 패널티가 발생하며, 결국 비용과 신뢰가 동시에 무너진다.</p>
+<h2>프레임/체크리스트: 1개 ‘북극성’ + 3개 ‘가드레일’</h2>
+<p>1) 북극성 KPI를 고객 기준으로 정의한다: 주문→출고(또는 주문→배송완료) 리드타임의 P90/P95.</p>
+<p>2) 가드레일 3개를 붙인다: 정확도(오배송률/누락률), 품질(파손률), 비용(건당 처리비/재작업률).</p>
+<p>3) 구간을 쪼갠다: 주문접수→할당→피킹→검수→패킹→출고→인계. 병목이 어디인지 KPI가 말하게 만든다.</p>
+<p>4) 정의를 문서화한다: 분모/분자, 제외조건(예약/선주문), 타임스탬프 기준(WMS vs OMS)을 명확히.</p>
+<h2>예시(물류/운영): WMS-3PL 데이터로 리드타임을 ‘쪼개’ 개선하기</h2>
+<p>최근 마감지연이 문제라면, 전체 평균 대신 P95 리드타임을 본다. OMS 주문시간과 WMS 출고확정시간을 매칭해 구간별 소요를 계산한다. 분석 결과가 “피킹은 빠른데 검수 대기열이 길다”라면, 검수 인력 증원보다 먼저: (a) 고위험 SKU만 2중검수, (b) 바코드 스캔 누락 방지(스캔 강제), (c) 패킹 스테이션 동선 재배치 같은 조치를 실험한다. 동시에 오배송률/재작업률을 가드레일로 두어, 속도 개선이 품질을 갉아먹지 않게 한다.</p>
+<h2>결론/다음 액션: 오늘 바로 할 30분짜리 세팅</h2>
+<p>KPI가 바뀌면 회의의 질문이 바뀌고, 질문이 바뀌면 현장의 행동이 바뀐다.</p>
+<ul>
+<li>리드타임 북극성 KPI를 P90/P95로 정하고, 정의를 한 문단으로 적는다.</li>
+<li>정확도/품질/비용 가드레일 3개를 붙여 대시보드에 함께 노출한다.</li>
+<li>WMS/3PL 타임스탬프 2~3개만이라도 연결해 “어느 구간이 느린지”부터 보이게 만든다.</li>
+</ul>
+<hr>
+<p>Image credit: &lt;div class=&quot;fn value&quot;&gt;</p>
+<p>&lt;dl&gt;&lt;dd&gt;Miertschin, Keith W.&lt;/dd&gt;</p>
+<p>&lt;dd&gt;Forrest, Brian D.&lt;/dd&gt;&lt;/dl&gt;&lt;/div&gt; — Wikimedia Commons (Public domain) · https://commons.wikimedia.org/wiki/File%3AAnalysis_of_Tobyhanna_Army_Depot%27s_Radio_Frequency_Identification_%28RFID%29_program-_RFID_as_an_asset_management_tool_%28IA_analysisoftobyha1094510033%29.pdf · Internet Archive identifier: analysisoftobyha1094510033</p>
+<p>https://archive.org/download/analysisoftobyha1094510033/analysisoftobyha1094510033.pdf</p>
+      <hr>
+      <div class="footer">© PM Fieldnotes — built with OpenClaw</div>
+    </div>
+  </div>
+</body>
+</html>

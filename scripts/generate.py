@@ -206,7 +206,7 @@ def main():
         <div>{cfg['title']}</div>
         <div class=\"tagline\">{cfg['description']}</div>
       </div></div>
-      <div class=\"meta\"><a href=\"../index.html\">← 홈</a></div>
+      <div class=\"meta\"><a href=\"../index.html\">← 홈</a> · <a href=\"../catalog/index.html\">Catalog</a></div>
     </div>
 
     <div class=\"card\">
@@ -219,6 +219,71 @@ def main():
 </html>"""
 
     (out/'games'/'index.html').write_text(games_index, encoding='utf-8')
+
+    # catalog: copy catalog directory into docs/catalog
+    catalog_src = Path('catalog')
+    catalog_dst = out/'catalog'
+    if catalog_src.exists():
+        if catalog_dst.exists():
+            shutil.rmtree(catalog_dst)
+        shutil.copytree(catalog_src, catalog_dst)
+
+    # catalog html (reads catalog/index.json)
+    cat_items = []
+    try:
+        import json as _json
+        idx = _json.load(open(catalog_src/'index.json','r',encoding='utf-8'))
+        cat_items = (idx.get('items') or [])
+    except Exception:
+        cat_items = []
+
+    def _esc(s: str) -> str:
+        return (s or '').replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')
+
+    lis = []
+    for it in cat_items[:200]:
+        title = _esc(it.get('title') or it.get('name') or 'Untitled')
+        src = _esc(it.get('source_name') or it.get('source') or '')
+        axis = ','.join(it.get('market_axis') or it.get('axis') or [])
+        url = it.get('url') or ''
+        local = _esc(it.get('local_path') or '')
+        summary = _esc(it.get('summary') or '')
+        link = f"<a href=\"{_esc(url)}\">원문</a>" if url else ""
+        lis.append(f"<li><b>{title}</b><br><small>{src} • {axis}</small><br><small>{summary}</small><br><small>local: {local}</small> {link}</li>")
+
+    cat_list = '\n'.join(lis) or '<li><small>아직 카탈로그 아이템이 없습니다.</small></li>'
+
+    catalog_html = f"""<!doctype html>
+<html lang=\"{cfg['language']}\">
+<head>
+<meta charset=\"utf-8\">
+<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+<title>Catalog | {cfg['title']}</title>
+<meta name=\"description\" content=\"InvestAnalyst research catalog (metadata only)\">
+<style>{_theme_css()}</style>
+</head>
+<body>
+  <div class=\"wrap\">
+    <div class=\"nav\">
+      <div class=\"brand\"><div class=\"logo\"></div><div>
+        <div>{cfg['title']}</div>
+        <div class=\"tagline\">{cfg['description']}</div>
+      </div></div>
+      <div class=\"meta\"><a href=\"../index.html\">← 홈</a> · <a href=\"../games/index.html\">Games</a></div>
+    </div>
+
+    <div class=\"card\">
+      <div class=\"h2\">Research Catalog (metadata)</div>
+      <div class=\"meta\">index.json: <a href=\"index.json\">download</a></div>
+      <hr>
+      <ul>{cat_list}</ul>
+      <div class=\"footer\">© {cfg['title']} — built with OpenClaw</div>
+    </div>
+  </div>
+</body>
+</html>"""
+
+    (out/'catalog'/'index.html').write_text(catalog_html, encoding='utf-8')
 
     index_items='\n'.join([
         f"<li><a href=\"posts/{slug}.html\">{title}</a><br><small>{ex}</small></li>" for slug,title,ex in items
@@ -250,7 +315,7 @@ def main():
         <div>{cfg['title']}</div>
         <div class=\"tagline\">{cfg['description']}</div>
       </div></div>
-      <div class=\"meta\"><span class=\"kbd\">매일 발행</span> · <a href=\"games/index.html\">Games</a></div>
+      <div class=\"meta\"><span class=\"kbd\">매일 발행</span> · <a href=\"games/index.html\">Games</a> · <a href=\"catalog/index.html\">Catalog</a></div>
     </div>
 
     <div class=\"card\">
@@ -280,10 +345,12 @@ def main():
     if base:
         urls.append(f"{base}/")
         urls.append(f"{base}/games/index.html")
+        urls.append(f"{base}/catalog/index.html")
         for slug, _t, _ex in items:
             urls.append(f"{base}/posts/{slug}.html")
         for gd in game_dirs:
             urls.append(f"{base}/games/{gd}/index.html")
+        # catalog items are not enumerated in sitemap (metadata is in index.json)
 
     sitemap_items = "\n".join([f"  <url><loc>{u}</loc></url>" for u in urls])
     sitemap = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" \

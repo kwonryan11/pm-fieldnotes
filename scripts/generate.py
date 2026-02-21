@@ -244,7 +244,9 @@ def _brief_text_to_html(text: str) -> str:
     """
     import html as _html
 
-    url_re = re.compile(r'(https?://[^\s<>\)]+)')
+    # Match http/https URLs broadly (until whitespace or angle brackets)
+    # We will strip trailing punctuation manually in the replacement function.
+    url_re = re.compile(r'(https?://[^\s<>]+)')
 
     lines_out = []
     for line in text.splitlines():
@@ -261,8 +263,19 @@ def _brief_text_to_html(text: str) -> str:
             continue
 
         escaped = _html.escape(s)
-        # Auto-link URLs
-        escaped = url_re.sub(r'<a href="\1" target="_blank">\1</a>', escaped)
+
+        def _linkify(match):
+            url = match.group(1)
+            # If URL ends with punctuation that was likely part of the sentence, strip it out.
+            # Common sentence stoppers: . , ) ]
+            trailing = ''
+            while url and url[-1] in '.,)]':
+                trailing = url[-1] + trailing
+                url = url[:-1]
+            return f'<a href="{url}" target="_blank">{url}</a>{trailing}'
+
+        # Auto-link URLs using the custom replacement function
+        escaped = url_re.sub(_linkify, escaped)
         lines_out.append(escaped + '<br>')
 
     return '\n'.join(lines_out)
@@ -360,7 +373,8 @@ def build_briefs(cfg: dict, out: Path) -> list:
             html_file = dest_dir / f'{date_str}.html'
             html_file.write_text(html, encoding='utf-8')
 
-            rel_path = f"briefs/{src['slug']}/{date_str}.html"
+            # rel_path is relative to docs/briefs/index.html (not docs/)
+            rel_path = f"{src['slug']}/{date_str}.html"
             entries.append((date_str, src['label'], src['slug'], rel_path))
 
     return entries

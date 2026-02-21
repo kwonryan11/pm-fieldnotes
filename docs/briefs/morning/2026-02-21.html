@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>통합 브리핑 — 2026-02-21 | PM Fieldnotes</title>
+<style>:root{
+  --bg:#0b0f19;
+  --panel:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --brand:#7c3aed;
+  --brand2:#22d3ee;
+  --ring:rgba(124,58,237,.35);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --radius:16px;
+  --max:860px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", sans-serif;
+  background: radial-gradient(1200px 600px at 15% 10%, rgba(124,58,237,.25), transparent 60%),
+              radial-gradient(900px 500px at 80% 20%, rgba(34,211,238,.18), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+a{color:var(--brand2); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:14px 16px; border-radius:var(--radius);
+  background: rgba(15, 23, 42, .75);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+.logo{
+  width:34px; height:34px; border-radius:12px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  box-shadow: 0 0 0 6px rgba(124,58,237,.08);
+}
+.tagline{color:var(--muted); font-size:14px}
+.card{
+  margin-top:18px;
+  padding:22px 20px;
+  border-radius:var(--radius);
+  background: rgba(15,23,42,.72);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.h1{font-size:34px; line-height:1.15; margin:4px 0 12px}
+.h2{font-size:18px; color:var(--muted); margin:0 0 8px}
+.meta{color:var(--muted); font-size:13px}
+hr{border:none; border-top:1px solid rgba(255,255,255,.08); margin:18px 0}
+ul{padding-left:18px}
+li{margin:10px 0}
+small{color:var(--muted)}
+.post p{margin:10px 0}
+.post h2{margin:26px 0 10px; font-size:20px}
+.kbd{font-family:var(--mono); font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.2)}
+.footer{margin-top:18px; color:var(--muted); font-size:13px}
+.brief-body h2{margin:26px 0 10px; font-size:20px; color:var(--brand2)}
+.brief-body a{word-break:break-all}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand"><div class="logo"></div><div>
+        <div>PM Fieldnotes</div>
+        <div class="tagline">실전 PM 노트: 기획, 지표, 운영, 자동화</div>
+      </div></div>
+      <div class="meta"><a href="../../briefs/index.html">← 브리프 목록</a></div>
+    </div>
+
+    <div class="card post brief-body">
+      <div class="meta">2026-02-21</div>
+      <h1 class="h1">통합 브리핑 — 2026-02-21</h1>
+      2026-02-21 통합 브리핑 (PRD v0.2)<br>
+<br>
+오늘의 핵심 3줄<br>
+1) 3PL/4PL 기본 개념을 다시 정리해두면(특히 4PL의 ‘단일 창구’ 역할), 고객/내부 커뮤니케이션에서 범위·책임(R&amp;R) 합의가 빨라집니다.<br>
+2) 3PL 운영/창고관리(3PL WMS 관점) 레퍼런스들을 통해 우리 서비스가 제공하는 가치(재고·피킹·출고·운송 연계)를 ‘표준 용어’로 설명할 수 있습니다.<br>
+3) SaaS 가격/지표(가격모델, churn) 콘텐츠는 B2B 세일즈에서 “가격의 정당화(가치-측정)”와 “리텐션 신호”를 잡는 프레임으로 바로 전환 가능합니다.<br>
+<br>
+<h2>산업 구조</h2>
+- 4PL | DHL Logistics of Things — <a href="https://lot.dhl.com/glossary/4pl/" target="_blank">https://lot.dhl.com/glossary/4pl/</a><br>
+- 코멘트: 4PL을 ‘전체 공급망을 총괄 + 단일 PoC’로 정의해두면, 3PL/4PL 경계(우리가 어디까지 책임지는가) 논의에 기준점이 생깁니다.<br>
+- Freight Shipping Quotes - LTL &amp; Truckload with Instant Rates | Freightquote — <a href="https://freightquote.com/" target="_blank">https://freightquote.com/</a><br>
+- 코멘트: 즉시 견적/요율 조회 경험은 운임 투명성·셀프서브 견적(quote-to-ship) UX를 설계할 때 좋은 벤치마크가 됩니다.<br>
+- Last Mile Education Fund | Empower Future Innovators - Act Now | Last Mile Education Fund — <a href="https://lastmile-ed.org/" target="_blank">https://lastmile-ed.org/</a><br>
+- 코멘트: ‘라스트마일’ 용어가 물류 밖에서도 쓰이는 사례라, 커뮤니케이션에서 오해를 줄이려면 용어 정의(배송/교육 프로그램)를 분리해두는 게 안전합니다.<br>
+<br>
+<h2>제품 인풋</h2>
+- Freight Calculator: Air &amp; Sea Shipping Cost Calculator | Freightos — <a href="https://freightos.com/freight-resources/freight-rate-free-calculator/" target="_blank">https://freightos.com/freight-resources/freight-rate-free-calculator/</a><br>
+- 코멘트: 운임 계산 변수를 명확히 나열(중량/부피/모드/구간/부가서비스)해줘서, 우리 견적 입력 폼·요율 엔진 요구사항 체크리스트로 쓰기 좋습니다.<br>
+- Jim Bianco: AI will surpass the internet in impact, SaaS pricing models are under pressure... | Bankless — <a href="https://cryptobriefing.com/jim-bianco-ai-will-surpass-the-internet-in-impact-saas-pricing-models-are-under-pressure-and-older-generations-may-struggle-with-ai-driven-business-models-bankless/" target="_blank">https://cryptobriefing.com/jim-bianco-ai-will-surpass-the-internet-in-impact-saas-pricing-models-are-under-pressure-and-older-generations-may-struggle-with-ai-driven-business-models-bankless/</a><br>
+- 코멘트: AI가 ‘소프트웨어 제작비/기대치’를 바꾸면서 가격모델이 압박받는다는 관점은, 우리도 기능 추가가 곧바로 가격 인상으로 이어지기 어렵다는 신호로 해석할 수 있습니다.<br>
+- Product Manager: Role &amp; Best Practices for Beginners | Atlassian — <a href="https://atlassian.com/agile/product-management/product-manager" target="_blank">https://atlassian.com/agile/product-management/product-manager</a><br>
+- 코멘트: PM의 역할을 “목표/성공정의/동기부여/성과 책임”으로 정리해두면, 대내외 설명(특히 의사결정 권한 오해 방지)에 유용합니다.<br>
+<br>
+<h2>WMS·자동화</h2>
+- 3PL Services: How Do Third-Party Logistics Work? — <a href="https://shipbob.com/3pl/" target="_blank">https://shipbob.com/3pl/</a><br>
+- 코멘트: 3PL이 피킹/패킹을 넘어 통합(웨어하우스+운송+시스템 연계)으로 확장됐다는 흐름은, ‘왜 WMS가 제품의 코어인가’를 설득하는 근거가 됩니다.<br>
+- 3PL Warehousing &amp; Management Guide | Extensiv — <a href="https://extensiv.com/what-is-a-3pl" target="_blank">https://extensiv.com/what-is-a-3pl</a><br>
+- 코멘트: 3PL 창고 운영을 표준적으로 설명해줘서, 고객 온보딩 자료/세일즈 덱에서 “우리가 하는 일”을 간결하게 정의할 때 참고하기 좋습니다.<br>
+- FULFILLMENT Definition &amp; Meaning - Merriam-Webster — <a href="https://merriam-webster.com/dictionary/fulfillment" target="_blank">https://merriam-webster.com/dictionary/fulfillment</a><br>
+- 코멘트: ‘fulfillment’의 기본 정의를 팀 용어집에 넣어두면(특히 글로벌 협업), 기능/프로세스 논의에서 단어 혼선을 줄일 수 있습니다.<br>
+<br>
+<h2>세일즈 시그널</h2>
+- A guide to SaaS pricing models | Stripe — <a href="https://stripe.com/resources/more/saas-pricing-models-101" target="_blank">https://stripe.com/resources/more/saas-pricing-models-101</a><br>
+- 코멘트: 가격모델(정액/티어/사용량 등) 장단점이 정리돼 있어, 물류 SaaS에서도 “가치가 어디서 발생하는가(사용량 vs 기능)”를 점검하는 프레임으로 바로 쓸 수 있습니다.<br>
+- Calculating Churn in a SaaS Business — <a href="https://maxio.com/saaspedia/calculating-churn-in-a-saas-business" target="_blank">https://maxio.com/saaspedia/calculating-churn-in-a-saas-business</a><br>
+- 코멘트: churn을 ‘해지율’로 정의하고 계산 로직을 짚어줘서, 리텐션 KPI 정의/리포팅 표준화에 도움 됩니다.<br>
+- Churn Rate: How to Calculate and Examples | ChurnZero — <a href="https://churnzero.com/churnopedia/churn-rate/" target="_blank">https://churnzero.com/churnopedia/churn-rate/</a><br>
+- 코멘트: “좋은 churn”의 범위(예: 월 2% 이하 등) 벤치마크는 세일즈/CS가 건강도 신호를 빠르게 공유할 때 참고값으로 유용합니다.<br>
+<br>
+<h2>한국 로컬</h2>
+- VLCC운임 WS 150, 금년 최고치 기록 — <a href="http://maritimepress.co.kr/news/articleView.html?idxno=330106" target="_blank">http://maritimepress.co.kr/news/articleView.html?idxno=330106</a><br>
+- 코멘트: 중동-극동 항로 운임 급등(WS 150) 이슈는 해상운임 변동성이 커질 때 수입/수출 원가·리드타임 커뮤니케이션을 선제적으로 준비해야 한다는 신호입니다.<br>
+- 고려해운, 일본-필리핀 직항 서비스 개시 — <a href="http://maritimepress.co.kr/news/articleView.html?idxno=330110" target="_blank">http://maritimepress.co.kr/news/articleView.html?idxno=330110</a><br>
+- 코멘트: 일본-필리핀 직항(환적 없이 연결) 같은 신규 서비스는 특정 레인에서 리드타임/환적 리스크를 줄여, 고객에게 ‘대체 루트’로 제안할 여지가 생깁니다.<br>
+- 김성범 장관 직무대행, 부산항 크루즈 터미널 점검 — <a href="http://maritimepress.co.kr/news/articleView.html?idxno=330109" target="_blank">http://maritimepress.co.kr/news/articleView.html?idxno=330109</a><br>
+- 코멘트: 부산항 크루즈 준모항 운영 점검은 터미널 혼잡/동선 관리 이슈를 드러내며, 항만 운영 변화가 주변 물류 흐름(혼잡/인력/보안)에도 영향을 줄 수 있습니다.<br>
+<br>
+<h2>품질/경고</h2>
+- gates: search_insufficient=False, rss_error_rate_high=True, ad_ratio_high=False<br>
+- rss: feeds=12 new_items=28 error_rate=0.33<br>
+- RSS 오류 피드(교체 후보):<br>
+- <a href="https://www.freightwaves.com/feed" target="_blank">https://www.freightwaves.com/feed</a><br>
+- <a href="https://www.digitalcommerce360.com/feed/" target="_blank">https://www.digitalcommerce360.com/feed/</a><br>
+- <a href="https://news.crunchbase.com/feed/" target="_blank">https://news.crunchbase.com/feed/</a><br>
+- <a href="https://www.klnews.co.kr/rss" target="_blank">https://www.klnews.co.kr/rss</a><br>
+      <hr>
+      <div class="footer">© PM Fieldnotes — built with OpenClaw</div>
+    </div>
+  </div>
+</body>
+</html>

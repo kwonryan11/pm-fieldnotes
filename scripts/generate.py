@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, json, glob
+import os, json, glob, re
 from pathlib import Path
 
 def load_cfg():
@@ -233,6 +233,192 @@ def render_post(md_path: str, cfg: dict, *, slug: str) -> str:
 </body>
 </html>"""
 
+def _brief_text_to_html(text: str) -> str:
+    """Convert plain-text brief to HTML.
+
+    Rules:
+    - Lines starting with [ ... ] become <h2>
+    - URLs are auto-linked
+    - Newlines are preserved via <br> within paragraphs
+    - Empty lines create paragraph breaks
+    """
+    import html as _html
+
+    url_re = re.compile(r'(https?://[^\s<>\)]+)')
+
+    lines_out = []
+    for line in text.splitlines():
+        s = line.strip()
+
+        # Section headers: lines like "[ KR ]" or "[산업 구조]"
+        m = re.match(r'^\[([^\]]+)\]\s*$', s)
+        if m:
+            lines_out.append(f'<h2>{_html.escape(m.group(1).strip())}</h2>')
+            continue
+
+        if not s:
+            lines_out.append('<br>')
+            continue
+
+        escaped = _html.escape(s)
+        # Auto-link URLs
+        escaped = url_re.sub(r'<a href="\1" target="_blank">\1</a>', escaped)
+        lines_out.append(escaped + '<br>')
+
+    return '\n'.join(lines_out)
+
+
+def render_brief(text: str, cfg: dict, *, title: str, date_str: str,
+                 back_href: str = '../../briefs/index.html') -> str:
+    """Render a plain-text brief into a full HTML page."""
+    import html as _html
+
+    body = _brief_text_to_html(text)
+    meta_title = _html.escape(title, quote=True)
+    meta_site = _html.escape(cfg['title'], quote=True)
+
+    return f"""<!doctype html>
+<html lang="{cfg['language']}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{meta_title} | {meta_site}</title>
+<style>{_theme_css()}
+.brief-body h2{{margin:26px 0 10px; font-size:20px; color:var(--brand2)}}
+.brief-body a{{word-break:break-all}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand"><div class="logo"></div><div>
+        <div>{meta_site}</div>
+        <div class="tagline">{_html.escape(cfg['description'], quote=True)}</div>
+      </div></div>
+      <div class="meta"><a href="{back_href}">← 브리프 목록</a></div>
+    </div>
+
+    <div class="card post brief-body">
+      <div class="meta">{_html.escape(date_str)}</div>
+      <h1 class="h1">{meta_title}</h1>
+      {body}
+      <hr>
+      <div class="footer">© {meta_site} — built with OpenClaw</div>
+    </div>
+  </div>
+</body>
+</html>"""
+
+
+def build_briefs(cfg: dict, out: Path) -> list:
+    """Scan brief directories, render individual pages, return list of entries
+    for the index. Each entry: (date_str, kind_label, kind_slug, html_path)."""
+    import html as _html
+
+    # Where to look for briefs (outside the blog repo)
+    BRIEF_SOURCES = [
+        {
+            'label': '통합 브리핑',
+            'slug': 'morning',
+            'base': Path(os.path.expanduser('~/.openclaw/workspace/memory/briefing')),
+            'filename': 'final_briefing_ko.txt',
+        },
+        {
+            'label': 'InvestAnalyst 데일리 브리프',
+            'slug': 'invest',
+            'base': Path(os.path.expanduser('~/.openclaw/workspace/memory/investanalyst')),
+            'filename': 'daily_brief_ko.txt',
+        },
+    ]
+
+    entries = []
+
+    for src in BRIEF_SOURCES:
+        base_dir = src['base']
+        if not base_dir.exists():
+            continue
+        dest_dir = out / 'briefs' / src['slug']
+        dest_dir.mkdir(parents=True, exist_ok=True)
+
+        for date_dir in sorted(base_dir.iterdir(), reverse=True):
+            if not date_dir.is_dir():
+                continue
+            # Expect YYYY-MM-DD directory names
+            date_str = date_dir.name
+            if not re.match(r'^\d{4}-\d{2}-\d{2}$', date_str):
+                continue
+            fpath = date_dir / src['filename']
+            if not fpath.exists():
+                continue
+
+            text = fpath.read_text(encoding='utf-8')
+            html = render_brief(
+                text, cfg,
+                title=f"{src['label']} — {date_str}",
+                date_str=date_str,
+            )
+            html_file = dest_dir / f'{date_str}.html'
+            html_file.write_text(html, encoding='utf-8')
+
+            rel_path = f"briefs/{src['slug']}/{date_str}.html"
+            entries.append((date_str, src['label'], src['slug'], rel_path))
+
+    return entries
+
+
+def render_briefs_index(entries: list, cfg: dict) -> str:
+    """Render the briefs listing page."""
+    import html as _html
+
+    # Group by date (reverse chronological)
+    from collections import OrderedDict
+    by_date: dict[str, list] = {}
+    for date_str, label, slug, rel_path in entries:
+        by_date.setdefault(date_str, []).append((label, slug, rel_path))
+
+    body_parts = []
+    for date_str in sorted(by_date.keys(), reverse=True):
+        items = by_date[date_str]
+        links = ' · '.join([
+            f'<a href="{_html.escape(rp)}">{_html.escape(lbl)}</a>'
+            for lbl, _slug, rp in items
+        ])
+        body_parts.append(
+            f'<li><strong>{_html.escape(date_str)}</strong><br>{links}</li>'
+        )
+
+    items_html = '\n'.join(body_parts) or '<li><small>아직 브리프가 없습니다.</small></li>'
+    meta_site = _html.escape(cfg['title'], quote=True)
+
+    return f"""<!doctype html>
+<html lang="{cfg['language']}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Briefs | {meta_site}</title>
+<meta name="description" content="데일리 브리프 아카이브">
+<style>{_theme_css()}</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand"><div class="logo"></div><div>
+        <div>{meta_site}</div>
+        <div class="tagline">{_html.escape(cfg['description'], quote=True)}</div>
+      </div></div>
+      <div class="meta"><a href="../index.html">← 홈</a> · <a href="../games/index.html">Games</a> · <a href="../catalog/index.html">Catalog</a></div>
+    </div>
+
+    <div class="card">
+      <div class="h2">데일리 브리프</div>
+      <ul>{items_html}</ul>
+      <div class="footer">© {meta_site} — built with OpenClaw</div>
+    </div>
+  </div>
+</body>
+</html>"""
+
+
 def main():
     cfg=load_cfg()
     out=Path('docs')
@@ -367,6 +553,13 @@ def main():
 
     (out/'catalog'/'index.html').write_text(catalog_html, encoding='utf-8')
 
+    # briefs: scan external brief directories and render pages + index
+    brief_entries = build_briefs(cfg, out)
+    briefs_idx_dir = out / 'briefs'
+    briefs_idx_dir.mkdir(parents=True, exist_ok=True)
+    (briefs_idx_dir / 'index.html').write_text(
+        render_briefs_index(brief_entries, cfg), encoding='utf-8')
+
     index_items='\n'.join([
         f"<li><a href=\"posts/{slug}.html\">{title}</a><br><small>{ex}</small></li>" for slug,title,ex in items
     ])
@@ -397,7 +590,7 @@ def main():
         <div>{cfg['title']}</div>
         <div class=\"tagline\">{cfg['description']}</div>
       </div></div>
-      <div class=\"meta\"><span class=\"kbd\">매일 발행</span> · <a href=\"games/index.html\">Games</a> · <a href=\"catalog/index.html\">Catalog</a></div>
+      <div class=\"meta\"><span class=\"kbd\">매일 발행</span> · <a href=\"briefs/index.html\">Briefs</a> · <a href=\"games/index.html\">Games</a> · <a href=\"catalog/index.html\">Catalog</a></div>
     </div>
 
     <div class=\"card\">
@@ -426,12 +619,15 @@ def main():
     urls = []
     if base:
         urls.append(f"{base}/")
+        urls.append(f"{base}/briefs/index.html")
         urls.append(f"{base}/games/index.html")
         urls.append(f"{base}/catalog/index.html")
         for slug, _t, _ex in items:
             urls.append(f"{base}/posts/{slug}.html")
         for gd in game_dirs:
             urls.append(f"{base}/games/{gd}/index.html")
+        for _d, _l, _s, rp in brief_entries:
+            urls.append(f"{base}/{rp}")
         # catalog items are not enumerated in sitemap (metadata is in index.json)
 
     sitemap_items = "\n".join([f"  <url><loc>{u}</loc></url>" for u in urls])

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>통합 브리핑 — 2026-02-19 | PM Fieldnotes</title>
+<style>:root{
+  --bg:#0b0f19;
+  --panel:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --brand:#7c3aed;
+  --brand2:#22d3ee;
+  --ring:rgba(124,58,237,.35);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --radius:16px;
+  --max:860px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", sans-serif;
+  background: radial-gradient(1200px 600px at 15% 10%, rgba(124,58,237,.25), transparent 60%),
+              radial-gradient(900px 500px at 80% 20%, rgba(34,211,238,.18), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+a{color:var(--brand2); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:14px 16px; border-radius:var(--radius);
+  background: rgba(15, 23, 42, .75);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+.logo{
+  width:34px; height:34px; border-radius:12px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  box-shadow: 0 0 0 6px rgba(124,58,237,.08);
+}
+.tagline{color:var(--muted); font-size:14px}
+.card{
+  margin-top:18px;
+  padding:22px 20px;
+  border-radius:var(--radius);
+  background: rgba(15,23,42,.72);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.h1{font-size:34px; line-height:1.15; margin:4px 0 12px}
+.h2{font-size:18px; color:var(--muted); margin:0 0 8px}
+.meta{color:var(--muted); font-size:13px}
+hr{border:none; border-top:1px solid rgba(255,255,255,.08); margin:18px 0}
+ul{padding-left:18px}
+li{margin:10px 0}
+small{color:var(--muted)}
+.post p{margin:10px 0}
+.post h2{margin:26px 0 10px; font-size:20px}
+.kbd{font-family:var(--mono); font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.2)}
+.footer{margin-top:18px; color:var(--muted); font-size:13px}
+.brief-body h2{margin:26px 0 10px; font-size:20px; color:var(--brand2)}
+.brief-body a{word-break:break-all}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand"><div class="logo"></div><div>
+        <div>PM Fieldnotes</div>
+        <div class="tagline">실전 PM 노트: 기획, 지표, 운영, 자동화</div>
+      </div></div>
+      <div class="meta"><a href="../../briefs/index.html">← 브리프 목록</a></div>
+    </div>
+
+    <div class="card post brief-body">
+      <div class="meta">2026-02-19</div>
+      <h1 class="h1">통합 브리핑 — 2026-02-19</h1>
+      2026-02-19 데일리 브리핑<br>
+<br>
+오늘의 핵심 3줄<br>
+1) 컨테이너 운임 하락세가 이어지며 2026년 해상 운송 수익성 압박이 커질 조짐.<br>
+2) 3PL/풀필먼트 운영 범위가 확장되면서(통합·운송 포함) ‘운영역량/시스템’이 차별화 포인트.<br>
+3) SaaS는 AI 영향으로 가격/패키징 모델 재편 압력이 커지고, 이탈(Churn) 관리가 더 중요.<br>
+<br>
+## 산업 구조<br>
+- Freight Rates Decline as Container Shipping Market Enters Downward Trend - National Today — <a href="https://nationaltoday.com/us/ca/los-angeles/news/2026/02/18/freight-rates-decline-as-container-shipping-market-enters-downward-trend/" target="_blank">https://nationaltoday.com/us/ca/los-angeles/news/2026/02/18/freight-rates-decline-as-container-shipping-market-enters-downward-trend/</a> — 운임 하락·선복 과잉/수요 약세 신호로 해운사·포워더 단가 전략 재조정 필요.<br>
+- Freight Shipping Quotes - LTL &amp; Truckload with Instant Rates | Freightquote — <a href="https://freightquote.com/" target="_blank">https://freightquote.com/</a> — ‘즉시 견적/온라인 예약’ 같은 셀프서브 물류 구매 UX가 표준화되는 흐름 참고.<br>
+- Global Port Congestion in Shipping | Freightos — <a href="https://freightos.com/freight-resources/port-congestion/" target="_blank">https://freightos.com/freight-resources/port-congestion/</a> — 항만 혼잡은 리드타임/재고/약속일에 직결; 혼잡 데이터 기반 의사결정이 중요.<br>
+- Home - The Last Mile — <a href="https://thelastmile.org/" target="_blank">https://thelastmile.org/</a> — (물류 직접 이슈는 약함) 교육/기술훈련 프로그램 사례로 ‘인력/역량’ 관점 참고.<br>
+<br>
+## 제품 인풋<br>
+- Jim Bianco: AI will surpass the internet in impact, SaaS pricing models are under pressure, and older generations may struggle with AI-driven business models | Bankless — <a href="https://cryptobriefing.com/jim-bianco-ai-will-surpass-the-internet-in-impact-saas-pricing-models-are-under-pressure-and-older-generations-may-struggle-with-ai-driven-business-models-bankless/" target="_blank">https://cryptobriefing.com/jim-bianco-ai-will-surpass-the-internet-in-impact-saas-pricing-models-are-under-pressure-and-older-generations-may-struggle-with-ai-driven-business-models-bankless/</a> — AI로 가치 전달 방식이 바뀌며 과금 기준(좌석→사용량/성과 등) 재설계가 필요.<br>
+- Product Manager: Role &amp; Best Practices for Beginners | Atlassian — <a href="https://atlassian.com/agile/product-management/product-manager" target="_blank">https://atlassian.com/agile/product-management/product-manager</a> — PM의 핵심은 ‘목표/성공정의/트레이드오프’ 정리; 내부 커뮤니케이션 기준점으로 활용.<br>
+- r/careerguidance on Reddit: Can anyone please explain what is product management and what do product managers do? — <a href="https://reddit.com/r/careerguidance/comments/padmcf/can_anyone_please_explain_what_is_product/" target="_blank">https://reddit.com/r/careerguidance/comments/padmcf/can_anyone_please_explain_what_is_product/</a> — 현장 관점의 PM 역할 인식 참고(정의/기대치 정렬용).<br>
+- Real-Time Port Congestion News &amp; Delays 2025 — <a href="https://gocomet.com/real-time-port-congestion" target="_blank">https://gocomet.com/real-time-port-congestion</a> — 실시간 혼잡/지연 데이터는 세일즈 메시지(가시성/예측)로도 연결 가능.<br>
+<br>
+## WMS·자동화<br>
+- 3PL Services: How Do Third-Party Logistics Work? — <a href="https://shipbob.com/3pl/" target="_blank">https://shipbob.com/3pl/</a> — 3PL이 단순 피킹/패킹을 넘어 통합·운송까지 확장: WMS/OMS/가시성 연계가 중요.<br>
+- 3PL Warehousing &amp; Management Guide | Extensiv | Extensiv — <a href="https://extensiv.com/what-is-a-3pl" target="_blank">https://extensiv.com/what-is-a-3pl</a> — 3PL 정의/운영요소 정리; 고객 교육 자료/세일즈 온보딩에 재활용 가능.<br>
+- FULFILLMENT Definition &amp; Meaning - Merriam-Webster — <a href="https://merriam-webster.com/dictionary/fulfillment" target="_blank">https://merriam-webster.com/dictionary/fulfillment</a> — 용어 정의(풀필먼트) 기준 통일용.<br>
+- FULFILLMENT | definition in the Cambridge English Dictionary — <a href="https://dictionary.cambridge.org/us/dictionary/english/fulfillment" target="_blank">https://dictionary.cambridge.org/us/dictionary/english/fulfillment</a> — 동일 용어의 의미 차이(만족/성취 vs 물류) 커뮤니케이션 혼선 방지용.<br>
+<br>
+## 세일즈 시그널<br>
+- A guide to SaaS pricing models | Stripe — <a href="https://stripe.com/resources/more/saas-pricing-models-101" target="_blank">https://stripe.com/resources/more/saas-pricing-models-101</a> — 가격 모델(정액/계층/사용량 등) 선택이 PM·세일즈 모두에 영향: 패키징 점검 포인트.<br>
+- Calculating Churn in a SaaS Business — <a href="https://maxio.com/saaspedia/calculating-churn-in-a-saas-business" target="_blank">https://maxio.com/saaspedia/calculating-churn-in-a-saas-business</a> — 이탈률 정의/계산은 리텐션 KPI 체계 정비의 출발점.<br>
+- Churn Rate: How to Calculate and Examples | ChurnZero — <a href="https://churnzero.com/churnopedia/churn-rate/" target="_blank">https://churnzero.com/churnopedia/churn-rate/</a> — ‘좋은 churn’ 기준은 세그먼트별로 다름: 타겟 시장에 맞춘 벤치마크 필요.<br>
+<br>
+## 한국 로컬<br>
+- (오늘은 한국 로컬 소스에서 유의미한 신규 링크가 부족했어요.)<br>
+<br>
+---<br>
+품질 게이트<br>
+- search_insufficient: False<br>
+- rss_error_rate_high: True<br>
+- ad_ratio_high: False<br>
+<br>
+지표<br>
+- rss: feeds=12 new_items=0 error_rate=0.33<br>
+- search: enabled=True results_total=26 raw_total=30 ad_ratio_raw=0.00<br>
+- output: links=15 (target 8-15)<br>
+<br>
+RSS 오류 피드(교체 후보)<br>
+- <a href="https://www.freightwaves.com/feed" target="_blank">https://www.freightwaves.com/feed</a><br>
+- <a href="https://www.digitalcommerce360.com/feed/" target="_blank">https://www.digitalcommerce360.com/feed/</a><br>
+- <a href="https://news.crunchbase.com/feed/" target="_blank">https://news.crunchbase.com/feed/</a><br>
+- <a href="https://www.klnews.co.kr/rss" target="_blank">https://www.klnews.co.kr/rss</a><br>
+      <hr>
+      <div class="footer">© PM Fieldnotes — built with OpenClaw</div>
+    </div>
+  </div>
+</body>
+</html>

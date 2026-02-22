@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K-Beauty 물류에서 WMS 재고 싸이클 가시성 확보하기 | PM Fieldnotes</title>
+<meta name="description" content="&lt;img src=&quot;assets/images/2026-02-23-wms-inventory-visibility.jpg&quot; alt=&quot;warehouse-logistics inventory-management beauty-products&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:auto;border-">
+<link rel="canonical" href="https://kwonryan11.github.io/pm-fieldnotes/posts/2026-02-23-wms-inventory-visibility.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="K-Beauty 물류에서 WMS 재고 싸이클 가시성 확보하기">
+<meta property="og:description" content="&lt;img src=&quot;assets/images/2026-02-23-wms-inventory-visibility.jpg&quot; alt=&quot;warehouse-logistics inventory-management beauty-products&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:auto;border-">
+<meta property="og:url" content="https://kwonryan11.github.io/pm-fieldnotes/posts/2026-02-23-wms-inventory-visibility.html">
+<meta name="twitter:card" content="summary">
+<style>:root{
+  --bg:#0b0f19;
+  --panel:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --brand:#7c3aed;
+  --brand2:#22d3ee;
+  --ring:rgba(124,58,237,.35);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --radius:16px;
+  --max:860px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", sans-serif;
+  background: radial-gradient(1200px 600px at 15% 10%, rgba(124,58,237,.25), transparent 60%),
+              radial-gradient(900px 500px at 80% 20%, rgba(34,211,238,.18), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+a{color:var(--brand2); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:14px 16px; border-radius:var(--radius);
+  background: rgba(15, 23, 42, .75);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+.logo{
+  width:34px; height:34px; border-radius:12px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  box-shadow: 0 0 0 6px rgba(124,58,237,.08);
+}
+.tagline{color:var(--muted); font-size:14px}
+.card{
+  margin-top:18px;
+  padding:22px 20px;
+  border-radius:var(--radius);
+  background: rgba(15,23,42,.72);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+}
+.h1{font-size:34px; line-height:1.15; margin:4px 0 12px}
+.h2{font-size:18px; color:var(--muted); margin:0 0 8px}
+.meta{color:var(--muted); font-size:13px}
+hr{border:none; border-top:1px solid rgba(255,255,255,.08); margin:18px 0}
+ul{padding-left:18px}
+li{margin:10px 0}
+small{color:var(--muted)}
+.post p{margin:10px 0}
+.post h2{margin:26px 0 10px; font-size:20px}
+.kbd{font-family:var(--mono); font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.2)}
+.footer{margin-top:18px; color:var(--muted); font-size:13px}</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand"><div class="logo"></div><div>
+        <div>PM Fieldnotes</div>
+        <div class="tagline">실전 PM 노트: 기획, 지표, 운영, 자동화</div>
+      </div></div>
+      <div class="meta"><span class="kbd">PM • Ops • Metrics • Automation</span></div>
+    </div>
+
+    <div class="card post">
+      <div class="meta"><a href="../index.html">← 홈으로</a></div>
+      <h1 class="h1">K-Beauty 물류에서 WMS 재고 싸이클 가시성 확보하기</h1>
+      <img src="../assets/images/2026-02-23-wms-inventory-visibility.jpg" alt="warehouse-logistics inventory-management beauty-products" loading="lazy" style="width:100%;height:auto;border-radius:16px;margin:16px 0;">
+<p>### 문제</p>
+<p>전국 3PL 창고마다 WMS에서 인식하는 재고와 실제 입출고 상태가 어긋나면서, 픽킹 오류와 외부 고객사의 긴급 주문 지연이 잦아졌습니다. 특히 비용이 높은 특수 포장 SKU를 쓰루풋 감시 없이 투입하다 보니, 재고 암묵치를 분석할 여력도 없습니다.</p>
+<p>### 왜 중요한가</p>
+<p>이런 불일치는 수요가 급변하는 K-Beauty 신상 론칭 시즌에 치명적입니다. WMS의 재고 신뢰도가 내려가면 OEM 고객사의 주문 확정이 지연되고, 브랜드 신뢰도 하락과 추가 운송비 부담으로 이어져 마진이 빠르게 깎입니다.</p>
+<p>### 프레임/체크리스트</p>
+<p>1. <strong>재고 동기화 간격</strong>: ERP→WMS→3PL 실시간 스냅샷 간 최소 15분 주기 확보</p>
+<p>2. <strong>이상거래 탐지 지표</strong>: SKU별 인/출고 수량과 WMS 재고 차이가 2건 이상 발생 시 자동 알림</p>
+<p>3. <strong>현장 확인 루프</strong>: 3PL 담당자 일일 재고 파악 체크리스트 + 사진 첨부</p>
+<p>4. <strong>출고 예약 검증</strong>: 브랜드 프로모션 SKU는 출고 전 재고 가용성 재검증</p>
+<p>5. <strong>A/B 피드백</strong>: 월 1회 가시성 개선 실험 후 KPI(정시 출고율) 비교</p>
+<p>### 예시(물류/운영 맥락)</p>
+<p>한 K-Beauty 브랜드는 믹스 앤 매치 키트 3종을 3PL에 입고했으나, 자동 동기화가 끊겨 주문 전날 50개가 더 찍혀 있었습니다. 점검 프레임 적용 후 SKU별 재고 차이를 3시간 내 확인·수정하여, 신속출고율을 7%p 끌어올렸고 브랜드에 공지된 납기 약속도 지킬 수 있었습니다.</p>
+<p>### 결론/다음 액션</p>
+<p>WMS와 3PL의 재고 데이터를 실시간으로 읽는 루틴을 만들고, 이상치 감지와 현장 검증 체크리스트를 브랜드 물류팀과 공유하십시오. 다음 주까지 통합 대시보드 시안과 자동 알림 조건을 만들고, KPI 변화(정시 출고율, 고객 클레임 건수)를 측정해 개선 효과를 검증합시다.</p>
+<hr>
+<p>Image credit: &lt;div class=&quot;fn value&quot;&gt;</p>
+<p>&lt;dl&gt;&lt;dd&gt;Palko, Daniel A.&lt;/dd&gt;</p>
+<p>&lt;dd&gt;Meyers, David C.&lt;/dd&gt;&lt;/dl&gt;&lt;/div&gt; — Wikimedia Commons (Public domain) · https://commons.wikimedia.org/wiki/File%3AAnalysis_of_standardized_bar_coding_and_the_User-Buyer_Electronic_Catalog%27s_potential_for_effecting_change_within_the_Department_of_Defense_%28IA_analysisofstanda1094532186%29.pdf · Internet Archive identifier: analysisofstanda1094532186</p>
+<p>https://archive.org/download/analysisofstanda1094532186/analysisofstanda1094532186.pdf</p>
+      <hr>
+      <div class="footer">© PM Fieldnotes — built with OpenClaw</div>
+    </div>
+  </div>
+</body>
+</html>

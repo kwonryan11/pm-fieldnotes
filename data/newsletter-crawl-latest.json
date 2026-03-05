@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-05T05:32:59.572Z",
+  "generatedAt": "2026-03-05T05:39:54.443Z",
   "category": "newsletter",
   "sources": [
     {
       "source": "TLDR",
       "rss": "https://tldr.tech/rss",
-      "pickedAt": "2026-03-05T05:32:55.154Z",
+      "pickedAt": "2026-03-05T05:39:47.343Z",
       "items": [
         {
           "title": "M5 Max MacBooks 💻, GPT-5.3 Instant 🤖, end of code reviews 👨‍💻",
@@ -26,62 +26,62 @@
           "description": ""
         }
       ],
-      "article": {
+      "chosen": {
         "title": "M5 Max MacBooks 💻, GPT-5.3 Instant 🤖, end of code reviews 👨‍💻",
         "link": "https://tldr.tech/tech/2026-03-04",
         "pubDate": "Wed, 04 Mar 2026 00:00:00 GMT",
         "fullText": "One API for Google, Maps, Shopping & More ( ) Building something that needs search data? SerpApi converts Google, Maps, Shopping, and other search engines into structured APIs. Just a simple GET request. No scraping infrastructure.No proxy rotation.No parser maintenance. Use cases include:👉 AI grounding👉 Market research👉 SEO, GEO, & rank tracking Special offer for TLDR: Start with 250 free searches/month or claim 3 months at 50% off for new accounts.",
-        "summaryEn": "One API for Google, Maps, Shopping & More ( ) Building something that needs search data? SerpApi converts Google, Maps, Shopping, and other search engines into structured APIs.",
         "insightKo": {
           "track": "업무자동화",
-          "fact": "무슨 일? SerpApi converts Google, Maps, Shopping, and other search engines into structured APIs.",
-          "why": "왜 중요? No scraping infrastructure.No proxy rotation.No parser maintenance.",
-          "action": "실행 포인트: 이 이슈를 내 자동화 파이프라인(수집→요약→발행) 중 1단계 개선안으로 연결해 이번 주 테스트한다."
+          "fact": "무슨 일? M5 Max MacBooks 💻, GPT-5.3 Instant 🤖, end of code reviews 👨‍💻.",
+          "why": "왜 중요? SerpApi converts Google, Maps, Shopping, and other search engines into structured APIs.",
+          "action": "실행 포인트: 자동화 파이프라인에서 1개 병목(수집/정제/요약/발행)을 지정해 이번 주 개선 실험을 진행한다.",
+          "score": 100
         }
       }
     },
     {
       "source": "Hacker Newsletter",
       "rss": "https://hnrss.org/frontpage",
-      "pickedAt": "2026-03-05T05:32:56.157Z",
+      "pickedAt": "2026-03-05T05:39:50.617Z",
       "items": [
+        {
+          "title": "Relicensing with AI-Assisted Rewrite",
+          "link": "https://tuananh.net/2026/03/05/relicensing-with-ai-assisted-rewrite/",
+          "pubDate": "Thu, 05 Mar 2026 05:07:33 +0000",
+          "description": ""
+        },
         {
           "title": "Show HN: Poppy – a simple app to stay intentional with relationships",
           "link": "https://poppy-connection-keeper.netlify.app/",
           "pubDate": "Thu, 05 Mar 2026 03:56:38 +0000",
-          "description": "I built Poppy as a side project to help people keep in touch more intentionally. Would love feedback on onboarding, reminders, and overall UX. Happy to answer questions. Comments URL: https://news.ycombinator.com/item?id=47257352 Points: 5 # Comments: 0"
+          "description": "I built Poppy as a side project to help people keep in touch more intentionally. Would love feedback on onboarding, reminders, and overall UX. Happy to answer questions."
         },
         {
           "title": "What Python's asyncio primitives get wrong about shared state",
           "link": "https://www.inngest.com/blog/no-lost-updates-python-asyncio",
           "pubDate": "Thu, 05 Mar 2026 02:55:57 +0000",
-          "description": "Article URL: https://www.inngest.com/blog/no-lost-updates-python-asyncio Comments URL: https://news.ycombinator.com/item?id=47256923 Points: 21 # Comments: 14"
-        },
-        {
-          "title": "Jensen Huang says Nvidia is pulling back from OpenAI and Anthropic",
-          "link": "https://techcrunch.com/2026/03/04/jensen-huang-says-nvidia-is-pulling-back-from-openai-and-anthropic-but-his-explanation-raises-more-questions-than-it-answers/",
-          "pubDate": "Thu, 05 Mar 2026 02:33:58 +0000",
-          "description": "Article URL: https://techcrunch.com/2026/03/04/jensen-huang-says-nvidia-is-pulling-back-from-openai-and-anthropic-but-his-explanation-raises-more-questions-than-it-answers/ Comments URL: https://news.ycombinator.com/item?id=47256781 Points: 73 # Comments: 21"
+          "description": ""
         }
       ],
-      "article": {
-        "title": "Show HN: Poppy – a simple app to stay intentional with relationships",
-        "link": "https://poppy-connection-keeper.netlify.app/",
-        "pubDate": "Thu, 05 Mar 2026 03:56:38 +0000",
-        "fullText": "Show HN: Poppy – a simple app to stay intentional with relationships. I built Poppy as a side project to help people keep in touch more intentionally. Would love feedback on onboarding, reminders, and overall UX. Happy to answer questions.",
-        "summaryEn": "Show HN: Poppy – a simple app to stay intentional with relationships. I built Poppy as a side project to help people keep in touch more intentionally.",
+      "chosen": {
+        "title": "What Python's asyncio primitives get wrong about shared state",
+        "link": "https://www.inngest.com/blog/no-lost-updates-python-asyncio",
+        "pubDate": "Thu, 05 Mar 2026 02:55:57 +0000",
+        "fullText": "What Python's asyncio primitives get wrong about shared state.",
         "insightKo": {
           "track": "콘텐츠소재",
-          "fact": "무슨 일? Show HN: Poppy – a simple app to stay intentional with relationships.",
-          "why": "왜 중요? I built Poppy as a side project to help people keep in touch more intentionally.",
-          "action": "실행 포인트: 블로그용으로 \"배경-변화-영향\" 3문장 구조의 짧은 분석 포스트를 발행한다."
+          "fact": "무슨 일? What Python's asyncio primitives get wrong about shared state.",
+          "why": "왜 중요? What Python's asyncio primitives get wrong about shared state.",
+          "action": "실행 포인트: 블로그에 배경-변화-영향 3문장 구조로 짧은 분석 글을 발행한다.",
+          "score": 80
         }
       }
     },
     {
       "source": "Ben's Bites",
       "rss": "https://www.bensbites.com/feed",
-      "pickedAt": "2026-03-05T05:32:56.249Z",
+      "pickedAt": "2026-03-05T05:39:50.697Z",
       "items": [
         {
           "title": "Models on the march",
@@ -102,19 +102,24 @@
           "description": "10x faster models and the consulting angle for AI"
         }
       ],
-      "article": {
+      "chosen": {
         "title": "Models on the march",
         "link": "https://www.bensbites.com/p/models-on-the-march",
         "pubDate": "Tue, 03 Mar 2026 14:03:25 GMT",
-        "fullText": "Models on the march 50M paying consumers for ChatGPT Mar 03, 2026 60 Share Hey I’m Ben. I build stuff with agents, even though I’m not technical. Here’s all the stuff I’m reading and tinkering with. If you want to start building or level up your ‘vibe-coding’ skills, join our community . Hey folks, I’m hosting a free workshop on Thursday (will be recorded) - Become a builder . Aimed at less-technical folks who want to build apps, automations and agents with AI tools. If you’re drowning in content, tool choices and don’t quite know the system to get to the next level, this workshop is made for you. I’ll reveal how I reverse engineer business ideas, build from scratch, set up agent automations and consistently ship new things. for free here . Last weekend was not normal. The US government’s Department of War (DoW) labelled Anthropic a supply chain risk ( here’s what that means ) because they did not agree on Claude’s use for autonomous weapons and mass surveillance. Meanwhile, OpenAI did manage to reach an agreement with the DoW , claiming that it still holds onto the same redlines as Anthropic. It did not, leading to an AMA with the OpenAI team and an update to the said agreement . OpenAI is also publicly asking the DoW to take back the risk label on Anthropic. This is far from solved, but OpenAI has already taken clear damage to its public image. Anthropic did a cheeky little play of adding an import memory button to Claude for people moving over from ChatGPT. But is that enough? Because if the US administration has its way, Anthropic has much larger concerns. Ben Thompson, as usual, goes into the political details of Anthropic and Alignment . That doesn’t stop them from shipping, though. Claude Code has an auto-memory feature now - it learns across sessions and then remembers it when you start a new one. Also, voice mode in Claude Code is rolling out to users. Type /voice and then hold space to use push-to-talk. Your messages get transcribed, and it doesn’t cost you anything, not even your tokens from your subscription. OpenAI has raised $110B at $730B valuation . This brings Amazon as an investor, and OpenAI will use the Trainium chips to serve some of its products. Some stats from this post: Codex now has 1.6M weekly users, and there are 9M business customers and 50M paying consumers for ChatGPT. Entire CLI now supports Droid - Share your sessions, chat logs, prompts, and more to keep the context of your work. Incredible is the fastest way (literally) to work on your computer. Press a key, speak naturally & an always-on AI assistant helps you write + act across all your apps natively. Real voice-controlled 'vibe computing', making you absurdly productive. Invite-only. First 50 readers get access codes.* 🌐 What I’m consuming What devtools does Claude Code choose when asked to build something? Stripe, Shadcn, and Vercel have a near monopoly, with newer models choosing newer tools. Lessons from building Claude Code - How did the “askuserquestion” tool come to be? Background Agents - The current state and the promise of autonomous work across the entire SDLC. Hitting $1M ARR in weeks with Polsia. How I built a sub-500ms latency voice agent from scratch. How I actually practice law with AI in 2026. The only way to save SaaS - A case study of Intercom. How I run 4–8 parallel coding agents with tmux and Markdown specs. A Swedish publication claims that recordings from Meta’s smart glasses end up in front of human annotators with bank details, sexual content and more present in them. ⚙️ Tools and demos Have a business idea? With a simple prompt, GoDaddy Airo AI Builder creates launch-ready websites and apps in minutes.* Maestro - Teaching partner for educators that adapts to your students and how you teach. Readout - Fully native macOS app for a real-time overview of your dev environment and Claude Code configs. Instant Apps by Tasklet - Your agent can now build live, interactive apps for you on-demand. Mintlify now lets you create docs for any GitHub repo, auto-generated from the source code. ( read more ) iocaihost - no-account website hosting for agents. 🥣 Dev Dish pplx-embed - SOTA embedding models from Perplexity trained for large-scale retrieval. evlog - One log per request with full context ofwide events & structured errors for TypeScript. Evolver - Optimise your code and prompts with a Darwinian approach. ( read more ) recall - A skill to let claude code search over all your conversations from past sessions. noodle - Skill scheduler with self-healing and backlog sync. ( read more ) agentcard.sh - Prepaid virtual Visa cards for AI agents. actors.dev - Give agents an email address and the ability to make phone calls. 🍦 Afters Burger King deployed Patty to employee headsets - a chatbot that helps them with meal prep and friendliness. Anthropic is giving 6 months of free Claude Max 20x to open source maintainers and core contributors. Apply here . Enjoy this ? Forward it to a friend. Share That’s it for today. Feel free to comment and share your thoughts. 👋 Find me on X , Linkedin , or Instagram Read about me and Ben’s Bites 📷 thumbnail by @keshavatearth * sponsors who make this possible :) Wanna partner with us for March? Last few slots available 60 Share Previous",
-        "summaryEn": "Models on the march 50M paying consumers for ChatGPT Mar 03, 2026 60 Share Hey I’m Ben. I build stuff with agents, even though I’m not technical.",
-        "insightKo": null
+        "fullText": "Models on the march 50M paying consumers for ChatGPT Mar 03, 2026 60 I build stuff with agents, even though I’m not technical. Here’s all the stuff I’m reading and tinkering with. If you want to start building or level up your ‘vibe-coding’ skills, join our community . Hey folks, I’m hosting a free workshop on Thursday (will be recorded) - Become a builder . Aimed at less-technical folks who want to build apps, automations and agents with AI tools. If you’re drowning in content, tool choices and don’t quite know the system to get to the next level, this workshop is made for you. I’ll reveal how I reverse engineer business ideas, build from scratch, set up agent automations and consistently ship new things. for free here . Last weekend was not normal. The US government’s Department of War (DoW) labelled Anthropic a supply chain risk ( here’s what that means ) because they did not agree on Claude’s use for autonomous weapons and mass surveillance. Meanwhile, OpenAI did manage to reach an agreement with the DoW , claiming that it still holds onto the same redlines as Anthropic. It did not, leading to an AMA with the OpenAI team and an update to the said agreement . OpenAI is also publicly asking the DoW to take back the risk label on Anthropic. This is far from solved, but OpenAI has already taken clear damage to its public image. Anthropic did a cheeky little play of adding an import memory button to Claude for people moving over from ChatGPT. But is that enough? Because if the US administration has its way, Anthropic has much larger concerns. Ben Thompson, as usual, goes into the political details of Anthropic and Alignment . That doesn’t stop them from shipping, though. Claude Code has an auto-memory feature now - it learns across sessions and then remembers it when you start a new one. Also, voice mode in Claude Code is rolling out to users. Type /voice and then hold space to use push-to-talk. Your messages get transcribed, and it doesn’t cost you anything, not even your tokens from your subscription. OpenAI has raised $110B at $730B valuation . This brings Amazon as an investor, and OpenAI will use the Trainium chips to serve some of its products. Some stats from this post: Codex now has 1.6M weekly users, and there are 9M business customers and 50M paying consumers for ChatGPT. Entire CLI now supports Droid - your sessions, chat logs, prompts, and more to keep the context of your work. Incredible is the fastest way (literally) to work on your computer. Press a key, speak naturally & an always-on AI assistant helps you write + act across all your apps natively. Real voice-controlled 'vibe computing', making you absurdly productive. Invite-only. First 50 readers get access codes.* 🌐 What I’m consuming What devtools does Claude Code choose when asked to build something? Stripe, Shadcn, and Vercel have a near monopoly, with newer models choosing newer tools. Lessons from building Claude Code - How did the “askuserquestion” tool come to be? Background Agents - The current state and the promise of autonomous work across the entire SDLC. Hitting $1M ARR in weeks with Polsia. How I built a sub-500ms latency voice agent from scratch. How I actually practice law with AI in 2026. The only way to save SaaS - A case study of Intercom. How I run 4–8 parallel coding agents with tmux and Markdown specs. A Swedish publication claims that recordings from Meta’s smart glasses end up in front of human annotators with bank details, sexual content and more present in them. ⚙️ Tools and demos Have a business idea? With a simple prompt, GoDaddy Airo AI Builder creates launch-ready websites and apps in minutes.* Maestro - Teaching partner for educators that adapts to your students and how you teach. Readout - Fully native macOS app for a real-time overview of your dev environment and Claude Code configs. Instant Apps by Tasklet - Your agent can now build live, interactive apps for you on-demand. Mintlify now lets you create docs for any GitHub repo, auto-generated from the source code. ( read more ) iocaihost - no-account website hosting for agents. 🥣 Dev Dish pplx-embed - SOTA embedding models from Perplexity trained for large-scale retrieval. evlog - One log per request with full context ofwide events & structured errors for TypeScript. Evolver - Optimise your code and prompts with a Darwinian approach. ( read more ) recall - A skill to let claude code search over all your conversations from past sessions. noodle - Skill scheduler with self-healing and backlog sync. ( read more ) agentcard.sh - Prepaid virtual Visa cards for AI agents. actors.dev - Give agents an email address and the ability to make phone calls. 🍦 Afters Burger King deployed Patty to employee headsets - a chatbot that helps them with meal prep and friendliness. Anthropic is giving 6 months of free Claude Max 20x to open source maintainers and core contributors. Apply here . Enjoy this ? Forward it to a friend. That’s it for today. Feel free to comment and your thoughts. 👋 Find me on X , Linkedin , or Instagram Read about me and Ben’s Bites 📷 thumbnail by @keshavatearth * s who make this possible :) Wanna partner with us for March? Last few slots available 60 Previous",
+        "insightKo": {
+          "track": "업무자동화",
+          "fact": "무슨 일? The US government’s Department of War (DoW) labelled Anthropic a supply chain risk ( here’s what that means ) because they did not agree on Claude’s use for autonomous weapons and mass surve",
+          "why": "왜 중요? OpenAI is also publicly asking the DoW to take back the risk label on Anthropic.",
+          "action": "실행 포인트: 자동화 파이프라인에서 1개 병목(수집/정제/요약/발행)을 지정해 이번 주 개선 실험을 진행한다.",
+          "score": 100
+        }
       }
     },
     {
       "source": "Dense Discovery",
       "rss": "https://www.densediscovery.com/feed",
-      "pickedAt": "2026-03-05T05:32:58.507Z",
+      "pickedAt": "2026-03-05T05:39:53.417Z",
       "items": [
         {
           "title": "DD378 / The myth of the dying reader",
@@ -135,19 +140,24 @@
           "description": "Issue 376: Coding: from craft to commodity – Read the full issue in the archive."
         }
       ],
-      "article": {
-        "title": "DD378 / The myth of the dying reader",
-        "link": "https://www.densediscovery.com/issues/378/",
-        "pubDate": "Mon, 02 Mar 2026 04:47:49 GMT",
-        "fullText": "Dense Discovery #378: The myth of the dying reader Browse all 378 issues of Dense Discovery , a weekly with thoughtfully curated links from a noisy web. Now Browse issues Browse Archive Issue",
-        "summaryEn": "Issue 378: The myth of the dying reader – Read the full issue in the archive.. Dense Discovery #378: The myth of the dying reader Browse all 378 issues of Dense Discovery , a weekly with thoughtfully curated links from a noisy web.",
-        "insightKo": null
+      "chosen": {
+        "title": "DD377 / First, fast, forgotten: the media lifecycle",
+        "link": "https://www.densediscovery.com/issues/377/",
+        "pubDate": "Mon, 23 Feb 2026 04:39:49 GMT",
+        "fullText": "Dense Discovery #377: First, fast, forgotten: the media lifecycle Browse all 378 issues of Dense Discovery , a weekly with thoughtfully curated links from a noisy web. Now Browse issues Browse Archive Issue",
+        "insightKo": {
+          "track": "콘텐츠소재",
+          "fact": "무슨 일? DD377 / First, fast, forgotten: the media lifecycle.",
+          "why": "왜 중요? Issue 377: First, fast, forgotten: the media lifecycle – Read the full issue in the archive..",
+          "action": "실행 포인트: 블로그에 배경-변화-영향 3문장 구조로 짧은 분석 글을 발행한다.",
+          "score": 80
+        }
       }
     },
     {
       "source": "SemiAnalysis",
       "rss": "https://www.semianalysis.com/feed",
-      "pickedAt": "2026-03-05T05:32:59.571Z",
+      "pickedAt": "2026-03-05T05:39:54.443Z",
       "items": [
         {
           "title": "xAI&#8217;s Colossus 2 &#8211; First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise",
@@ -168,17 +178,17 @@
           "description": "Compute is the lifeblood of AI. He who controls the spice controls the universe the compute will control the production of tokens and reap the benefits of AI. Without compute you do not have a seat at the table. The United States technology community is all in on compute and AI as the next platform [&#8230;]"
         }
       ],
-      "article": {
+      "chosen": {
         "title": "xAI&#8217;s Colossus 2 &#8211; First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise",
         "link": "https://semianalysis.com/2025/09/16/xais-colossus-2-first-gigawatt-datacenter/",
         "pubDate": "Tue, 16 Sep 2025 17:38:01 +0000",
-        "fullText": "xAI's Colossus 2 - First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise On Site Turbines, Mississippi Expansion, Solaris Energy, Can xAI afford it?, Middle East Funding, Tesla, Talent Exodus, API revenue, Consumer Growth, RL Environment Jeremie Eliahou Ontiveros , Dylan Patel , Wei Zhou , and 2 others Sep 16, 2025 ∙ Paid 45 5 Share Much has been written about xAI’s Colossus 1. The Memphis build belongs in the history books: the largest AI training cluster, erected from scratch in 122 days. With roughly 200,000 H100/H200s and ~30,000 GB200 NVL72, it remains, today, the largest fully operational, single-coherent cluster (setting apart Google, master of multi-datacenter-training ). However, Colossus 1’s ~300 MW looks modest next to the Gigawatt-scale clusters under construction by OpenAI , Meta and Anthropic . Their hyperscaler partners are happy to leverage their balance sheet and win the market by throwing dollars at it. Was xAI’s prowess a one-time wonder? Today we will publicize some data from our industry leading datacenter model over the last year that is accessible to clients. This is the our same proprietary data that called the Oracle deals many months ahead of the announcement. Source: SemiAnalysis Datacenter Industry Model - note: there is a lag between Datacenter operational and GPUs operational - Google and exact figures available in model Short answer: no . xAI is still squarely in the frontier-AI race and is positioned to leapfrog most rivals again on compute. By our estimates, its total datacenter capacity for a single training cluster will surpass Meta Superintelligence and Anthropic by Q3 2025. The datacenter capacity will be ready for the GPUs to be moved in to create the largest single datacenter in the world, yet again. xAI has to raise the capital for those GPUs, but they have the allocations from Nvidia to have it fully training large scale models early next year. Elon came up with a new genius trick to beat rivals at time-to-market. Colossus 2 will be an even more impressive achievement than xAI’s first cluster. Let’s dig in. The first half of this report will dig into the Colossus 2 prowess. The second half will discuss Grok models, our mid-to-long term thoughts on xAI, and the unique RL method xAI is using that may lead them to leapfrog OpenAI, Anthropic, and Google. SemiAnalysis Is Hiring We are seeking a highly motivated & skilled Member of Technical Staff to join our growing special projects engineering team. You will play a crucial role in developing industry leading gpu cloud benchmarks & evaluation framework. Our gpu cloud evaluation frameworks is endorsed by many tier 1 & 2 frontier labs. You may be a good fit if you have the following experience: Demonstrated experience in ML frameworks such as PyTorch or JAX through professional experience, personal projects, or personal Substack blogs 1-2 years using GPU or TPU clusters and/or running a multi-tenant GPU cluster Past experience working at a hyperscaler or a GPU cloud (preferred) Solid understanding of SLURM, Kubernetes, NCCL & GPU Cloud industry Strong research skills and the ability to synthesize information from various sources to draw insights Compensation is competitive & as part of the interview process, you'll complete a paid coding challenge designed to reflect typical daily tasks at SemiAnalysis Apply Here Colossus 2: from zero to 200MW in six months The Colossus 2 project was kicked off on March 7 th , 2025, when xAI acquired a 1m sqft warehouse in Memphis, and two adjacent sites totaling 100 acres. By August 22 nd , 2025, we count 119 air-cooled chillers on site, i.e. roughly 200MW of cooling capacity . That's enough to power roughly 110k GB200 NVL72. And an Elon tweet shows some racks were already installed in July. xAI built in six months what took 15 months for Oracle, Crusoe and OpenAI! Source: SemiAnalysis Datacenter Industry Model Looking closer at the picture above, readers familiar with our Datacenter Anatomy series might wonder where the power infrastructure is. The picture doesn’t show any onsite substation, nor does it show onsite turbines… How is the datacenter powered? Colossus 2: in Tennessee, Mississippi… or both? Things get more confusing once factoring-in a Greater Memphis Chamber statement in May that no turbines would be sited in Memphis . They’re not lying. Memphis and Tennessee have been getting a lot of pushback, so xAI’s genius move was to develop a Gigawatt-scale energy hub right across the border in Southaven, Mississippi . In mid-2025, the company acquired a former Duke Energy power plant in Southaven. Shortly after, Mississippi regulators granted xAI temporary approval to run gas turbines there for up to 12 months without a permit! Source: SemiAnalysis Datacenter Industry Model To transport and manage power generated by the Mississippi power plant, xAI is building infrastructure near Colossus 2. We show below the first deployment of Tesla Megapacks, as well as the Medium Voltage power lines connecting the two sites. Source: SemiAnalysis Datacenter Industry Model From 200MW to 1.1GW and Solaris Energy Infrastructure partnership In Southaven, MS, xAI is moving at the pace of light. The discontinued power plant now sees seven 35MW turbines in operations. Source: SemiAnalysis Datacenter Industry Model To deploy faster than peers, xAI relies on rental turbine companies. NYSE-listed Solaris Energy Infrastructure owns a fleet of 600MW of gas turbines, of which ~400MW currently serve xAI. Musk's firm weighs 67% of SEI's 1700MW orderbook, i.e. 1,140MW. There are ~240MW on the Memphis Colossus 1 site, while the remaining 900MW will be owned by a Joint Venture owned at 50.1% by Solaris and 49.9% by xAI. Source: Solaris Energy Infrastructure As shown below, ~460MW are currently installed and in operations/under construction. Source: SemiAnalysis Datacenter Industry Model The newly formed JV already spent $112 million in capital expenditures in Q2 2025. After a slow Q3, spending will pick up again in Q4 2025 and Q1 2026. Solaris expects to have over 1.1GW of fully operating turbines for xAI by Q2 2027. There remains ~425MW available for contracting, and we think xAI will likely pull the trigger to get to over 1.5GW of total gross power. Solaris also appears to temporarily lease power generation capacity from third parties to deliver faster: During the second quarter, the Power Solutions segment generated revenue from approximately 600 megawatts of capacity, an increase of greater than 50% from the prior quarter. This increase was driven by increased demand from our customers, which we are meeting using a combination of new equipment deliveries as well as selective short-term sourcing of third-party power generation capacity . Solaris Energy Infrastructure, Q2 2025 Source: Solaris Energy Infrastructure As such, xAI has figured out how to scale to >1GW from a power perspective. In terms of datacenter space, we see four options: Given a 40ft height, xAI could turn their 1mm sqft warehouse into a two-story datacenter, doubling the space. Given ultra-high density, 2mm sqft could be enough for >1GW. xAI could build a second, smaller facility in parcel 3 They could acquire more land, possibly in Mississippi near the Southaven plant. Using non-standard layout of the datacenter, they could achieve >1GW as is. Parcels of land owned by xAI at the Colossus 2 site Can xAI afford Colossus 2? Further expansion will require ample funding. Required CapEx for Colossus 2 will be in the tens of billions of dollars, and xAI is yet to generate any meaningful external revenue, with the preponderance of the rumored 9 digit revenue ARR being inter-company transfers from X.com to xAI. We’ve forecasted xAI’s CapEx on Core Research, our institutional research service and are now closely tracking the ROIC of AI investments across the hyperscalers and AI labs in our new Tokenomics model . Source: SemiAnalysis Tokenomics Model Estimates Middle East –",
-        "summaryEn": "xAI's Colossus 2 - First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise On Site Turbines, Mississippi Expansion, Solaris Energy, Can xAI afford it?, Middle East Funding, Tesla, Talent Exodus, API revenue, Consumer Growth, RL Environment Jeremie Eliahou Ontiveros , Dylan Patel , Wei Zhou , and 2 others Sep 16, 2025 ∙ Paid 45 5 Share Much has been written about xAI’s Colossus 1. The Memphis buil",
+        "fullText": "xAI's Colossus 2 - First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise On Site Turbines, Mississippi Expansion, Solaris Energy, Can xAI afford it?, Middle East Funding, Tesla, Talent Exodus, API revenue, Consumer Growth, RL Environment Jeremie Eliahou Ontiveros , Dylan Patel , Wei Zhou , and 2 others Sep 16, 2025 ∙ Paid 45 5 Much has been written about xAI’s Colossus 1. The Memphis build belongs in the history books: the largest AI training cluster, erected from scratch in 122 days. With roughly 200,000 H100/H200s and ~30,000 GB200 NVL72, it remains, today, the largest fully operational, single-coherent cluster (setting apart Google, master of multi-datacenter-training ). However, Colossus 1’s ~300 MW looks modest next to the Gigawatt-scale clusters under construction by OpenAI , Meta and Anthropic . Their hyperscaler partners are happy to leverage their balance sheet and win the market by throwing dollars at it. Was xAI’s prowess a one-time wonder? Today we will publicize some data from our industry leading datacenter model over the last year that is accessible to clients. This is the our same proprietary data that called the Oracle deals many months ahead of the announcement. Source: SemiAnalysis Datacenter Industry Model - note: there is a lag between Datacenter operational and GPUs operational - Google and exact figures available in model Short answer: no . xAI is still squarely in the frontier-AI race and is positioned to leapfrog most rivals again on compute. By our estimates, its total datacenter capacity for a single training cluster will surpass Meta Superintelligence and Anthropic by Q3 2025. The datacenter capacity will be ready for the GPUs to be moved in to create the largest single datacenter in the world, yet again. xAI has to raise the capital for those GPUs, but they have the allocations from Nvidia to have it fully training large scale models early next year. Elon came up with a new genius trick to beat rivals at time-to-market. Colossus 2 will be an even more impressive achievement than xAI’s first cluster. Let’s dig in. The first half of this report will dig into the Colossus 2 prowess. The second half will discuss Grok models, our mid-to-long term thoughts on xAI, and the unique RL method xAI is using that may lead them to leapfrog OpenAI, Anthropic, and Google. SemiAnalysis Is Hiring We are seeking a highly motivated & skilled Member of Technical Staff to join our growing special projects engineering team. You will play a crucial role in developing industry leading gpu cloud benchmarks & evaluation framework. Our gpu cloud evaluation frameworks is endorsed by many tier 1 & 2 frontier labs. You may be a good fit if you have the following experience: Demonstrated experience in ML frameworks such as PyTorch or JAX through professional experience, personal projects, or personal Substack blogs 1-2 years using GPU or TPU clusters and/or running a multi-tenant GPU cluster Past experience working at a hyperscaler or a GPU cloud (preferred) Solid understanding of SLURM, Kubernetes, NCCL & GPU Cloud industry Strong research skills and the ability to synthesize information from various sources to draw insights Compensation is competitive & as part of the interview process, you'll complete a paid coding challenge designed to reflect typical daily tasks at SemiAnalysis Apply Here Colossus 2: from zero to 200MW in six months The Colossus 2 project was kicked off on March 7 th , 2025, when xAI acquired a 1m sqft warehouse in Memphis, and two adjacent sites totaling 100 acres. By August 22 nd , 2025, we count 119 air-cooled chillers on site, i.e. roughly 200MW of cooling capacity . That's enough to power roughly 110k GB200 NVL72. And an Elon tweet shows some racks were already installed in July. xAI built in six months what took 15 months for Oracle, Crusoe and OpenAI! Source: SemiAnalysis Datacenter Industry Model Looking closer at the picture above, readers familiar with our Datacenter Anatomy series might wonder where the power infrastructure is. The picture doesn’t show any onsite substation, nor does it show onsite turbines… How is the datacenter powered? Colossus 2: in Tennessee, Mississippi… or both? Things get more confusing once factoring-in a Greater Memphis Chamber statement in May that no turbines would be sited in Memphis . They’re not lying. Memphis and Tennessee have been getting a lot of pushback, so xAI’s genius move was to develop a Gigawatt-scale energy hub right across the border in Southaven, Mississippi . In mid-2025, the company acquired a former Duke Energy power plant in Southaven. Shortly after, Mississippi regulators granted xAI temporary approval to run gas turbines there for up to 12 months without a permit! Source: SemiAnalysis Datacenter Industry Model To transport and manage power generated by the Mississippi power plant, xAI is building infrastructure near Colossus 2. We show below the first deployment of Tesla Megapacks, as well as the Medium Voltage power lines connecting the two sites. Source: SemiAnalysis Datacenter Industry Model From 200MW to 1.1GW and Solaris Energy Infrastructure partnership In Southaven, MS, xAI is moving at the pace of light. The discontinued power plant now sees seven 35MW turbines in operations. Source: SemiAnalysis Datacenter Industry Model To deploy faster than peers, xAI relies on rental turbine companies. NYSE-listed Solaris Energy Infrastructure owns a fleet of 600MW of gas turbines, of which ~400MW currently serve xAI. Musk's firm weighs 67% of SEI's 1700MW orderbook, i.e. 1,140MW. There are ~240MW on the Memphis Colossus 1 site, while the remaining 900MW will be owned by a Joint Venture owned at 50.1% by Solaris and 49.9% by xAI. Source: Solaris Energy Infrastructure As shown below, ~460MW are currently installed and in operations/under construction. Source: SemiAnalysis Datacenter Industry Model The newly formed JV already spent $112 million in capital expenditures in Q2 2025. After a slow Q3, spending will pick up again in Q4 2025 and Q1 2026. Solaris expects to have over 1.1GW of fully operating turbines for xAI by Q2 2027. There remains ~425MW available for contracting, and we think xAI will likely pull the trigger to get to over 1.5GW of total gross power. Solaris also appears to temporarily lease power generation capacity from third parties to deliver faster: During the second quarter, the Power Solutions segment generated revenue from approximately 600 megawatts of capacity, an increase of greater than 50% from the prior quarter. This increase was driven by increased demand from our customers, which we are meeting using a combination of new equipment deliveries as well as selective short-term sourcing of third-party power generation capacity . Solaris Energy Infrastructure, Q2 2025 Source: Solaris Energy Infrastructure As such, xAI has figured out how to scale to >1GW from a power perspective. In of datacenter space, we see four options: Given a 40ft height, xAI ",
         "insightKo": {
           "track": "업무자동화",
-          "fact": "무슨 일? xAI's Colossus 2 - First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise On Site Turbines, Mississippi Expansion, Solaris Energy, Can xAI afford it?, Middle East Funding, Tesla,",
-          "why": "왜 중요? The Memphis build belongs in the history books: the largest AI training cluster, erected from scratch in 122 days.",
-          "action": "실행 포인트: 이 이슈를 내 자동화 파이프라인(수집→요약→발행) 중 1단계 개선안으로 연결해 이번 주 테스트한다."
+          "fact": "무슨 일? xAI&#8217;s Colossus 2 &#8211; First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise.",
+          "why": "왜 중요? xAI's Colossus 2 - First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise On Site Turbines, Mississippi Expansion, Solaris Energy, Can xAI afford it?, Middle East Fundi",
+          "action": "실행 포인트: 자동화 파이프라인에서 1개 병목(수집/정제/요약/발행)을 지정해 이번 주 개선 실험을 진행한다.",
+          "score": 80
         }
       }
     }

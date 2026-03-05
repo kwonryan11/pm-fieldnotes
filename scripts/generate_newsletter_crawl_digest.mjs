@@ -15,6 +15,14 @@ const all = [...(data.core || []), ...(data.extended || [])];
 const byName = new Map(all.map(v => [v.name, v]));
 const picks = ((data.categoryDefaults || {})[category] || []).map(n => byName.get(n)).filter(Boolean);
 
+const BAD_PATTERNS = [
+  /sponsor|sponsored|advertise|promotion/gi,
+  /subscribe|sign in|sign up|start publishing/gi,
+  /just a moment|attention required|cloudflare|captcha/gi,
+  /privacy|terms|cookie|all rights reserved/gi,
+  /open main menu|newsletter(s)?\b/gi
+];
+
 function decodeHtml(s = '') {
   return s
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
@@ -30,59 +38,53 @@ function stripTags(s = '') {
   return decodeHtml(s)
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<noscript[\s\S]*?<\/noscript>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-function takeSentences(text = '', n = 2) {
-  const clean = text.replace(/\s+/g, ' ').trim();
-  const parts = clean.split(/(?<=[.!?。！？])\s+/).filter(Boolean);
-  return parts.slice(0, n).join(' ').slice(0, 420);
+function cleanText(text = '') {
+  let out = stripTags(text)
+    .replace(/Article URL:[^\n]+/gi, ' ')
+    .replace(/Comments URL:[^\n]+/gi, ' ')
+    .replace(/Points:\s*\d+/gi, ' ')
+    .replace(/#\s*Comments:\s*\d+/gi, ' ')
+    .replace(/Hey I.?m [^.?!]+[.?!]/gi, ' ')
+    .replace(/Share\b/gi, ' ');
+  for (const p of BAD_PATTERNS) out = out.replace(p, ' ');
+  return out.replace(/\s+/g, ' ').trim();
 }
 
-function cleanBoilerplate(text = '') {
-  return text
-    .replace(/\b(Subscribe|Sign in|Sign up|Advertise|Privacy|Careers|Open main menu)\b/gi, ' ')
-    .replace(/\b(Sponsor|Sponsored|Newsletters?)\b/gi, ' ')
-    .replace(/\b(Just a moment|Attention Required|Cloudflare|captcha)\b/gi, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+function splitSentences(text = '') {
+  return text.split(/(?<=[.!?。！？])\s+/).map(s => s.trim()).filter(Boolean);
 }
 
-function isLowValue(text = '') {
-  return /sponsor|sponsored|subscribe|sign in|sign up|privacy|careers|advertise|just a moment|attention required|cloudflare|read the full issue in the archive/i.test(text);
+function isLowValueSentence(s = '') {
+  if (!s || s.length < 45) return true;
+  if (/building something that needs|special offer|free searches|claim \d+ months|sponsor/i.test(s)) return true;
+  return BAD_PATTERNS.some(p => p.test(s));
 }
 
-function makeKoreanInsight(title = '', text = '') {
-  const t = cleanBoilerplate(title).slice(0, 120);
-  const clean = cleanBoilerplate(text);
-  if (!clean || clean.length < 120 || isLowValue(`${t} ${clean}`)) return null;
+function qualityScore(summary = '', action = '', raw = '') {
+  let score = 100;
+  if (summary.length < 80) score -= 30;
+  if (action.length < 20) score -= 20;
+  if (BAD_PATTERNS.some(p => p.test(`${summary} ${raw}`))) score -= 35;
+  if (!/[가-힣]/.test(summary)) score -= 15;
+  return Math.max(0, Math.min(100, score));
+}
 
-  const sents = clean.split(/(?<=[.!?。！？])\s+/).filter(Boolean);
-  const marketing = /\boffer|free searches|claim|start with|join\b|building something that needs|subscribe/i;
-  const usable = sents.filter(s => s.length > 40 && !isLowValue(s) && !marketing.test(s));
-  if (!usable.length) return null;
+function classifyTrack(text = '') {
+  if (/ai|model|llm|agent|anthropic|openai|claude|gpt|gemini|gpu|semiconductor|automation/i.test(text)) return '업무자동화';
+  if (/market|stock|revenue|funding|ipo|vc|invest|price|earnings|guidance|valuation|금리|환율|실적|가이던스/i.test(text)) return '투자판단';
+  return '콘텐츠소재';
+}
 
-  const fact = (usable[0] || clean).slice(0, 200);
-  const why = (usable[1] || usable[0] || clean).slice(0, 200);
-
-  const hasAi = /ai|model|llm|agent|anthropic|openai|claude|gpt|gemini|inference|gpu|semiconductor/i.test(`${t} ${clean}`);
-  const hasMarket = /market|stock|revenue|funding|ipo|vc|invest|price|earnings|guidance|valuation|금리|환율|실적|가이던스/i.test(`${t} ${clean}`);
-
-  const track = hasAi ? '업무자동화' : hasMarket ? '투자판단' : '콘텐츠소재';
-  const action = hasAi
-    ? '실행 포인트: 이 이슈를 내 자동화 파이프라인(수집→요약→발행) 중 1단계 개선안으로 연결해 이번 주 테스트한다.'
-    : hasMarket
-      ? '실행 포인트: 내 보유/관심 자산 1개를 정해 수요·실적·밸류에이션 가설을 업데이트한다.'
-      : '실행 포인트: 블로그용으로 "배경-변화-영향" 3문장 구조의 짧은 분석 포스트를 발행한다.';
-
-  return {
-    track,
-    fact: `무슨 일? ${fact}`,
-    why: `왜 중요? ${why}`,
-    action
-  };
+function buildAction(track) {
+  if (track === '업무자동화') return '실행 포인트: 자동화 파이프라인에서 1개 병목(수집/정제/요약/발행)을 지정해 이번 주 개선 실험을 진행한다.';
+  if (track === '투자판단') return '실행 포인트: 관련 자산 1개를 골라 실적·가이던스·밸류에이션 가설을 다시 적고 매매 기준을 업데이트한다.';
+  return '실행 포인트: 블로그에 배경-변화-영향 3문장 구조로 짧은 분석 글을 발행한다.';
 }
 
 function pickMainHtml(html = '') {
@@ -99,7 +101,7 @@ function parseRss(xml) {
     const link = (raw.match(/<link[^>]*>([\s\S]*?)<\/link>/i)?.[1] || '').trim();
     const pubDate = (raw.match(/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i)?.[1] || '').trim();
     const desc = (raw.match(/<description[^>]*>([\s\S]*?)<\/description>/i)?.[1] || '').trim();
-    if (title && link) items.push({ title: stripTags(title), link: decodeHtml(link), pubDate, description: stripTags(desc) });
+    if (title && link) items.push({ title: cleanText(title), link: decodeHtml(link), pubDate, description: cleanText(desc) });
   }
 
   const atomItems = xml.match(/<entry[\s\S]*?<\/entry>/gi) || [];
@@ -108,10 +110,34 @@ function parseRss(xml) {
     const link = (raw.match(/<link[^>]*href=["']([^"']+)["'][^>]*>/i)?.[1] || '').trim();
     const pubDate = (raw.match(/<published[^>]*>([\s\S]*?)<\/published>/i)?.[1] || raw.match(/<updated[^>]*>([\s\S]*?)<\/updated>/i)?.[1] || '').trim();
     const desc = (raw.match(/<summary[^>]*>([\s\S]*?)<\/summary>/i)?.[1] || raw.match(/<content[^>]*>([\s\S]*?)<\/content>/i)?.[1] || '').trim();
-    if (title && link) items.push({ title: stripTags(title), link: decodeHtml(link), pubDate, description: stripTags(desc) });
+    if (title && link) items.push({ title: cleanText(title), link: decodeHtml(link), pubDate, description: cleanText(desc) });
   }
 
   return items;
+}
+
+function extractLinksFromHome(html = '', baseUrl = '') {
+  const links = [];
+  const re = /<a[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const href = m[1];
+    const text = cleanText(m[2]);
+    if (!href || !text) continue;
+    if (/^mailto:|^javascript:/i.test(href)) continue;
+    try {
+      const url = new URL(href, baseUrl).toString();
+      if (/\/tag\/|\/category\/|\/about|\/contact|\/privacy|\/terms/i.test(url)) continue;
+      links.push({ title: text.slice(0, 140), link: url, pubDate: '', description: '' });
+    } catch {}
+  }
+  // de-dupe
+  const seen = new Set();
+  return links.filter(x => {
+    if (seen.has(x.link)) return false;
+    seen.add(x.link);
+    return true;
+  }).slice(0, 20);
 }
 
 async function fetchText(url) {
@@ -124,48 +150,99 @@ async function fetchText(url) {
   return r.text();
 }
 
+function selectCoreSentences(text = '') {
+  const all = splitSentences(text).filter(s => !isLowValueSentence(s));
+  const signal = /(launch|release|raise|raised|acquire|deal|partnership|growth|decline|increase|decrease|risk|impact|strategy|announced|reported|도입|출시|인상|하락|상승|투자|실적|리스크|발표)/i;
+  const picked = all.filter(s => signal.test(s));
+  return (picked.length ? picked : all).slice(0, 6);
+}
+
+function buildInsight(item, articleText) {
+  const base = cleanText(`${item.title}. ${item.description}. ${articleText}`);
+  const core = selectCoreSentences(base);
+  if (!core.length) return null;
+
+  const fact = core[0]?.slice(0, 190) || '';
+  const why = (core[1] || core[0] || '').slice(0, 190);
+  if (!fact || /^(models on the march|show hn|issue \d+)/i.test(fact)) return null;
+
+  const track = classifyTrack(`${item.title} ${base}`);
+  const action = buildAction(track);
+
+  const summaryKo = `무슨 일? ${fact} 왜 중요? ${why}`;
+  const score = qualityScore(summaryKo, action, base)
+    - (/\b(api|model|gpt|anthropic|openai|revenue|investment|funding|market|stock|실적|투자)\b/i.test(`${fact} ${why}`) ? 0 : 20);
+
+  if (score < 70) return null;
+
+  return {
+    track,
+    fact: `무슨 일? ${fact}`,
+    why: `왜 중요? ${why}`,
+    action,
+    score
+  };
+}
+
 const crawled = [];
 for (const src of picks) {
-  if (!src?.rss) continue;
   try {
-    // eslint-disable-next-line no-await-in-loop
-    const xml = await fetchText(src.rss);
-    const items = parseRss(xml).slice(0, 3);
+    let items = [];
+    if (src?.rss) {
+      // eslint-disable-next-line no-await-in-loop
+      const xml = await fetchText(src.rss);
+      items = parseRss(xml).slice(0, 6);
+    }
+
+    if (!items.length) {
+      // eslint-disable-next-line no-await-in-loop
+      const home = await fetchText(src.url);
+      items = extractLinksFromHome(home, src.url).slice(0, 6);
+    }
+
     if (!items.length) continue;
 
-    let articleText = '';
-    if (/hacker newsletter/i.test(src.name)) {
-      articleText = cleanBoilerplate(`${items[0].title}. ${items[0].description || ''}`)
-        .replace(/Article URL:[^#]+/gi, ' ')
-        .replace(/Comments URL:[^#]+/gi, ' ')
-        .replace(/Points:\s*\d+/gi, ' ')
-        .replace(/# Comments:\s*\d+/gi, ' ')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .slice(0, 4000);
-    } else {
-      // eslint-disable-next-line no-await-in-loop
-      const articleHtml = await fetchText(items[0].link);
-      const articleMain = pickMainHtml(articleHtml);
-      articleText = cleanBoilerplate(stripTags(articleMain)).slice(0, 8000);
+    let chosen = null;
+    for (const item of items) {
+      let articleText = '';
+      try {
+        if (/hacker newsletter/i.test(src.name)) {
+          articleText = cleanText(`${item.title}. ${item.description || ''}`).slice(0, 5000);
+        } else {
+          // eslint-disable-next-line no-await-in-loop
+          const html = await fetchText(item.link);
+          let cleaned = cleanText(pickMainHtml(html));
+          const tldrStart = cleaned.search(/(Big Tech|Startups|Science|Programming|Data Science|Quick Links)/i);
+          if (tldrStart > 0 && /tldr/i.test(src.name)) cleaned = cleaned.slice(tldrStart);
+          articleText = cleaned.slice(0, 7000);
+        }
+      } catch {
+        continue;
+      }
+
+      const insight = buildInsight(item, articleText);
+      if (!insight) continue;
+      chosen = { item, articleText, insight };
+      break; // quality-gated first good candidate
     }
 
     crawled.push({
       source: src.name,
-      rss: src.rss,
+      rss: src.rss || null,
       pickedAt: new Date().toISOString(),
-      items,
-      article: {
-        title: items[0].title,
-        link: items[0].link,
-        pubDate: items[0].pubDate,
-        fullText: articleText,
-        summaryEn: takeSentences((articleText.length > 220 ? articleText : `${items[0].description}. ${articleText}`).trim() || items[0].title, 2),
-        insightKo: makeKoreanInsight(items[0].title, (articleText.length > 220 ? articleText : `${items[0].description}. ${articleText}`).trim())
-      }
+      items: items.slice(0, 3),
+      chosen: chosen
+        ? {
+            title: chosen.item.title,
+            link: chosen.item.link,
+            pubDate: chosen.item.pubDate,
+            fullText: chosen.articleText,
+            insightKo: chosen.insight
+          }
+        : null
     });
   } catch {
-    // skip source on failure
+    // skip
   }
 }
 
@@ -178,13 +255,13 @@ if (!crawled.length) {
 
 const listItems = [];
 const summaryItems = [];
-for (const s of crawled.slice(0, 8)) {
+for (const s of crawled) {
   for (const item of s.items.slice(0, 3)) {
     listItems.push(`      <li>[${s.source}] <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>${item.pubDate ? ` <span class="muted">(${item.pubDate})</span>` : ''}</li>`);
   }
-  const i = s.article.insightKo;
+  const i = s.chosen?.insightKo;
   if (!i) continue;
-  summaryItems.push(`      <li><strong>${s.source}</strong> <span class="muted">(${i.track})</span><ul><li>${i.fact}</li><li>${i.why}</li><li>${i.action}</li></ul></li>`);
+  summaryItems.push(`      <li><strong>${s.source}</strong> <span class="muted">(${i.track}, 점수 ${i.score})</span><ul><li>${i.fact}</li><li>${i.why}</li><li>${i.action}</li></ul></li>`);
   if (summaryItems.length >= 3) break;
 }
 
@@ -194,11 +271,11 @@ const summaryBlock = summaryItems.length
 
 process.stdout.write(`
   <h2>실제 뉴스 크롤링 리스트</h2>
-  <p class="muted">아래 링크들은 발행 시점에 RSS/원문 페이지에서 직접 수집한 최신 기사입니다.</p>
+  <p class="muted">RSS + 원문 페이지 링크 진입으로 수집했습니다.</p>
   <ul>
 ${listItems.join('\n')}
   </ul>
 
   <h2>인사이트 브리핑 (의사결정용)</h2>
-  <p class="muted">제목 나열 대신, 네 의사결정(업무자동화/투자판단/콘텐츠소재)에 바로 쓰는 3개만 남겼습니다.</p>
+  <p class="muted">생성→검증 루프를 통과한 상위 3개만 제공합니다.</p>
   ${summaryBlock}`);

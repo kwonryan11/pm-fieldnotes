@@ -1,12 +1,12 @@
 {
   "updatedAt": "2026-03-05T05:12:00Z",
   "core": [
-    {"name":"TLDR","url":"https://tldr.tech/","category":["newsletter","ai"]},
-    {"name":"Hacker Newsletter","url":"https://hackernewsletter.com/","category":["newsletter","ai","work"]},
-    {"name":"Ben's Bites","url":"https://www.bensbites.com/","category":["newsletter","ai"]},
+    {"name":"TLDR","url":"https://tldr.tech/","rss":"https://tldr.tech/rss","category":["newsletter","ai"]},
+    {"name":"Hacker Newsletter","url":"https://hackernewsletter.com/","rss":"https://hnrss.org/frontpage","category":["newsletter","ai","work"]},
+    {"name":"Ben's Bites","url":"https://www.bensbites.com/","rss":"https://www.bensbites.com/feed","category":["newsletter","ai"]},
     {"name":"The Pragmatic Engineer","url":"https://newsletter.pragmaticengineer.com/","category":["newsletter","ai","work"]},
-    {"name":"Dense Discovery","url":"https://www.densediscovery.com/","category":["newsletter","work","ai"]},
-    {"name":"SemiAnalysis","url":"https://www.semianalysis.com/","category":["newsletter","ai","stocks"]},
+    {"name":"Dense Discovery","url":"https://www.densediscovery.com/","rss":"https://www.densediscovery.com/feed","category":["newsletter","work","ai"]},
+    {"name":"SemiAnalysis","url":"https://www.semianalysis.com/","rss":"https://www.semianalysis.com/feed","category":["newsletter","ai","stocks"]},
     {"name":"ByteByteGo Newsletter","url":"https://blog.bytebytego.com/","category":["newsletter","ai","work"]},
     {"name":"Import AI","url":"https://importai.substack.com/","category":["newsletter","ai"]},
     {"name":"Finimize","url":"https://www.finimize.com/","category":["newsletter","stocks"]},

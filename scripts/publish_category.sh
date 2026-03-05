@@ -18,7 +18,10 @@ DT_UTC="$(date -u +%FT%TZ)"
 source_html=""
 if [[ -f "$SOURCE_FILE" ]]; then
   if [[ "$CATEGORY" == "newsletter" ]]; then
-    source_html="$(node "$ROOT/scripts/generate_newsletter_digest.mjs" "$SOURCE_FILE" "$CATEGORY" 2>/dev/null || true)"
+    source_html="$(node "$ROOT/scripts/generate_newsletter_crawl_digest.mjs" "$SOURCE_FILE" "$CATEGORY" "$ROOT/data/newsletter-crawl-latest.json" 2>/dev/null || true)"
+    if [[ -z "$source_html" ]]; then
+      source_html="$(node "$ROOT/scripts/generate_newsletter_digest.mjs" "$SOURCE_FILE" "$CATEGORY" 2>/dev/null || true)"
+    fi
   else
     source_html="$(node -e '
 const fs=require("fs");

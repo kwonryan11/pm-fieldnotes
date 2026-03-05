@@ -11,8 +11,25 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 LOCK_FILE="$ROOT/.locks/${CATEGORY}.lock"
 LOG_FILE="$ROOT/logs/publish.log"
 META_FILE="$ROOT/data/posts.jsonl"
+SOURCE_FILE="$ROOT/data/newsletters.json"
 DATE_UTC="$(date -u +%F)"
 DT_UTC="$(date -u +%FT%TZ)"
+
+source_html=""
+if [[ -f "$SOURCE_FILE" ]]; then
+  source_html="$(node -e '
+const fs=require("fs");
+const file=process.argv[1];
+const cat=process.argv[2];
+const data=JSON.parse(fs.readFileSync(file,"utf8"));
+const byName=new Map([...(data.core||[]),...(data.extended||[])].map(x=>[x.name,x]));
+const picks=(data.categoryDefaults&&data.categoryDefaults[cat])||[];
+const lines=picks.slice(0,5).map(name=>{const v=byName.get(name); if(!v) return null; return `      <li><a href="${v.url}" target="_blank" rel="noopener noreferrer">${v.name}</a></li>`;}).filter(Boolean);
+if(lines.length){
+  console.log("\n  <h2>참고한 대표 뉴스레터</h2>\n  <ul>\n"+lines.join("\n")+"\n  </ul>");
+}
+' "$SOURCE_FILE" "$CATEGORY" 2>/dev/null || true)"
+fi
 
 mkdir -p "$ROOT/.locks" "$ROOT/logs" "$ROOT/data" "$ROOT/docs/posts"
 
@@ -135,6 +152,7 @@ cat > "$out" <<HTML
   <ul>${bullets_html}
   </ul>
 ${body_html}
+${source_html}
   <p class="muted">※ 자동 생성 원고입니다. 발행 전후로 수동 보강 가능합니다.</p>
 </body>
 </html>
@@ -146,7 +164,7 @@ printf '{"date":"%s","datetime":"%s","category":"%s","title":%s,"slug":"%s"}\n' 
 "$ROOT/scripts/rebuild_index.sh"
 
 cd "$ROOT"
-git add docs data/posts.jsonl scripts/publish_category.sh
+git add docs data/posts.jsonl data/newsletters.json scripts/publish_category.sh
 if git diff --cached --quiet; then
   echo "[$DT_UTC] SKIP $CATEGORY no-change" | tee -a "$LOG_FILE"
   exit 0

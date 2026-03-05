@@ -1,0 +1,26 @@
+{
+  "updatedAt": "2026-03-05T04:55:00Z",
+  "core": [
+    {"name":"Morning Brew","url":"https://www.morningbrew.com/daily","category":["newsletter","stocks"]},
+    {"name":"The Hustle","url":"https://thehustle.co/","category":["newsletter","ai","work"]},
+    {"name":"CB Insights Newsletter","url":"https://www.cbinsights.com/newsletter","category":["newsletter","ai","stocks"]},
+    {"name":"TLDR","url":"https://tldr.tech/","category":["newsletter","ai"]},
+    {"name":"Foundr","url":"https://foundr.com/","category":["newsletter","work"]},
+    {"name":"Stratechery","url":"https://stratechery.com/","category":["newsletter","ai","stocks"]},
+    {"name":"AVC","url":"https://avc.com/","category":["newsletter","stocks"]},
+    {"name":"The Information Newsletters","url":"https://www.theinformation.com/newsletters","category":["newsletter","ai","stocks"]},
+    {"name":"Modern CTO Weekly","url":"https://moderncto.io/","category":["newsletter","ai","work"]},
+    {"name":"James Clear 3-2-1","url":"https://jamesclear.com/3-2-1","category":["newsletter","work"]}
+  ],
+  "extended": [
+    {"name":"Money Stuff","url":"https://www.bloomberg.com/account/newsletters/money-stuff","category":["stocks"]},
+    {"name":"Startup Digest","url":"https://www.startupdigest.com/","category":["newsletter","ai","work"]},
+    {"name":"SBA Newsletter","url":"https://www.sba.gov/about-sba/sba-newsroom/subscribe","category":["work"]}
+  ],
+  "categoryDefaults": {
+    "newsletter": ["Morning Brew","The Hustle","CB Insights Newsletter","TLDR","The Information Newsletters"],
+    "stocks": ["Morning Brew","CB Insights Newsletter","Stratechery","AVC","Money Stuff"],
+    "ai": ["TLDR","CB Insights Newsletter","The Information Newsletters","Stratechery","Modern CTO Weekly"],
+    "work": ["Foundr","James Clear 3-2-1","The Hustle","Modern CTO Weekly","Startup Digest"]
+  }
+}

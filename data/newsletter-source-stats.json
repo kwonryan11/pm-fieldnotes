@@ -1,0 +1,37 @@
+{
+  "https://tldr.tech": {
+    "ok": 1,
+    "fail": 0,
+    "lastStatus": "ok",
+    "lastTitle": "TLDR - A Byte Sized Daily Tech Newsletter",
+    "lastCheckedAt": "2026-03-05T05:09:51.065Z"
+  },
+  "https://hackernewsletter.com": {
+    "ok": 1,
+    "fail": 0,
+    "lastStatus": "ok",
+    "lastTitle": "Hacker Newsletter",
+    "lastCheckedAt": "2026-03-05T05:09:52.025Z"
+  },
+  "https://www.bensbites.com": {
+    "ok": 1,
+    "fail": 0,
+    "lastStatus": "ok",
+    "lastTitle": "Ben&#x27;s Bites | Substack",
+    "lastCheckedAt": "2026-03-05T05:09:52.837Z"
+  },
+  "https://www.densediscovery.com": {
+    "ok": 1,
+    "fail": 0,
+    "lastStatus": "ok",
+    "lastTitle": "Dense Discovery – One email worth opening, every week",
+    "lastCheckedAt": "2026-03-05T05:09:52.890Z"
+  },
+  "https://www.semianalysis.com": {
+    "ok": 1,
+    "fail": 0,
+    "lastStatus": "ok",
+    "lastTitle": "SemiAnalysis &#8211; Bridging the gap between the world&#039;s most important industry, semiconducto",
+    "lastCheckedAt": "2026-03-05T05:09:53.366Z"
+  }
+}

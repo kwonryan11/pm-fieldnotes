@@ -50,23 +50,35 @@ function cleanBoilerplate(text = '') {
     .trim();
 }
 
+function isLowValue(text = '') {
+  return /sponsor|sponsored|subscribe|sign in|sign up|privacy|careers|advertise|just a moment|attention required|cloudflare|read the full issue in the archive/i.test(text);
+}
+
 function makeKoreanInsight(title = '', text = '') {
-  const t = cleanBoilerplate(title).slice(0, 100);
+  const t = cleanBoilerplate(title).slice(0, 120);
   const clean = cleanBoilerplate(text);
+  if (!clean || clean.length < 120 || isLowValue(`${t} ${clean}`)) return null;
+
   const sents = clean.split(/(?<=[.!?。！？])\s+/).filter(Boolean);
-  const fact = (sents[0] || clean).slice(0, 220);
-  const why = (sents[1] || sents[0] || clean).slice(0, 220);
+  const marketing = /\boffer|free searches|claim|start with|join\b|building something that needs|subscribe/i;
+  const usable = sents.filter(s => s.length > 40 && !isLowValue(s) && !marketing.test(s));
+  if (!usable.length) return null;
 
-  const hasAi = /ai|model|llm|agent|anthropic|openai|claude|gpt|gemini/i.test(`${t} ${clean}`);
-  const hasMarket = /market|stock|revenue|funding|ipo|vc|invest|price|금리|환율/i.test(`${t} ${clean}`);
+  const fact = (usable[0] || clean).slice(0, 200);
+  const why = (usable[1] || usable[0] || clean).slice(0, 200);
 
+  const hasAi = /ai|model|llm|agent|anthropic|openai|claude|gpt|gemini|inference|gpu|semiconductor/i.test(`${t} ${clean}`);
+  const hasMarket = /market|stock|revenue|funding|ipo|vc|invest|price|earnings|guidance|valuation|금리|환율|실적|가이던스/i.test(`${t} ${clean}`);
+
+  const track = hasAi ? '업무자동화' : hasMarket ? '투자판단' : '콘텐츠소재';
   const action = hasAi
-    ? '실행 포인트: 내 업무에서 자동화 가능한 1개 작업을 고르고, 이번 주 안에 테스트해보세요.'
+    ? '실행 포인트: 이 이슈를 내 자동화 파이프라인(수집→요약→발행) 중 1단계 개선안으로 연결해 이번 주 테스트한다.'
     : hasMarket
-      ? '실행 포인트: 관련 지표(수요·실적·가이던스)를 확인해 기존 가설을 업데이트하세요.'
-      : '실행 포인트: 이번 주 의사결정에 연결되는 항목 1개만 뽑아 실제 행동으로 옮기세요.';
+      ? '실행 포인트: 내 보유/관심 자산 1개를 정해 수요·실적·밸류에이션 가설을 업데이트한다.'
+      : '실행 포인트: 블로그용으로 "배경-변화-영향" 3문장 구조의 짧은 분석 포스트를 발행한다.';
 
   return {
+    track,
     fact: `무슨 일? ${fact}`,
     why: `왜 중요? ${why}`,
     action
@@ -166,17 +178,19 @@ if (!crawled.length) {
 
 const listItems = [];
 const summaryItems = [];
-for (const s of crawled.slice(0, 5)) {
+for (const s of crawled.slice(0, 8)) {
   for (const item of s.items.slice(0, 3)) {
     listItems.push(`      <li>[${s.source}] <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>${item.pubDate ? ` <span class="muted">(${item.pubDate})</span>` : ''}</li>`);
   }
   const i = s.article.insightKo;
-  if (i) {
-    summaryItems.push(`      <li><strong>${s.source}</strong><ul><li>${i.fact}</li><li>${i.why}</li><li>${i.action}</li></ul></li>`);
-  } else {
-    summaryItems.push(`      <li><strong>${s.source}</strong>: 요약 생성 실패</li>`);
-  }
+  if (!i) continue;
+  summaryItems.push(`      <li><strong>${s.source}</strong> <span class="muted">(${i.track})</span><ul><li>${i.fact}</li><li>${i.why}</li><li>${i.action}</li></ul></li>`);
+  if (summaryItems.length >= 3) break;
 }
+
+const summaryBlock = summaryItems.length
+  ? `<ul>\n${summaryItems.join('\n')}\n  </ul>`
+  : '<p class="muted">이번 배치에서는 품질 기준을 통과한 인사이트가 없어 요약을 생략했습니다.</p>';
 
 process.stdout.write(`
   <h2>실제 뉴스 크롤링 리스트</h2>
@@ -186,7 +200,5 @@ ${listItems.join('\n')}
   </ul>
 
   <h2>인사이트 브리핑 (의사결정용)</h2>
-  <p class="muted">제목 요약이 아니라, 실제 행동에 연결되는 포인트 중심으로 정리했습니다.</p>
-  <ul>
-${summaryItems.join('\n')}
-  </ul>`);
+  <p class="muted">제목 나열 대신, 네 의사결정(업무자동화/투자판단/콘텐츠소재)에 바로 쓰는 3개만 남겼습니다.</p>
+  ${summaryBlock}`);

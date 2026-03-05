@@ -41,6 +41,24 @@ function takeSentences(text = '', n = 2) {
   return parts.slice(0, n).join(' ').slice(0, 420);
 }
 
+function cleanBoilerplate(text = '') {
+  return text
+    .replace(/\b(Subscribe|Sign in|Sign up|Advertise|Privacy|Careers|Open main menu)\b/gi, ' ')
+    .replace(/\b(Sponsor|Sponsored|Newsletters?)\b/gi, ' ')
+    .replace(/\b(Just a moment|Attention Required|Cloudflare|captcha)\b/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function makeKoreanSummary(title = '', text = '') {
+  const t = cleanBoilerplate(title).slice(0, 100);
+  const lead = takeSentences(cleanBoilerplate(text), 2).slice(0, 260);
+  if (lead) {
+    return `핵심 이슈는 "${t}"입니다. 원문 요지는 ${lead} 로, 관련 배경과 영향 포인트를 함께 다룹니다.`;
+  }
+  return `핵심 이슈는 "${t}"입니다. 원문에서 해당 주제의 배경과 파급효과를 중심으로 설명합니다.`;
+}
+
 function pickMainHtml(html = '') {
   const article = html.match(/<article[\s\S]*?<\/article>/i)?.[0];
   const main = html.match(/<main[\s\S]*?<\/main>/i)?.[0];
@@ -92,7 +110,7 @@ for (const src of picks) {
     // eslint-disable-next-line no-await-in-loop
     const articleHtml = await fetchText(items[0].link);
     const articleMain = pickMainHtml(articleHtml);
-    const articleText = stripTags(articleMain).slice(0, 8000);
+    const articleText = cleanBoilerplate(stripTags(articleMain)).slice(0, 8000);
 
     crawled.push({
       source: src.name,
@@ -104,7 +122,8 @@ for (const src of picks) {
         link: items[0].link,
         pubDate: items[0].pubDate,
         fullText: articleText,
-        summary: takeSentences((articleText.length > 220 ? articleText : `${items[0].description}. ${articleText}`).trim() || items[0].title, 2)
+        summaryEn: takeSentences((articleText.length > 220 ? articleText : `${items[0].description}. ${articleText}`).trim() || items[0].title, 2),
+        summaryKo: makeKoreanSummary(items[0].title, (articleText.length > 220 ? articleText : `${items[0].description}. ${articleText}`).trim())
       }
     });
   } catch {
@@ -125,7 +144,7 @@ for (const s of crawled.slice(0, 5)) {
   for (const item of s.items.slice(0, 3)) {
     listItems.push(`      <li>[${s.source}] <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>${item.pubDate ? ` <span class="muted">(${item.pubDate})</span>` : ''}</li>`);
   }
-  summaryItems.push(`      <li><strong>${s.source}</strong>: ${s.article.summary || s.article.title}</li>`);
+  summaryItems.push(`      <li><strong>${s.source}</strong>: ${s.article.summaryKo || s.article.title}</li>`);
 }
 
 process.stdout.write(`

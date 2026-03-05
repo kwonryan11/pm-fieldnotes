@@ -1,0 +1,6 @@
+# pm-fieldnotes category-based daily publishing (UTC)
+# m h dom mon dow  command
+0 8 * * * cd /home/node/.openclaw/workspace/pm-fieldnotes && /home/node/.openclaw/workspace/pm-fieldnotes/scripts/publish_category.sh newsletter >> /home/node/.openclaw/workspace/pm-fieldnotes/logs/cron-newsletter.log 2>&1
+30 11 * * * cd /home/node/.openclaw/workspace/pm-fieldnotes && /home/node/.openclaw/workspace/pm-fieldnotes/scripts/publish_category.sh stocks >> /home/node/.openclaw/workspace/pm-fieldnotes/logs/cron-stocks.log 2>&1
+0 16 * * * cd /home/node/.openclaw/workspace/pm-fieldnotes && /home/node/.openclaw/workspace/pm-fieldnotes/scripts/publish_category.sh ai >> /home/node/.openclaw/workspace/pm-fieldnotes/logs/cron-ai.log 2>&1
+30 20 * * * cd /home/node/.openclaw/workspace/pm-fieldnotes && /home/node/.openclaw/workspace/pm-fieldnotes/scripts/publish_category.sh work >> /home/node/.openclaw/workspace/pm-fieldnotes/logs/cron-work.log 2>&1

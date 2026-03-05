@@ -187,6 +187,46 @@ async function fetchWebFallbackItems(query) {
   }
 }
 
+async function fetchGoogleNewsItems(query) {
+  try {
+    const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=ko&gl=KR&ceid=KR:ko`;
+    const xml = await fetchText(rssUrl);
+    return parseRss(xml).slice(0, 8);
+  } catch {
+    return [];
+  }
+}
+
+function extractNaverLinks(html = '') {
+  const out = [];
+  const re = /<a[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const href = decodeHtml(m[1]);
+    const text = cleanText(m[2]);
+    if (!href || !text) continue;
+    if (!/^https?:\/\//i.test(href)) continue;
+    if (/search\.naver\.com|news\.naver\.com\/main\/read\.naver|\/sports\/|\/entertain\//i.test(href) === false && /news|article|press/i.test(href) === false) continue;
+    out.push({ title: text.slice(0, 140), link: href, pubDate: '', description: '' });
+  }
+  const seen = new Set();
+  return out.filter(v => {
+    if (seen.has(v.link)) return false;
+    seen.add(v.link);
+    return true;
+  }).slice(0, 8);
+}
+
+async function fetchNaverNewsItems(query) {
+  try {
+    const url = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(query)}`;
+    const html = await fetchText(url);
+    return extractNaverLinks(html);
+  } catch {
+    return [];
+  }
+}
+
 function selectCoreSentences(text = '') {
   const all = splitSentences(text).filter(s => !isLowValueSentence(s));
   const signal = /(launch|release|raise|raised|acquire|deal|partnership|growth|decline|increase|decrease|risk|impact|strategy|announced|reported|도입|출시|인상|하락|상승|투자|실적|리스크|발표)/i;
@@ -238,7 +278,19 @@ for (const src of picks) {
     }
 
     if (!items.length) {
-      // web search fallback (no API key)
+      // Google News RSS fallback
+      // eslint-disable-next-line no-await-in-loop
+      items = await fetchGoogleNewsItems(`${src.name} ${category}`).then(v => v.slice(0, 6));
+    }
+
+    if (!items.length) {
+      // Naver news search fallback
+      // eslint-disable-next-line no-await-in-loop
+      items = await fetchNaverNewsItems(`${src.name} ${category}`).then(v => v.slice(0, 6));
+    }
+
+    if (!items.length) {
+      // generic web search fallback (no API key)
       // eslint-disable-next-line no-await-in-loop
       items = await fetchWebFallbackItems(`${src.name} latest newsletter ${category}`).then(v => v.slice(0, 6));
     }

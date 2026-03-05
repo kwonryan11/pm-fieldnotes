@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-05T11:08:52.621Z",
+  "generatedAt": "2026-03-05T11:56:12.347Z",
   "category": "newsletter",
   "sources": [
     {
       "source": "TLDR",
       "rss": "https://tldr.tech/rss",
-      "pickedAt": "2026-03-05T11:08:46.450Z",
+      "pickedAt": "2026-03-05T11:56:05.060Z",
       "items": [
         {
           "title": "M5 Max MacBooks 💻, GPT-5.3 Instant 🤖, end of code reviews 👨‍💻",
@@ -43,7 +43,7 @@
     {
       "source": "Hacker Newsletter",
       "rss": "https://hnrss.org/frontpage",
-      "pickedAt": "2026-03-05T11:08:47.645Z",
+      "pickedAt": "2026-03-05T11:56:08.510Z",
       "items": [
         {
           "title": "No right to relicense this project",
@@ -81,7 +81,7 @@
     {
       "source": "Ben's Bites",
       "rss": "https://www.bensbites.com/feed",
-      "pickedAt": "2026-03-05T11:08:47.844Z",
+      "pickedAt": "2026-03-05T11:56:08.691Z",
       "items": [
         {
           "title": "Models on the march",
@@ -119,7 +119,7 @@
     {
       "source": "Dense Discovery",
       "rss": "https://www.densediscovery.com/feed",
-      "pickedAt": "2026-03-05T11:08:50.782Z",
+      "pickedAt": "2026-03-05T11:56:11.341Z",
       "items": [
         {
           "title": "DD378 / The myth of the dying reader",
@@ -157,7 +157,7 @@
     {
       "source": "SemiAnalysis",
       "rss": "https://www.semianalysis.com/feed",
-      "pickedAt": "2026-03-05T11:08:52.621Z",
+      "pickedAt": "2026-03-05T11:56:12.347Z",
       "items": [
         {
           "title": "xAI&#8217;s Colossus 2 &#8211; First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise",

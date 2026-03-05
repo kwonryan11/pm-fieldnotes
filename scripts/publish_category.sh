@@ -17,7 +17,10 @@ DT_UTC="$(date -u +%FT%TZ)"
 
 source_html=""
 if [[ -f "$SOURCE_FILE" ]]; then
-  source_html="$(node -e '
+  if [[ "$CATEGORY" == "newsletter" ]]; then
+    source_html="$(node "$ROOT/scripts/generate_newsletter_digest.mjs" "$SOURCE_FILE" "$CATEGORY" 2>/dev/null || true)"
+  else
+    source_html="$(node -e '
 const fs=require("fs");
 const file=process.argv[1];
 const cat=process.argv[2];
@@ -29,6 +32,7 @@ if(lines.length){
   console.log("\n  <h2>참고한 대표 뉴스레터</h2>\n  <ul>\n"+lines.join("\n")+"\n  </ul>");
 }
 ' "$SOURCE_FILE" "$CATEGORY" 2>/dev/null || true)"
+  fi
 fi
 
 mkdir -p "$ROOT/.locks" "$ROOT/logs" "$ROOT/data" "$ROOT/docs/posts"

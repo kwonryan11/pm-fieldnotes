@@ -150,6 +150,43 @@ async function fetchText(url) {
   return r.text();
 }
 
+function extractDuckLinks(html = '') {
+  const out = [];
+  const re = /<a[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    let href = decodeHtml(m[1]);
+    const text = cleanText(m[2]);
+    if (!href || !text) continue;
+
+    // Duck redirect form: /l/?uddg=<encoded>
+    const u = href.match(/[?&]uddg=([^&]+)/);
+    if (u) href = decodeURIComponent(u[1]);
+
+    if (!/^https?:\/\//i.test(href)) continue;
+    if (/duckduckgo\.com|substack\.com\/top/i.test(href)) continue;
+    if (/\/tag\/|\/category\/|\/privacy|\/terms/i.test(href)) continue;
+
+    out.push({ title: text.slice(0, 140), link: href, pubDate: '', description: '' });
+  }
+  const seen = new Set();
+  return out.filter(v => {
+    if (seen.has(v.link)) return false;
+    seen.add(v.link);
+    return true;
+  }).slice(0, 10);
+}
+
+async function fetchWebFallbackItems(query) {
+  try {
+    const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`;
+    const html = await fetchText(url);
+    return extractDuckLinks(html);
+  } catch {
+    return [];
+  }
+}
+
 function selectCoreSentences(text = '') {
   const all = splitSentences(text).filter(s => !isLowValueSentence(s));
   const signal = /(launch|release|raise|raised|acquire|deal|partnership|growth|decline|increase|decrease|risk|impact|strategy|announced|reported|도입|출시|인상|하락|상승|투자|실적|리스크|발표)/i;
@@ -198,6 +235,12 @@ for (const src of picks) {
       // eslint-disable-next-line no-await-in-loop
       const home = await fetchText(src.url);
       items = extractLinksFromHome(home, src.url).slice(0, 6);
+    }
+
+    if (!items.length) {
+      // web search fallback (no API key)
+      // eslint-disable-next-line no-await-in-loop
+      items = await fetchWebFallbackItems(`${src.name} latest newsletter ${category}`).then(v => v.slice(0, 6));
     }
 
     if (!items.length) continue;

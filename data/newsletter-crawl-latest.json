@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-05T05:39:54.443Z",
+  "generatedAt": "2026-03-05T11:08:52.621Z",
   "category": "newsletter",
   "sources": [
     {
       "source": "TLDR",
       "rss": "https://tldr.tech/rss",
-      "pickedAt": "2026-03-05T05:39:47.343Z",
+      "pickedAt": "2026-03-05T11:08:46.450Z",
       "items": [
         {
           "title": "M5 Max MacBooks 💻, GPT-5.3 Instant 🤖, end of code reviews 👨‍💻",
@@ -43,36 +43,36 @@
     {
       "source": "Hacker Newsletter",
       "rss": "https://hnrss.org/frontpage",
-      "pickedAt": "2026-03-05T05:39:50.617Z",
+      "pickedAt": "2026-03-05T11:08:47.645Z",
       "items": [
         {
-          "title": "Relicensing with AI-Assisted Rewrite",
-          "link": "https://tuananh.net/2026/03/05/relicensing-with-ai-assisted-rewrite/",
-          "pubDate": "Thu, 05 Mar 2026 05:07:33 +0000",
+          "title": "No right to relicense this project",
+          "link": "https://github.com/chardet/chardet/issues/327",
+          "pubDate": "Thu, 05 Mar 2026 08:37:51 +0000",
           "description": ""
         },
         {
-          "title": "Show HN: Poppy – a simple app to stay intentional with relationships",
-          "link": "https://poppy-connection-keeper.netlify.app/",
-          "pubDate": "Thu, 05 Mar 2026 03:56:38 +0000",
-          "description": "I built Poppy as a side project to help people keep in touch more intentionally. Would love feedback on onboarding, reminders, and overall UX. Happy to answer questions."
+          "title": "Smalltalk's Browser: Unbeatable, yet Not Enough",
+          "link": "https://blog.lorenzano.eu/smalltalks-browser-unbeatable-yet-not-enough/",
+          "pubDate": "Thu, 05 Mar 2026 07:57:25 +0000",
+          "description": ""
         },
         {
-          "title": "What Python's asyncio primitives get wrong about shared state",
-          "link": "https://www.inngest.com/blog/no-lost-updates-python-asyncio",
-          "pubDate": "Thu, 05 Mar 2026 02:55:57 +0000",
+          "title": "Poor Man's Polaroid",
+          "link": "https://boxart.lt/blog/poor_mans_polaroid",
+          "pubDate": "Thu, 05 Mar 2026 07:44:33 +0000",
           "description": ""
         }
       ],
       "chosen": {
-        "title": "What Python's asyncio primitives get wrong about shared state",
-        "link": "https://www.inngest.com/blog/no-lost-updates-python-asyncio",
-        "pubDate": "Thu, 05 Mar 2026 02:55:57 +0000",
-        "fullText": "What Python's asyncio primitives get wrong about shared state.",
+        "title": "Smalltalk's Browser: Unbeatable, yet Not Enough",
+        "link": "https://blog.lorenzano.eu/smalltalks-browser-unbeatable-yet-not-enough/",
+        "pubDate": "Thu, 05 Mar 2026 07:57:25 +0000",
+        "fullText": "Smalltalk's Browser: Unbeatable, yet Not Enough.",
         "insightKo": {
           "track": "콘텐츠소재",
-          "fact": "무슨 일? What Python's asyncio primitives get wrong about shared state.",
-          "why": "왜 중요? What Python's asyncio primitives get wrong about shared state.",
+          "fact": "무슨 일? Smalltalk's Browser: Unbeatable, yet Not Enough.",
+          "why": "왜 중요? Smalltalk's Browser: Unbeatable, yet Not Enough.",
           "action": "실행 포인트: 블로그에 배경-변화-영향 3문장 구조로 짧은 분석 글을 발행한다.",
           "score": 80
         }
@@ -81,7 +81,7 @@
     {
       "source": "Ben's Bites",
       "rss": "https://www.bensbites.com/feed",
-      "pickedAt": "2026-03-05T05:39:50.697Z",
+      "pickedAt": "2026-03-05T11:08:47.844Z",
       "items": [
         {
           "title": "Models on the march",
@@ -106,7 +106,7 @@
         "title": "Models on the march",
         "link": "https://www.bensbites.com/p/models-on-the-march",
         "pubDate": "Tue, 03 Mar 2026 14:03:25 GMT",
-        "fullText": "Models on the march 50M paying consumers for ChatGPT Mar 03, 2026 60 I build stuff with agents, even though I’m not technical. Here’s all the stuff I’m reading and tinkering with. If you want to start building or level up your ‘vibe-coding’ skills, join our community . Hey folks, I’m hosting a free workshop on Thursday (will be recorded) - Become a builder . Aimed at less-technical folks who want to build apps, automations and agents with AI tools. If you’re drowning in content, tool choices and don’t quite know the system to get to the next level, this workshop is made for you. I’ll reveal how I reverse engineer business ideas, build from scratch, set up agent automations and consistently ship new things. for free here . Last weekend was not normal. The US government’s Department of War (DoW) labelled Anthropic a supply chain risk ( here’s what that means ) because they did not agree on Claude’s use for autonomous weapons and mass surveillance. Meanwhile, OpenAI did manage to reach an agreement with the DoW , claiming that it still holds onto the same redlines as Anthropic. It did not, leading to an AMA with the OpenAI team and an update to the said agreement . OpenAI is also publicly asking the DoW to take back the risk label on Anthropic. This is far from solved, but OpenAI has already taken clear damage to its public image. Anthropic did a cheeky little play of adding an import memory button to Claude for people moving over from ChatGPT. But is that enough? Because if the US administration has its way, Anthropic has much larger concerns. Ben Thompson, as usual, goes into the political details of Anthropic and Alignment . That doesn’t stop them from shipping, though. Claude Code has an auto-memory feature now - it learns across sessions and then remembers it when you start a new one. Also, voice mode in Claude Code is rolling out to users. Type /voice and then hold space to use push-to-talk. Your messages get transcribed, and it doesn’t cost you anything, not even your tokens from your subscription. OpenAI has raised $110B at $730B valuation . This brings Amazon as an investor, and OpenAI will use the Trainium chips to serve some of its products. Some stats from this post: Codex now has 1.6M weekly users, and there are 9M business customers and 50M paying consumers for ChatGPT. Entire CLI now supports Droid - your sessions, chat logs, prompts, and more to keep the context of your work. Incredible is the fastest way (literally) to work on your computer. Press a key, speak naturally & an always-on AI assistant helps you write + act across all your apps natively. Real voice-controlled 'vibe computing', making you absurdly productive. Invite-only. First 50 readers get access codes.* 🌐 What I’m consuming What devtools does Claude Code choose when asked to build something? Stripe, Shadcn, and Vercel have a near monopoly, with newer models choosing newer tools. Lessons from building Claude Code - How did the “askuserquestion” tool come to be? Background Agents - The current state and the promise of autonomous work across the entire SDLC. Hitting $1M ARR in weeks with Polsia. How I built a sub-500ms latency voice agent from scratch. How I actually practice law with AI in 2026. The only way to save SaaS - A case study of Intercom. How I run 4–8 parallel coding agents with tmux and Markdown specs. A Swedish publication claims that recordings from Meta’s smart glasses end up in front of human annotators with bank details, sexual content and more present in them. ⚙️ Tools and demos Have a business idea? With a simple prompt, GoDaddy Airo AI Builder creates launch-ready websites and apps in minutes.* Maestro - Teaching partner for educators that adapts to your students and how you teach. Readout - Fully native macOS app for a real-time overview of your dev environment and Claude Code configs. Instant Apps by Tasklet - Your agent can now build live, interactive apps for you on-demand. Mintlify now lets you create docs for any GitHub repo, auto-generated from the source code. ( read more ) iocaihost - no-account website hosting for agents. 🥣 Dev Dish pplx-embed - SOTA embedding models from Perplexity trained for large-scale retrieval. evlog - One log per request with full context ofwide events & structured errors for TypeScript. Evolver - Optimise your code and prompts with a Darwinian approach. ( read more ) recall - A skill to let claude code search over all your conversations from past sessions. noodle - Skill scheduler with self-healing and backlog sync. ( read more ) agentcard.sh - Prepaid virtual Visa cards for AI agents. actors.dev - Give agents an email address and the ability to make phone calls. 🍦 Afters Burger King deployed Patty to employee headsets - a chatbot that helps them with meal prep and friendliness. Anthropic is giving 6 months of free Claude Max 20x to open source maintainers and core contributors. Apply here . Enjoy this ? Forward it to a friend. That’s it for today. Feel free to comment and your thoughts. 👋 Find me on X , Linkedin , or Instagram Read about me and Ben’s Bites 📷 thumbnail by @keshavatearth * s who make this possible :) Wanna partner with us for March? Last few slots available 60 Previous",
+        "fullText": "Models on the march 50M paying consumers for ChatGPT Mar 03, 2026 61 I build stuff with agents, even though I’m not technical. Here’s all the stuff I’m reading and tinkering with. If you want to start building or level up your ‘vibe-coding’ skills, join our community . Hey folks, I’m hosting a free workshop on Thursday (will be recorded) - Become a builder . Aimed at less-technical folks who want to build apps, automations and agents with AI tools. If you’re drowning in content, tool choices and don’t quite know the system to get to the next level, this workshop is made for you. I’ll reveal how I reverse engineer business ideas, build from scratch, set up agent automations and consistently ship new things. for free here . Last weekend was not normal. The US government’s Department of War (DoW) labelled Anthropic a supply chain risk ( here’s what that means ) because they did not agree on Claude’s use for autonomous weapons and mass surveillance. Meanwhile, OpenAI did manage to reach an agreement with the DoW , claiming that it still holds onto the same redlines as Anthropic. It did not, leading to an AMA with the OpenAI team and an update to the said agreement . OpenAI is also publicly asking the DoW to take back the risk label on Anthropic. This is far from solved, but OpenAI has already taken clear damage to its public image. Anthropic did a cheeky little play of adding an import memory button to Claude for people moving over from ChatGPT. But is that enough? Because if the US administration has its way, Anthropic has much larger concerns. Ben Thompson, as usual, goes into the political details of Anthropic and Alignment . That doesn’t stop them from shipping, though. Claude Code has an auto-memory feature now - it learns across sessions and then remembers it when you start a new one. Also, voice mode in Claude Code is rolling out to users. Type /voice and then hold space to use push-to-talk. Your messages get transcribed, and it doesn’t cost you anything, not even your tokens from your subscription. OpenAI has raised $110B at $730B valuation . This brings Amazon as an investor, and OpenAI will use the Trainium chips to serve some of its products. Some stats from this post: Codex now has 1.6M weekly users, and there are 9M business customers and 50M paying consumers for ChatGPT. Entire CLI now supports Droid - your sessions, chat logs, prompts, and more to keep the context of your work. Incredible is the fastest way (literally) to work on your computer. Press a key, speak naturally & an always-on AI assistant helps you write + act across all your apps natively. Real voice-controlled 'vibe computing', making you absurdly productive. Invite-only. First 50 readers get access codes.* 🌐 What I’m consuming What devtools does Claude Code choose when asked to build something? Stripe, Shadcn, and Vercel have a near monopoly, with newer models choosing newer tools. Lessons from building Claude Code - How did the “askuserquestion” tool come to be? Background Agents - The current state and the promise of autonomous work across the entire SDLC. Hitting $1M ARR in weeks with Polsia. How I built a sub-500ms latency voice agent from scratch. How I actually practice law with AI in 2026. The only way to save SaaS - A case study of Intercom. How I run 4–8 parallel coding agents with tmux and Markdown specs. A Swedish publication claims that recordings from Meta’s smart glasses end up in front of human annotators with bank details, sexual content and more present in them. ⚙️ Tools and demos Have a business idea? With a simple prompt, GoDaddy Airo AI Builder creates launch-ready websites and apps in minutes.* Maestro - Teaching partner for educators that adapts to your students and how you teach. Readout - Fully native macOS app for a real-time overview of your dev environment and Claude Code configs. Instant Apps by Tasklet - Your agent can now build live, interactive apps for you on-demand. Mintlify now lets you create docs for any GitHub repo, auto-generated from the source code. ( read more ) iocaihost - no-account website hosting for agents. 🥣 Dev Dish pplx-embed - SOTA embedding models from Perplexity trained for large-scale retrieval. evlog - One log per request with full context ofwide events & structured errors for TypeScript. Evolver - Optimise your code and prompts with a Darwinian approach. ( read more ) recall - A skill to let claude code search over all your conversations from past sessions. noodle - Skill scheduler with self-healing and backlog sync. ( read more ) agentcard.sh - Prepaid virtual Visa cards for AI agents. actors.dev - Give agents an email address and the ability to make phone calls. 🍦 Afters Burger King deployed Patty to employee headsets - a chatbot that helps them with meal prep and friendliness. Anthropic is giving 6 months of free Claude Max 20x to open source maintainers and core contributors. Apply here . Enjoy this ? Forward it to a friend. That’s it for today. Feel free to comment and your thoughts. 👋 Find me on X , Linkedin , or Instagram Read about me and Ben’s Bites 📷 thumbnail by @keshavatearth * s who make this possible :) Wanna partner with us for March? Last few slots available 61 Previous",
         "insightKo": {
           "track": "업무자동화",
           "fact": "무슨 일? The US government’s Department of War (DoW) labelled Anthropic a supply chain risk ( here’s what that means ) because they did not agree on Claude’s use for autonomous weapons and mass surve",
@@ -119,7 +119,7 @@
     {
       "source": "Dense Discovery",
       "rss": "https://www.densediscovery.com/feed",
-      "pickedAt": "2026-03-05T05:39:53.417Z",
+      "pickedAt": "2026-03-05T11:08:50.782Z",
       "items": [
         {
           "title": "DD378 / The myth of the dying reader",
@@ -157,7 +157,7 @@
     {
       "source": "SemiAnalysis",
       "rss": "https://www.semianalysis.com/feed",
-      "pickedAt": "2026-03-05T05:39:54.443Z",
+      "pickedAt": "2026-03-05T11:08:52.621Z",
       "items": [
         {
           "title": "xAI&#8217;s Colossus 2 &#8211; First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise",

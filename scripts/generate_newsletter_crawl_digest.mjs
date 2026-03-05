@@ -50,13 +50,27 @@ function cleanBoilerplate(text = '') {
     .trim();
 }
 
-function makeKoreanSummary(title = '', text = '') {
+function makeKoreanInsight(title = '', text = '') {
   const t = cleanBoilerplate(title).slice(0, 100);
-  const lead = takeSentences(cleanBoilerplate(text), 2).slice(0, 260);
-  if (lead) {
-    return `핵심 이슈는 "${t}"입니다. 원문 요지는 ${lead} 로, 관련 배경과 영향 포인트를 함께 다룹니다.`;
-  }
-  return `핵심 이슈는 "${t}"입니다. 원문에서 해당 주제의 배경과 파급효과를 중심으로 설명합니다.`;
+  const clean = cleanBoilerplate(text);
+  const sents = clean.split(/(?<=[.!?。！？])\s+/).filter(Boolean);
+  const fact = (sents[0] || clean).slice(0, 220);
+  const why = (sents[1] || sents[0] || clean).slice(0, 220);
+
+  const hasAi = /ai|model|llm|agent|anthropic|openai|claude|gpt|gemini/i.test(`${t} ${clean}`);
+  const hasMarket = /market|stock|revenue|funding|ipo|vc|invest|price|금리|환율/i.test(`${t} ${clean}`);
+
+  const action = hasAi
+    ? '실행 포인트: 내 업무에서 자동화 가능한 1개 작업을 고르고, 이번 주 안에 테스트해보세요.'
+    : hasMarket
+      ? '실행 포인트: 관련 지표(수요·실적·가이던스)를 확인해 기존 가설을 업데이트하세요.'
+      : '실행 포인트: 이번 주 의사결정에 연결되는 항목 1개만 뽑아 실제 행동으로 옮기세요.';
+
+  return {
+    fact: `무슨 일? ${fact}`,
+    why: `왜 중요? ${why}`,
+    action
+  };
 }
 
 function pickMainHtml(html = '') {
@@ -107,10 +121,22 @@ for (const src of picks) {
     const items = parseRss(xml).slice(0, 3);
     if (!items.length) continue;
 
-    // eslint-disable-next-line no-await-in-loop
-    const articleHtml = await fetchText(items[0].link);
-    const articleMain = pickMainHtml(articleHtml);
-    const articleText = cleanBoilerplate(stripTags(articleMain)).slice(0, 8000);
+    let articleText = '';
+    if (/hacker newsletter/i.test(src.name)) {
+      articleText = cleanBoilerplate(`${items[0].title}. ${items[0].description || ''}`)
+        .replace(/Article URL:[^#]+/gi, ' ')
+        .replace(/Comments URL:[^#]+/gi, ' ')
+        .replace(/Points:\s*\d+/gi, ' ')
+        .replace(/# Comments:\s*\d+/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 4000);
+    } else {
+      // eslint-disable-next-line no-await-in-loop
+      const articleHtml = await fetchText(items[0].link);
+      const articleMain = pickMainHtml(articleHtml);
+      articleText = cleanBoilerplate(stripTags(articleMain)).slice(0, 8000);
+    }
 
     crawled.push({
       source: src.name,
@@ -123,7 +149,7 @@ for (const src of picks) {
         pubDate: items[0].pubDate,
         fullText: articleText,
         summaryEn: takeSentences((articleText.length > 220 ? articleText : `${items[0].description}. ${articleText}`).trim() || items[0].title, 2),
-        summaryKo: makeKoreanSummary(items[0].title, (articleText.length > 220 ? articleText : `${items[0].description}. ${articleText}`).trim())
+        insightKo: makeKoreanInsight(items[0].title, (articleText.length > 220 ? articleText : `${items[0].description}. ${articleText}`).trim())
       }
     });
   } catch {
@@ -144,7 +170,12 @@ for (const s of crawled.slice(0, 5)) {
   for (const item of s.items.slice(0, 3)) {
     listItems.push(`      <li>[${s.source}] <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>${item.pubDate ? ` <span class="muted">(${item.pubDate})</span>` : ''}</li>`);
   }
-  summaryItems.push(`      <li><strong>${s.source}</strong>: ${s.article.summaryKo || s.article.title}</li>`);
+  const i = s.article.insightKo;
+  if (i) {
+    summaryItems.push(`      <li><strong>${s.source}</strong><ul><li>${i.fact}</li><li>${i.why}</li><li>${i.action}</li></ul></li>`);
+  } else {
+    summaryItems.push(`      <li><strong>${s.source}</strong>: 요약 생성 실패</li>`);
+  }
 }
 
 process.stdout.write(`
@@ -154,7 +185,8 @@ process.stdout.write(`
 ${listItems.join('\n')}
   </ul>
 
-  <h2>요약 브리핑</h2>
+  <h2>인사이트 브리핑 (의사결정용)</h2>
+  <p class="muted">제목 요약이 아니라, 실제 행동에 연결되는 포인트 중심으로 정리했습니다.</p>
   <ul>
 ${summaryItems.join('\n')}
   </ul>`);

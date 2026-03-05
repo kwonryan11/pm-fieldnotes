@@ -1,26 +1,26 @@
 {
-  "updatedAt": "2026-03-05T04:55:00Z",
+  "updatedAt": "2026-03-05T05:06:00Z",
   "core": [
-    {"name":"Morning Brew","url":"https://www.morningbrew.com/daily","category":["newsletter","stocks"]},
-    {"name":"The Hustle","url":"https://thehustle.co/","category":["newsletter","ai","work"]},
-    {"name":"CB Insights Newsletter","url":"https://www.cbinsights.com/newsletter","category":["newsletter","ai","stocks"]},
     {"name":"TLDR","url":"https://tldr.tech/","category":["newsletter","ai"]},
-    {"name":"Foundr","url":"https://foundr.com/","category":["newsletter","work"]},
-    {"name":"Stratechery","url":"https://stratechery.com/","category":["newsletter","ai","stocks"]},
-    {"name":"AVC","url":"https://avc.com/","category":["newsletter","stocks"]},
-    {"name":"The Information Newsletters","url":"https://www.theinformation.com/newsletters","category":["newsletter","ai","stocks"]},
-    {"name":"Modern CTO Weekly","url":"https://moderncto.io/","category":["newsletter","ai","work"]},
-    {"name":"James Clear 3-2-1","url":"https://jamesclear.com/3-2-1","category":["newsletter","work"]}
+    {"name":"Hacker Newsletter","url":"https://hackernewsletter.com/","category":["newsletter","ai","work"]},
+    {"name":"Ben's Bites","url":"https://www.bensbites.com/","category":["newsletter","ai"]},
+    {"name":"The Pragmatic Engineer","url":"https://newsletter.pragmaticengineer.com/","category":["newsletter","ai","work"]},
+    {"name":"Product Hunt Newsletter","url":"https://www.producthunt.com/newsletter","category":["newsletter","ai","work"]},
+    {"name":"Finimize","url":"https://www.finimize.com/","category":["newsletter","stocks"]},
+    {"name":"Money Stuff (Bloomberg)","url":"https://www.bloomberg.com/account/newsletters/money-stuff","category":["newsletter","stocks"]},
+    {"name":"Contrarian Thinking","url":"https://contrarianthinking.co/newsletter/","category":["newsletter","work"]},
+    {"name":"Dense Discovery","url":"https://www.densediscovery.com/","category":["newsletter","work","ai"]},
+    {"name":"Future Tools Newsletter","url":"https://www.futuretools.io/newsletter","category":["newsletter","ai"]}
   ],
   "extended": [
-    {"name":"Money Stuff","url":"https://www.bloomberg.com/account/newsletters/money-stuff","category":["stocks"]},
+    {"name":"Workweek","url":"https://workweek.com/newsletters/","category":["newsletter","work"]},
     {"name":"Startup Digest","url":"https://www.startupdigest.com/","category":["newsletter","ai","work"]},
-    {"name":"SBA Newsletter","url":"https://www.sba.gov/about-sba/sba-newsroom/subscribe","category":["work"]}
+    {"name":"Import AI","url":"https://importai.substack.com/","category":["ai","newsletter"]}
   ],
   "categoryDefaults": {
-    "newsletter": ["Morning Brew","The Hustle","CB Insights Newsletter","TLDR","The Information Newsletters"],
-    "stocks": ["Morning Brew","CB Insights Newsletter","Stratechery","AVC","Money Stuff"],
-    "ai": ["TLDR","CB Insights Newsletter","The Information Newsletters","Stratechery","Modern CTO Weekly"],
-    "work": ["Foundr","James Clear 3-2-1","The Hustle","Modern CTO Weekly","Startup Digest"]
+    "newsletter": ["TLDR","Hacker Newsletter","Ben's Bites","Dense Discovery","Product Hunt Newsletter"],
+    "stocks": ["Finimize","Money Stuff (Bloomberg)","TLDR","Hacker Newsletter","Dense Discovery"],
+    "ai": ["TLDR","Ben's Bites","Future Tools Newsletter","The Pragmatic Engineer","Import AI"],
+    "work": ["The Pragmatic Engineer","Contrarian Thinking","Dense Discovery","Hacker Newsletter","Workweek"]
   }
 }

@@ -1,12 +1,18 @@
 {
-  "generatedAt": "2026-03-05T11:56:12.347Z",
+  "generatedAt": "2026-03-06T08:00:20.757Z",
   "category": "newsletter",
   "sources": [
     {
       "source": "TLDR",
       "rss": "https://tldr.tech/rss",
-      "pickedAt": "2026-03-05T11:56:05.060Z",
+      "pickedAt": "2026-03-06T08:00:05.097Z",
       "items": [
+        {
+          "title": "MacBook Neo 💻, Google Workspace CLI 🧑‍💻, AI's bear case 🤖",
+          "link": "https://tldr.tech/tech/2026-03-05",
+          "pubDate": "Thu, 05 Mar 2026 00:00:00 GMT",
+          "description": ""
+        },
         {
           "title": "M5 Max MacBooks 💻, GPT-5.3 Instant 🤖, end of code reviews 👨‍💻",
           "link": "https://tldr.tech/tech/2026-03-04",
@@ -18,62 +24,18 @@
           "link": "https://tldr.tech/tech/2026-03-03",
           "pubDate": "Tue, 03 Mar 2026 00:00:00 GMT",
           "description": ""
-        },
-        {
-          "title": "Anthropic vs Pentagon 🤖, SpaceX eyes March IPO 💰, lessons building Claude Code 🧑‍💻",
-          "link": "https://tldr.tech/tech/2026-03-02",
-          "pubDate": "Mon, 02 Mar 2026 00:00:00 GMT",
-          "description": ""
         }
       ],
       "chosen": {
-        "title": "M5 Max MacBooks 💻, GPT-5.3 Instant 🤖, end of code reviews 👨‍💻",
-        "link": "https://tldr.tech/tech/2026-03-04",
-        "pubDate": "Wed, 04 Mar 2026 00:00:00 GMT",
-        "fullText": "One API for Google, Maps, Shopping & More ( ) Building something that needs search data? SerpApi converts Google, Maps, Shopping, and other search engines into structured APIs. Just a simple GET request. No scraping infrastructure.No proxy rotation.No parser maintenance. Use cases include:👉 AI grounding👉 Market research👉 SEO, GEO, & rank tracking Special offer for TLDR: Start with 250 free searches/month or claim 3 months at 50% off for new accounts.",
+        "title": "MacBook Neo 💻, Google Workspace CLI 🧑‍💻, AI's bear case 🤖",
+        "link": "https://tldr.tech/tech/2026-03-05",
+        "pubDate": "Thu, 05 Mar 2026 00:00:00 GMT",
+        "fullText": "Wispr Flow users send 89% of their messages with zero edits. Straight from voice ( ) Most dictation tools create more work. You speak, then spend five minutes fixing what went wrong. You'll see the difference instantly with Wispr Flow : clean, sendable text as fast as you can speak. It's a life changer: 4x faster than typing. Emails, Slack threads, docs, code comments. All dictated in real time. Works in every app. System-wide on Mac, Windows, iOS, and Android. Zero setup, zero context switching. Millions of users worldwide. Not a side project. The voice tool people actually switch to. No cleanup. No copy/paste. Just talk and send. Try Wispr Flow Free →",
         "insightKo": {
           "track": "업무자동화",
-          "fact": "무슨 일? M5 Max MacBooks 💻, GPT-5.3 Instant 🤖, end of code reviews 👨‍💻.",
-          "why": "왜 중요? SerpApi converts Google, Maps, Shopping, and other search engines into structured APIs.",
+          "fact": "무슨 일? MacBook Neo 💻, Google Workspace CLI 🧑‍💻, AI's bear case 🤖.",
+          "why": "왜 중요? Wispr Flow users send 89% of their messages with zero edits.",
           "action": "실행 포인트: 자동화 파이프라인에서 1개 병목(수집/정제/요약/발행)을 지정해 이번 주 개선 실험을 진행한다.",
-          "score": 100
-        }
-      }
-    },
-    {
-      "source": "Hacker Newsletter",
-      "rss": "https://hnrss.org/frontpage",
-      "pickedAt": "2026-03-05T11:56:08.510Z",
-      "items": [
-        {
-          "title": "No right to relicense this project",
-          "link": "https://github.com/chardet/chardet/issues/327",
-          "pubDate": "Thu, 05 Mar 2026 08:37:51 +0000",
-          "description": ""
-        },
-        {
-          "title": "Smalltalk's Browser: Unbeatable, yet Not Enough",
-          "link": "https://blog.lorenzano.eu/smalltalks-browser-unbeatable-yet-not-enough/",
-          "pubDate": "Thu, 05 Mar 2026 07:57:25 +0000",
-          "description": ""
-        },
-        {
-          "title": "Poor Man's Polaroid",
-          "link": "https://boxart.lt/blog/poor_mans_polaroid",
-          "pubDate": "Thu, 05 Mar 2026 07:44:33 +0000",
-          "description": ""
-        }
-      ],
-      "chosen": {
-        "title": "Smalltalk's Browser: Unbeatable, yet Not Enough",
-        "link": "https://blog.lorenzano.eu/smalltalks-browser-unbeatable-yet-not-enough/",
-        "pubDate": "Thu, 05 Mar 2026 07:57:25 +0000",
-        "fullText": "Smalltalk's Browser: Unbeatable, yet Not Enough.",
-        "insightKo": {
-          "track": "콘텐츠소재",
-          "fact": "무슨 일? Smalltalk's Browser: Unbeatable, yet Not Enough.",
-          "why": "왜 중요? Smalltalk's Browser: Unbeatable, yet Not Enough.",
-          "action": "실행 포인트: 블로그에 배경-변화-영향 3문장 구조로 짧은 분석 글을 발행한다.",
           "score": 80
         }
       }
@@ -81,8 +43,14 @@
     {
       "source": "Ben's Bites",
       "rss": "https://www.bensbites.com/feed",
-      "pickedAt": "2026-03-05T11:56:08.691Z",
+      "pickedAt": "2026-03-06T08:00:15.773Z",
       "items": [
+        {
+          "title": "Google apps in the terminal",
+          "link": "https://www.bensbites.com/p/google-apps-in-the-terminal",
+          "pubDate": "Thu, 05 Mar 2026 14:15:58 GMT",
+          "description": "two new models, lot of rumours and revenue"
+        },
         {
           "title": "Models on the march",
           "link": "https://www.bensbites.com/p/models-on-the-march",
@@ -94,23 +62,17 @@
           "link": "https://www.bensbites.com/p/claude-has-some-conflicts",
           "pubDate": "Thu, 26 Feb 2026 14:10:16 GMT",
           "description": "Notion, Perplexity and computer using agents"
-        },
-        {
-          "title": "Gemini tops benchmarks, again",
-          "link": "https://www.bensbites.com/p/gemini-tops-benchmarks-again",
-          "pubDate": "Tue, 24 Feb 2026 14:30:22 GMT",
-          "description": "10x faster models and the consulting angle for AI"
         }
       ],
       "chosen": {
-        "title": "Models on the march",
-        "link": "https://www.bensbites.com/p/models-on-the-march",
-        "pubDate": "Tue, 03 Mar 2026 14:03:25 GMT",
-        "fullText": "Models on the march 50M paying consumers for ChatGPT Mar 03, 2026 61 I build stuff with agents, even though I’m not technical. Here’s all the stuff I’m reading and tinkering with. If you want to start building or level up your ‘vibe-coding’ skills, join our community . Hey folks, I’m hosting a free workshop on Thursday (will be recorded) - Become a builder . Aimed at less-technical folks who want to build apps, automations and agents with AI tools. If you’re drowning in content, tool choices and don’t quite know the system to get to the next level, this workshop is made for you. I’ll reveal how I reverse engineer business ideas, build from scratch, set up agent automations and consistently ship new things. for free here . Last weekend was not normal. The US government’s Department of War (DoW) labelled Anthropic a supply chain risk ( here’s what that means ) because they did not agree on Claude’s use for autonomous weapons and mass surveillance. Meanwhile, OpenAI did manage to reach an agreement with the DoW , claiming that it still holds onto the same redlines as Anthropic. It did not, leading to an AMA with the OpenAI team and an update to the said agreement . OpenAI is also publicly asking the DoW to take back the risk label on Anthropic. This is far from solved, but OpenAI has already taken clear damage to its public image. Anthropic did a cheeky little play of adding an import memory button to Claude for people moving over from ChatGPT. But is that enough? Because if the US administration has its way, Anthropic has much larger concerns. Ben Thompson, as usual, goes into the political details of Anthropic and Alignment . That doesn’t stop them from shipping, though. Claude Code has an auto-memory feature now - it learns across sessions and then remembers it when you start a new one. Also, voice mode in Claude Code is rolling out to users. Type /voice and then hold space to use push-to-talk. Your messages get transcribed, and it doesn’t cost you anything, not even your tokens from your subscription. OpenAI has raised $110B at $730B valuation . This brings Amazon as an investor, and OpenAI will use the Trainium chips to serve some of its products. Some stats from this post: Codex now has 1.6M weekly users, and there are 9M business customers and 50M paying consumers for ChatGPT. Entire CLI now supports Droid - your sessions, chat logs, prompts, and more to keep the context of your work. Incredible is the fastest way (literally) to work on your computer. Press a key, speak naturally & an always-on AI assistant helps you write + act across all your apps natively. Real voice-controlled 'vibe computing', making you absurdly productive. Invite-only. First 50 readers get access codes.* 🌐 What I’m consuming What devtools does Claude Code choose when asked to build something? Stripe, Shadcn, and Vercel have a near monopoly, with newer models choosing newer tools. Lessons from building Claude Code - How did the “askuserquestion” tool come to be? Background Agents - The current state and the promise of autonomous work across the entire SDLC. Hitting $1M ARR in weeks with Polsia. How I built a sub-500ms latency voice agent from scratch. How I actually practice law with AI in 2026. The only way to save SaaS - A case study of Intercom. How I run 4–8 parallel coding agents with tmux and Markdown specs. A Swedish publication claims that recordings from Meta’s smart glasses end up in front of human annotators with bank details, sexual content and more present in them. ⚙️ Tools and demos Have a business idea? With a simple prompt, GoDaddy Airo AI Builder creates launch-ready websites and apps in minutes.* Maestro - Teaching partner for educators that adapts to your students and how you teach. Readout - Fully native macOS app for a real-time overview of your dev environment and Claude Code configs. Instant Apps by Tasklet - Your agent can now build live, interactive apps for you on-demand. Mintlify now lets you create docs for any GitHub repo, auto-generated from the source code. ( read more ) iocaihost - no-account website hosting for agents. 🥣 Dev Dish pplx-embed - SOTA embedding models from Perplexity trained for large-scale retrieval. evlog - One log per request with full context ofwide events & structured errors for TypeScript. Evolver - Optimise your code and prompts with a Darwinian approach. ( read more ) recall - A skill to let claude code search over all your conversations from past sessions. noodle - Skill scheduler with self-healing and backlog sync. ( read more ) agentcard.sh - Prepaid virtual Visa cards for AI agents. actors.dev - Give agents an email address and the ability to make phone calls. 🍦 Afters Burger King deployed Patty to employee headsets - a chatbot that helps them with meal prep and friendliness. Anthropic is giving 6 months of free Claude Max 20x to open source maintainers and core contributors. Apply here . Enjoy this ? Forward it to a friend. That’s it for today. Feel free to comment and your thoughts. 👋 Find me on X , Linkedin , or Instagram Read about me and Ben’s Bites 📷 thumbnail by @keshavatearth * s who make this possible :) Wanna partner with us for March? Last few slots available 61 Previous",
+        "title": "Google apps in the terminal",
+        "link": "https://www.bensbites.com/p/google-apps-in-the-terminal",
+        "pubDate": "Thu, 05 Mar 2026 14:15:58 GMT",
+        "fullText": "Google apps in the terminal two new models, lot of rumours and revenue Mar 05, 2026 81 1 1 I build stuff with agents, even though I’m not technical. Here’s all the stuff I’m reading and tinkering with. If you want to start building or level up your ‘vibe-coding’ skills, join our community . Hey folks, omg…1000+ of you signed up for the free ‘ become a builder’ workshop i’m hosting at 3pm UK (7am PT). So I’m doing it as a YouTube Live stream. Last chance if you want to join - it’ll be recorded if you can’t make it. Google released Gemini 3.1 Flash Lite - A fast model with better than Haiku 4.5 performance on benchmarks. But this bump in performance comes with a price increase ($0.10/$0.40 to $0.25/$1.50). At this price point, open-source models like Minimax M2.5 make a lot of sense for developers. They would give a much stronger performance (although at the cost of Flash Lite’s insane speed). OpenAI also updated its default model in ChatGPT to GPT-5.3-Instant . A lot of improvement in the model is around its behaviour. Lesser halunciation, refusals & disclaimers plus better web search usage and writing. Remember, this is the model most people use when they go to ChatGPT. Also, Codex is now on Windows as well . Google Workspace released a CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. It’s really well built with a focus on agents. One of the team members working on it also wrote a blog on rewriting your CLI for agents . The Information reports that OpenAI is building an internal alternative to GitHub . OpenAI’s browser Atlas came 11 months after The Information reported on it first. So expect this to take some time. It is also talking with The Trade Desk to put ads in ChatGPT and maybe planning an IPO as it hires a law firm , and Jensen Huang kinda leaked it . OpenAI’s ARR is now about $25B , only a little bit ahead of Anthropic’s $19B . Voice Agents need speed you trust. Two seconds of latency kills conversations. Speechmatics delivers partials Start with $200 free credits .* 🌐 What I’m consuming Top SaaS vendors on Ramp (March 2026) - Anthropic and Granola are growing the fastest, with Paper (design tool) and many “hosting for agents” products in the trending list. 3D as code - half of this post went over my head, but (I think) it makes the claim that 3D models should approach generation as creating structured code for 3D formats vs say generating the next video frame. Agent Experience - Practical reference to the patterns, surfaces, and design principles behind AI agents. (open source repo ) Turning my Twitter archive (36,000+ tweets) into a feature-rich library to write a book. Building an AI-native word processor using Cursor’s long-running agents. Rebuilding MacOS for the web on Replit. Why did someone choose Droid as their daily driver ? A practical guide to community-led growth for AI startups. Wasteland - The sequel to Gas Town. A dozen or so principles for the zen of AI coding . Software isn’t dying , but it is becoming more honest. ⚙️ Tools and demos Glaze by Raycast - Create real desktop apps with features like file access, keyboard shortcuts and more. In private beta now. Glide lets you create apps from a spreadsheet. It’s soon moving to AI from its no-code roots. Paperclip - Hire AI employees, set goals, and your business runs itself. ( github ) ASC11 - ASCII art editor to animate images, videos and live cams. Preview with HTML and export to JS. Modem - Your dev team’s auto-triage PM. Nen - All the infra you need to build reliable computer use agents. moss - Notes app that organises your work and connects your thoughts. Exa Deep - Agents that run in a loop to gather all the information for your search. Defuddle - Get the main content of a page in Markdown. Just add deffuddle.md at the beginning of the URL. Use it via curl, Skills or the CLI. Tools that let you run multiple parallel agents for coding: Polyscope - Dev environment for running parallel agents with built-in preview browser and more. Moment - A collaborative workspace to run your entire business out of a Markdown file with code at the centre of it. ( read more ) Superset - Turbocharged terminal that allows you to run many CLI coding agents. Design with AI tools: Refero MCP - Connect your agent to a curated library of real product interfaces and user flows. Kodo - Fully editable designs, generated by chatting. /playground - A design canvas for your code. 🥣 Dev Dish yt-browse - A YouTube channel search TUI. Filter, sort results by views/duration/date, use regex, order results, and ignore shorts. WebPage by Apple - they don’t call it a headless browser, but it’s just that for native apps. Hemingway - Turn your dev site into a copy editing surface with changes that sync to your codebase. Agents UI by LiveKit - Component library for building polished frontends for voice agents. Symphony - an experimental repo from OpenAI that turns project work into isolated, autonomous implementation runs. Handoff in the Codex app - a simpler way to move a thread between Local and Worktree. eval-skills - A set of skills for AI product evals ( read more ) 30+ skills to make your agent really understand developer marketing . Cursor is now available in JetBrains IDEs through the Agent Client Protocol, and it supports MCP apps now. 🍦 Afters A new device, Spectre I , claims that it can block unwanted audio recordings of you. Mintlify acquired Helicone , an “observability for LLMs” startup. Meta is planning a feature called “Name Tag” - Point your glasses, and the AI tells you exactly who they are. It is also building a new applied AI team . Qlabs is running an open experiment to train better models with limited data , given a large amount of compute. RevenueCat is hiring an agent (at $10k/month) as a developer advocate. Enjoy this ? Forward it to a friend. That’s it for today. Feel free to comment and your thoughts. 👋 Find me on X , Linkedin , or Instagram Read about me and Ben’s Bites 📷 thumbnail by @keshavatearth * s who make this possible :) Wanna partner with us for March? Last few slots available 81 1 1 Previous",
         "insightKo": {
           "track": "업무자동화",
-          "fact": "무슨 일? The US government’s Department of War (DoW) labelled Anthropic a supply chain risk ( here’s what that means ) because they did not agree on Claude’s use for autonomous weapons and mass surve",
-          "why": "왜 중요? OpenAI is also publicly asking the DoW to take back the risk label on Anthropic.",
+          "fact": "무슨 일? Google released Gemini 3.1 Flash Lite - A fast model with better than Haiku 4.5 performance on benchmarks.",
+          "why": "왜 중요? But this bump in performance comes with a price increase ($0.10/$0.40 to $0.25/$1.50).",
           "action": "실행 포인트: 자동화 파이프라인에서 1개 병목(수집/정제/요약/발행)을 지정해 이번 주 개선 실험을 진행한다.",
           "score": 100
         }
@@ -119,7 +81,7 @@
     {
       "source": "Dense Discovery",
       "rss": "https://www.densediscovery.com/feed",
-      "pickedAt": "2026-03-05T11:56:11.341Z",
+      "pickedAt": "2026-03-06T08:00:18.387Z",
       "items": [
         {
           "title": "DD378 / The myth of the dying reader",
@@ -157,7 +119,7 @@
     {
       "source": "SemiAnalysis",
       "rss": "https://www.semianalysis.com/feed",
-      "pickedAt": "2026-03-05T11:56:12.347Z",
+      "pickedAt": "2026-03-06T08:00:20.757Z",
       "items": [
         {
           "title": "xAI&#8217;s Colossus 2 &#8211; First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise",

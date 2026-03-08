@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EP0112 Batch 01 Preview</title>
+  <style>
+    body{font-family:Inter,system-ui,sans-serif;background:#0b1020;color:#eaf0ff;margin:0;padding:20px}
+    a{color:#ffd166}
+    .wrap{max-width:1200px;margin:0 auto}
+    .top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+    .cuts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:16px 0}
+    button{padding:10px 12px;border-radius:10px;border:1px solid #364266;background:#121a33;color:#eaf0ff;cursor:pointer}
+    button.active{border-color:#ffd166;color:#ffd166}
+    iframe{width:100%;aspect-ratio:16/9;border:1px solid #2d395e;border-radius:12px;background:#000}
+    .meta{opacity:.85;font-size:14px;margin-top:10px}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>EP0112 · Batch 01 (C001~C005)</h1>
+    <div>
+      <a href="./sequencer/index.html">전체 Sequencer 보기</a> ·
+      <a href="../index.html">Broll 목록</a>
+    </div>
+  </div>
+
+  <div class="cuts" id="cuts"></div>
+  <iframe id="frame" src="./cuts/c001-hook-claim/index.html"></iframe>
+  <div class="meta" id="meta">C001 · 일 잘하는 사람은 단순하게 합니다 · 4s</div>
+</div>
+
+<script>
+const items=[
+  {id:'c001-hook-claim',title:'일 잘하는 사람은 단순하게 합니다',dur:'4s'},
+  {id:'c002-keyword-punch',title:'단순하게',dur:'3s'},
+  {id:'c003-curiosity-build',title:'의외로 진짜 잘하는 일잘러',dur:'5s'},
+  {id:'c004-contrast-flip',title:'의외로',dur:'3s'},
+  {id:'c005-outcome-tease',title:'퇴근 전 커피 마실 시간',dur:'5s'}
+];
+const cuts=document.getElementById('cuts');
+const frame=document.getElementById('frame');
+const meta=document.getElementById('meta');
+items.forEach((it,idx)=>{
+  const b=document.createElement('button');
+  b.textContent=`${it.id.toUpperCase()} · ${it.dur}`;
+  if(idx===0) b.classList.add('active');
+  b.onclick=()=>{
+    [...cuts.children].forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    frame.src=`./cuts/${it.id}/index.html`;
+    meta.textContent=`${it.id.toUpperCase()} · ${it.title} · ${it.dur}`;
+  };
+  cuts.appendChild(b);
+});
+</script>
+</body>
+</html>

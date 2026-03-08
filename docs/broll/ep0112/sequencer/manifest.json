@@ -9,7 +9,26 @@
     "transitionOut": "cut",
     "notes": "single claim card, slow push-in",
     "emoji": "📌",
-    "diagramType": "flow"
+    "diagramType": "flow",
+    "revealSteps": [
+      "title",
+      "elementA",
+      "elementB",
+      "relation"
+    ],
+    "emphasisCues": [
+      {
+        "trigger": "핵심",
+        "target": "primary"
+      },
+      {
+        "trigger": "바로",
+        "target": "accent"
+      }
+    ],
+    "animEntryMs": 420,
+    "animExplainMs": 1400,
+    "animExitMs": 220
   },
   {
     "id": "c002-keyword-punch",
@@ -21,7 +40,26 @@
     "transitionOut": "cut",
     "notes": "keyword pulse card",
     "emoji": "🧠",
-    "diagramType": "flow"
+    "diagramType": "flow",
+    "revealSteps": [
+      "title",
+      "elementA",
+      "elementB",
+      "relation"
+    ],
+    "emphasisCues": [
+      {
+        "trigger": "핵심",
+        "target": "primary"
+      },
+      {
+        "trigger": "바로",
+        "target": "accent"
+      }
+    ],
+    "animEntryMs": 420,
+    "animExplainMs": 1400,
+    "animExitMs": 220
   },
   {
     "id": "c003-curiosity-build",
@@ -33,7 +71,26 @@
     "transitionOut": "cut",
     "notes": "spotlight card drift",
     "emoji": "✨",
-    "diagramType": "flow"
+    "diagramType": "flow",
+    "revealSteps": [
+      "title",
+      "elementA",
+      "elementB",
+      "relation"
+    ],
+    "emphasisCues": [
+      {
+        "trigger": "핵심",
+        "target": "primary"
+      },
+      {
+        "trigger": "바로",
+        "target": "accent"
+      }
+    ],
+    "animEntryMs": 420,
+    "animExplainMs": 1400,
+    "animExitMs": 220
   },
   {
     "id": "c004-contrast-flip",
@@ -45,7 +102,26 @@
     "transitionOut": "fade",
     "notes": "left-right contrast flip",
     "emoji": "⚖️",
-    "diagramType": "split"
+    "diagramType": "split",
+    "revealSteps": [
+      "title",
+      "elementA",
+      "elementB",
+      "relation"
+    ],
+    "emphasisCues": [
+      {
+        "trigger": "핵심",
+        "target": "primary"
+      },
+      {
+        "trigger": "바로",
+        "target": "accent"
+      }
+    ],
+    "animEntryMs": 420,
+    "animExplainMs": 1400,
+    "animExitMs": 220
   },
   {
     "id": "c005-outcome-tease",
@@ -57,7 +133,26 @@
     "transitionOut": "cut",
     "notes": "clutter to clean desk ui",
     "emoji": "☕",
-    "diagramType": "flow"
+    "diagramType": "flow",
+    "revealSteps": [
+      "title",
+      "elementA",
+      "elementB",
+      "relation"
+    ],
+    "emphasisCues": [
+      {
+        "trigger": "핵심",
+        "target": "primary"
+      },
+      {
+        "trigger": "바로",
+        "target": "accent"
+      }
+    ],
+    "animEntryMs": 420,
+    "animExplainMs": 1400,
+    "animExitMs": 220
   },
   {
     "id": "c006-reset-breather",

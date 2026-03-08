@@ -1,26 +1,50 @@
 const app = document.getElementById('app');
+const hud = document.getElementById('hud');
 const manifest = await (await fetch('./manifest.json')).json();
 
-async function loadMods(){
-  const mods = new Map();
-  await Promise.all(manifest.map(async c=>{ mods.set(c.id, await import(c.path)); }));
-  return mods;
+let index = 0;
+let paused = false;
+let stopRequested = false;
+let currentUnmount = null;
+
+function updateHud(){
+  const cut = manifest[index] || {};
+  hud.textContent = `${index+1}/${manifest.length} · ${cut.id || '-'} · ${cut.title || '-'} ${paused ? '⏸' : '▶'}`;
 }
 
-function fade(el, from, to, ms){
-  return el.animate([{opacity:from},{opacity:to}],{duration:ms,fill:'forwards',easing:'ease'}).finished;
+function wait(ms){ return new Promise(r=>setTimeout(r, ms)); }
+
+async function showCut(i){
+  if (currentUnmount) { try { currentUnmount(); } catch {} currentUnmount = null; }
+  index = Math.max(0, Math.min(manifest.length-1, i));
+  const cut = manifest[index];
+  const mod = await import(cut.path);
+  currentUnmount = mod.mount(app, cut);
+  updateHud();
 }
 
-async function play(){
-  const mods = await loadMods();
-  for (const cut of manifest){
-    const mod = mods.get(cut.id);
-    const unmount = mod.mount(app, cut);
-    await fade(app,0,1,180);
-    await new Promise(r=>setTimeout(r, Math.max(300, cut.durationSec*1000-220)));
-    await fade(app,1,0,180);
-    unmount && unmount();
+async function run(){
+  await showCut(index);
+  while(!stopRequested){
+    const cut = manifest[index];
+    let elapsed = 0;
+    while (elapsed < cut.durationSec * 1000){
+      if (!paused) elapsed += 100;
+      await wait(100);
+      if (stopRequested) return;
+      if (manifest[index] !== cut) break;
+    }
+    if (!paused && manifest[index] === cut){
+      if (index < manifest.length - 1) await showCut(index + 1);
+      else { paused = true; updateHud(); }
+    }
   }
-  app.style.opacity='1';
 }
-play();
+
+window.addEventListener('keydown', async (e)=>{
+  if (e.code === 'Space') { e.preventDefault(); paused = !paused; updateHud(); }
+  if (e.key === 'ArrowRight') { e.preventDefault(); paused = true; await showCut(index + 1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); paused = true; await showCut(index - 1); }
+});
+
+run();

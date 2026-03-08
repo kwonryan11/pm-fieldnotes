@@ -7,7 +7,9 @@
     "layer": "macro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "notes": "single claim card, slow push-in"
+    "notes": "single claim card, slow push-in",
+    "emoji": "📌",
+    "diagramType": "flow"
   },
   {
     "id": "c002-keyword-punch",
@@ -17,7 +19,9 @@
     "layer": "micro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "notes": "keyword pulse card"
+    "notes": "keyword pulse card",
+    "emoji": "🧠",
+    "diagramType": "flow"
   },
   {
     "id": "c003-curiosity-build",
@@ -27,7 +31,9 @@
     "layer": "macro",
     "transitionIn": "fade",
     "transitionOut": "cut",
-    "notes": "spotlight card drift"
+    "notes": "spotlight card drift",
+    "emoji": "✨",
+    "diagramType": "flow"
   },
   {
     "id": "c004-contrast-flip",
@@ -37,7 +43,9 @@
     "layer": "micro",
     "transitionIn": "cut",
     "transitionOut": "fade",
-    "notes": "left-right contrast flip"
+    "notes": "left-right contrast flip",
+    "emoji": "⚖️",
+    "diagramType": "split"
   },
   {
     "id": "c005-outcome-tease",
@@ -47,7 +55,9 @@
     "layer": "macro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "notes": "clutter to clean desk ui"
+    "notes": "clutter to clean desk ui",
+    "emoji": "☕",
+    "diagramType": "flow"
   },
   {
     "id": "c006-reset-breather",
@@ -57,7 +67,9 @@
     "layer": "micro",
     "transitionIn": "fade",
     "transitionOut": "cut",
-    "notes": "minimal gradient hold"
+    "notes": "minimal gradient hold",
+    "emoji": "🫧",
+    "diagramType": "flow"
   },
   {
     "id": "c007-topic-lock",
@@ -67,7 +79,9 @@
     "layer": "macro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "notes": "x/o split statement"
+    "notes": "x/o split statement",
+    "emoji": "🎯",
+    "diagramType": "flow"
   },
   {
     "id": "c008-thesis-frame",
@@ -77,7 +91,9 @@
     "layer": "macro",
     "transitionIn": "cut",
     "transitionOut": "fade",
-    "notes": "framework node reveal"
+    "notes": "framework node reveal",
+    "emoji": "🧩",
+    "diagramType": "flow"
   },
   {
     "id": "c009-claim-main",
@@ -87,7 +103,9 @@
     "layer": "macro",
     "transitionIn": "fade",
     "transitionOut": "cut",
-    "notes": "bold thesis card"
+    "notes": "bold thesis card",
+    "emoji": "📢",
+    "diagramType": "flow"
   },
   {
     "id": "c010-definition-a",
@@ -97,7 +115,9 @@
     "layer": "micro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "notes": "strike-through emphasis"
+    "notes": "strike-through emphasis",
+    "emoji": "✅",
+    "diagramType": "split"
   },
   {
     "id": "c011-definition-b",
@@ -107,7 +127,9 @@
     "layer": "macro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "notes": "morph to accepted card"
+    "notes": "morph to accepted card",
+    "emoji": "✅",
+    "diagramType": "split"
   },
   {
     "id": "c012-numbered-lead",
@@ -117,7 +139,9 @@
     "layer": "micro",
     "transitionIn": "fade",
     "transitionOut": "fade",
-    "notes": "number badge pulse"
+    "notes": "number badge pulse",
+    "emoji": "🔢",
+    "diagramType": "bar"
   },
   {
     "id": "c013-problem-mail",
@@ -127,7 +151,9 @@
     "layer": "macro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "notes": "incoming mail cards"
+    "notes": "incoming mail cards",
+    "emoji": "⚠️",
+    "diagramType": "matrix"
   },
   {
     "id": "c014-problem-meeting",
@@ -137,7 +163,9 @@
     "layer": "macro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "notes": "meeting notes explode"
+    "notes": "meeting notes explode",
+    "emoji": "⚠️",
+    "diagramType": "matrix"
   },
   {
     "id": "c015-problem-report",
@@ -147,7 +175,9 @@
     "layer": "macro",
     "transitionIn": "fade",
     "transitionOut": "cut",
-    "notes": "report rewrite loop"
+    "notes": "report rewrite loop",
+    "emoji": "⚠️",
+    "diagramType": "matrix"
   },
   {
     "id": "c016-keyword-judge",
@@ -157,7 +187,9 @@
     "layer": "micro",
     "transitionIn": "cut",
     "transitionOut": "fade",
-    "notes": "single word spotlight"
+    "notes": "single word spotlight",
+    "emoji": "🧠",
+    "diagramType": "flow"
   },
   {
     "id": "c017-principle-head",
@@ -167,7 +199,9 @@
     "layer": "macro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "notes": "noisy thought cloud"
+    "notes": "noisy thought cloud",
+    "emoji": "💭",
+    "diagramType": "flow"
   },
   {
     "id": "c018-principle-system",
@@ -177,7 +211,9 @@
     "layer": "macro",
     "transitionIn": "fade",
     "transitionOut": "cut",
-    "notes": "grid lock modules"
+    "notes": "grid lock modules",
+    "emoji": "🗂️",
+    "diagramType": "flow"
   },
   {
     "id": "c019-example-a-entry",
@@ -187,7 +223,9 @@
     "layer": "macro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "notes": "task extraction pipeline"
+    "notes": "task extraction pipeline",
+    "emoji": "📋",
+    "diagramType": "flow"
   },
   {
     "id": "c020-cta-soft",
@@ -197,6 +235,8 @@
     "layer": "micro",
     "transitionIn": "cut",
     "transitionOut": "fade",
-    "notes": "soft amber cta hold"
+    "notes": "soft amber cta hold",
+    "emoji": "👇",
+    "diagramType": "ring"
   }
 ]

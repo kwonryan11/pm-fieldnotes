@@ -1,0 +1,21 @@
+id,startSec,endSec,layer,notes
+c001-hook-claim,0,4,macro,일 잘하는 사람은 단순하게 합니다
+c002-keyword-punch,4,7,micro,단순하게
+c003-curiosity-build,7,12,macro,의외로 진짜 잘하는 일잘러
+c004-contrast-flip,12,15,micro,의외로
+c005-outcome-tease,15,20,macro,퇴근 전 커피 마실 시간
+c006-reset-breather,20,23,micro,호흡
+c007-topic-lock,23,28,macro,AI 잘 쓰는 법이 아닙니다
+c008-thesis-frame,28,33,macro,구조를 더 빨리 돌리는 엔진
+c009-claim-main,33,38,macro,일을 더 하지 않는다
+c010-definition-a,38,41,micro,일 줄이기 X
+c011-definition-b,41,46,macro,생각 순간 줄이기 O
+c012-numbered-lead,46,49,micro,3가지 장면
+c013-problem-mail,49,54,macro,메일 오면 지금 답할까
+c014-problem-meeting,54,58,macro,회의 끝나면 누가 정리
+c015-problem-report,58,62,macro,보고 오면 어떻게 쓰지
+c016-keyword-judge,62,65,micro,판단
+c017-principle-head,65,70,macro,머리를 저장소로 쓰면
+c018-principle-system,70,75,macro,시스템을 저장소로
+c019-example-a-entry,75,81,macro,회의 끝나면 할 일 폭발
+c020-cta-soft,81,85,micro,고정댓글 확인

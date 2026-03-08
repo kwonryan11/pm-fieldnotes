@@ -1,0 +1,202 @@
+[
+  {
+    "id": "c001-hook-claim",
+    "path": "../cuts/c001-hook-claim/scene.js",
+    "title": "일 잘하는 사람은 단순하게 합니다",
+    "durationSec": 4,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "notes": "single claim card, slow push-in"
+  },
+  {
+    "id": "c002-keyword-punch",
+    "path": "../cuts/c002-keyword-punch/scene.js",
+    "title": "단순하게",
+    "durationSec": 3,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "notes": "keyword pulse card"
+  },
+  {
+    "id": "c003-curiosity-build",
+    "path": "../cuts/c003-curiosity-build/scene.js",
+    "title": "의외로 진짜 잘하는 일잘러",
+    "durationSec": 5,
+    "layer": "macro",
+    "transitionIn": "fade",
+    "transitionOut": "cut",
+    "notes": "spotlight card drift"
+  },
+  {
+    "id": "c004-contrast-flip",
+    "path": "../cuts/c004-contrast-flip/scene.js",
+    "title": "의외로",
+    "durationSec": 3,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "fade",
+    "notes": "left-right contrast flip"
+  },
+  {
+    "id": "c005-outcome-tease",
+    "path": "../cuts/c005-outcome-tease/scene.js",
+    "title": "퇴근 전 커피 마실 시간",
+    "durationSec": 5,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "notes": "clutter to clean desk ui"
+  },
+  {
+    "id": "c006-reset-breather",
+    "path": "../cuts/c006-reset-breather/scene.js",
+    "title": "호흡",
+    "durationSec": 3,
+    "layer": "micro",
+    "transitionIn": "fade",
+    "transitionOut": "cut",
+    "notes": "minimal gradient hold"
+  },
+  {
+    "id": "c007-topic-lock",
+    "path": "../cuts/c007-topic-lock/scene.js",
+    "title": "AI 잘 쓰는 법이 아닙니다",
+    "durationSec": 5,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "notes": "x/o split statement"
+  },
+  {
+    "id": "c008-thesis-frame",
+    "path": "../cuts/c008-thesis-frame/scene.js",
+    "title": "구조를 더 빨리 돌리는 엔진",
+    "durationSec": 5,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "fade",
+    "notes": "framework node reveal"
+  },
+  {
+    "id": "c009-claim-main",
+    "path": "../cuts/c009-claim-main/scene.js",
+    "title": "일을 더 하지 않는다",
+    "durationSec": 5,
+    "layer": "macro",
+    "transitionIn": "fade",
+    "transitionOut": "cut",
+    "notes": "bold thesis card"
+  },
+  {
+    "id": "c010-definition-a",
+    "path": "../cuts/c010-definition-a/scene.js",
+    "title": "일 줄이기 X",
+    "durationSec": 3,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "notes": "strike-through emphasis"
+  },
+  {
+    "id": "c011-definition-b",
+    "path": "../cuts/c011-definition-b/scene.js",
+    "title": "생각 순간 줄이기 O",
+    "durationSec": 5,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "notes": "morph to accepted card"
+  },
+  {
+    "id": "c012-numbered-lead",
+    "path": "../cuts/c012-numbered-lead/scene.js",
+    "title": "3가지 장면",
+    "durationSec": 3,
+    "layer": "micro",
+    "transitionIn": "fade",
+    "transitionOut": "fade",
+    "notes": "number badge pulse"
+  },
+  {
+    "id": "c013-problem-mail",
+    "path": "../cuts/c013-problem-mail/scene.js",
+    "title": "메일 오면 지금 답할까",
+    "durationSec": 5,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "notes": "incoming mail cards"
+  },
+  {
+    "id": "c014-problem-meeting",
+    "path": "../cuts/c014-problem-meeting/scene.js",
+    "title": "회의 끝나면 누가 정리",
+    "durationSec": 4,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "notes": "meeting notes explode"
+  },
+  {
+    "id": "c015-problem-report",
+    "path": "../cuts/c015-problem-report/scene.js",
+    "title": "보고 오면 어떻게 쓰지",
+    "durationSec": 4,
+    "layer": "macro",
+    "transitionIn": "fade",
+    "transitionOut": "cut",
+    "notes": "report rewrite loop"
+  },
+  {
+    "id": "c016-keyword-judge",
+    "path": "../cuts/c016-keyword-judge/scene.js",
+    "title": "판단",
+    "durationSec": 3,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "fade",
+    "notes": "single word spotlight"
+  },
+  {
+    "id": "c017-principle-head",
+    "path": "../cuts/c017-principle-head/scene.js",
+    "title": "머리를 저장소로 쓰면",
+    "durationSec": 5,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "notes": "noisy thought cloud"
+  },
+  {
+    "id": "c018-principle-system",
+    "path": "../cuts/c018-principle-system/scene.js",
+    "title": "시스템을 저장소로",
+    "durationSec": 5,
+    "layer": "macro",
+    "transitionIn": "fade",
+    "transitionOut": "cut",
+    "notes": "grid lock modules"
+  },
+  {
+    "id": "c019-example-a-entry",
+    "path": "../cuts/c019-example-a-entry/scene.js",
+    "title": "회의 끝나면 할 일 폭발",
+    "durationSec": 6,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "notes": "task extraction pipeline"
+  },
+  {
+    "id": "c020-cta-soft",
+    "path": "../cuts/c020-cta-soft/scene.js",
+    "title": "고정댓글 확인",
+    "durationSec": 4,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "fade",
+    "notes": "soft amber cta hold"
+  }
+]

@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>EP0112 Batch02 Sequencer</title>
+<style>
+html,body,#app{margin:0;width:100%;height:100%;background:#10151d;overflow:hidden}
+.scene{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.grid{position:absolute;inset:0;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px);background-size:52px 52px;mask-image:radial-gradient(circle at 50% 45%, black 40%, transparent 85%)}
+.card{border:1px solid rgba(255,255,255,.22);padding:20px 28px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));max-width:72vw;text-align:center;line-height:1.3;backdrop-filter:blur(2px);color:#eef2f7;font-family:Inter,system-ui,sans-serif}
+.k{color:#ffb347;font-weight:700;letter-spacing:.06em;font-size:.45em}
+.micro .card{padding:14px 20px;font-size:32px}
+.macro .card{font-size:40px}
+.sub{position:absolute;bottom:16%;opacity:.7;font-size:20px;max-width:70vw;text-align:center;color:#cfd8e3;font-family:Inter,system-ui,sans-serif}
+.emoji{font-size:44px;line-height:1;margin-bottom:6px}
+.diagram{display:block;width:min(70vw,560px);height:auto;margin:14px auto 0;stroke:rgba(255,255,255,.88);fill:rgba(255,255,255,.05);stroke-width:2}
+.accent-stroke{stroke:#ffb347}
+#hud{position:fixed;left:12px;top:12px;z-index:9999;background:rgba(0,0,0,.45);color:#fff;padding:8px 10px;border-radius:10px;font:12px/1.2 system-ui}
+#nav{position:fixed;right:12px;top:12px;z-index:9999;background:rgba(0,0,0,.45);padding:8px 10px;border-radius:10px;font:12px/1.2 system-ui}
+#nav a{color:#ffd166;text-decoration:none}
+</style>
+</head><body><div id='app'></div><div id='hud'></div><div id='nav'><a href='./sequencer/index.html'>전체 보기</a></div>
+<script type='module'>
+const app=document.getElementById('app');
+const hud=document.getElementById('hud');
+const all=await (await fetch('./sequencer/manifest.json')).json();
+const wanted=['c006-reset-breather','c007-topic-lock','c008-thesis-frame','c009-claim-main','c010-definition-a'];
+const manifest=all.filter(c=>wanted.includes(c.id)).map(c=>({
+  ...c,
+  path:c.path.replace('../cuts/','./cuts/')
+}));
+let index=0,paused=false,stop=false,currentUnmount=null;
+function hudText(){const c=manifest[index]||{};hud.textContent=`Batch02 ${index+1}/${manifest.length} · ${c.id||'-'} · ${c.title||'-'} ${paused?'⏸':'▶'}`;}
+const wait=(ms)=>new Promise(r=>setTimeout(r,ms));
+async function show(i){if(currentUnmount){try{currentUnmount();}catch{} currentUnmount=null;} index=Math.max(0,Math.min(manifest.length-1,i)); const cut=manifest[index]; const mod=await import(cut.path); currentUnmount=mod.mount(app,cut); hudText();}
+async function run(){await show(0); while(!stop){const cut=manifest[index]; let e=0; while(e<cut.durationSec*1000){if(!paused)e+=100; await wait(100); if(stop) return; if(manifest[index]!==cut) break;} if(!paused&&manifest[index]===cut){if(index<manifest.length-1) await show(index+1); else {paused=true; hudText();}}}}
+window.addEventListener('keydown', async (e)=>{if(e.code==='Space'){e.preventDefault(); paused=!paused; hudText();} if(e.key==='ArrowRight'){e.preventDefault(); paused=true; await show(index+1);} if(e.key==='ArrowLeft'){e.preventDefault(); paused=true; await show(index-1);}});
+run();
+</script>
+</body></html>

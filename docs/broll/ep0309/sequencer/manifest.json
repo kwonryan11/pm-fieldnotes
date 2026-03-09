@@ -73,5 +73,65 @@
     "animEntryMs": 420,
     "animExplainMs": 1800,
     "animExitMs": 220
+  },
+  {
+    "id": "c006-not-morning-personal",
+    "path": "../cuts/c006-not-morning-personal/scene.js",
+    "title": "저도 원래 아침형 아니었어요",
+    "durationSec": 6,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "🦉",
+    "diagramType": "profile",
+    "revealSteps": ["confession", "timeline", "label"]
+  },
+  {
+    "id": "c007-parenting-shift",
+    "path": "../cuts/c007-parenting-shift/scene.js",
+    "title": "육아 시작하고 밤이 끝났습니다",
+    "durationSec": 5,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "🍼",
+    "diagramType": "energy",
+    "revealSteps": ["night", "drain", "flat"]
+  },
+  {
+    "id": "c008-battery-1pct",
+    "path": "../cuts/c008-battery-1pct/scene.js",
+    "title": "배터리 1%로는 안 됩니다",
+    "durationSec": 6,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "🔋",
+    "diagramType": "battery",
+    "revealSteps": ["battery", "warning", "punch"]
+  },
+  {
+    "id": "c009-willpower-vs-structure",
+    "path": "../cuts/c009-willpower-vs-structure/scene.js",
+    "title": "의지 문제가 아니라 구조 문제",
+    "durationSec": 6,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "🧩",
+    "diagramType": "split",
+    "revealSteps": ["willpower", "structure", "arrow"]
+  },
+  {
+    "id": "c010-night-to-morning-design",
+    "path": "../cuts/c010-night-to-morning-design/scene.js",
+    "title": "밤 버티기 → 아침 설계",
+    "durationSec": 7,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "🌙",
+    "diagramType": "flow",
+    "revealSteps": ["night", "switch", "morning"]
   }
 ]

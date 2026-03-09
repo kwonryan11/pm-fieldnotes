@@ -133,5 +133,65 @@
     "emoji": "🌙",
     "diagramType": "flow",
     "revealSteps": ["night", "switch", "morning"]
+  },
+  {
+    "id": "c011-one-line-conclusion",
+    "path": "../cuts/c011-one-line-conclusion/scene.js",
+    "title": "오늘 결론은 하나",
+    "durationSec": 4,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "📌",
+    "diagramType": "title",
+    "revealSteps": ["lead", "hold"]
+  },
+  {
+    "id": "c012-no-perfect-routine",
+    "path": "../cuts/c012-no-perfect-routine/scene.js",
+    "title": "완벽한 루틴 X / 안 무너지는 루틴 O",
+    "durationSec": 6,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "✅",
+    "diagramType": "split",
+    "revealSteps": ["x", "o", "highlight"]
+  },
+  {
+    "id": "c013-fixed-order-flex-time",
+    "path": "../cuts/c013-fixed-order-flex-time/scene.js",
+    "title": "순서는 고정, 시간은 유동",
+    "durationSec": 6,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "🧭",
+    "diagramType": "grid",
+    "revealSteps": ["order", "time", "examples"]
+  },
+  {
+    "id": "c014-comments-3-painpoints",
+    "path": "../cuts/c014-comments-3-painpoints/scene.js",
+    "title": "댓글 공감 3가지",
+    "durationSec": 6,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "💬",
+    "diagramType": "list",
+    "revealSteps": ["1", "2", "3"]
+  },
+  {
+    "id": "c015-promise-practical",
+    "path": "../cuts/c015-promise-practical/scene.js",
+    "title": "내 상황에서도 굴러가게",
+    "durationSec": 6,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "🛠️",
+    "diagramType": "frame",
+    "revealSteps": ["promise", "rule", "next"]
   }
 ]

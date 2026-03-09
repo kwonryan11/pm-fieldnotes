@@ -558,5 +558,75 @@
     "lang": "ko",
     "usedAt": "2026-03-08T00:05:00Z",
     "dateKST": "2026-03-08"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Attention_management",
+    "title": "Attention management",
+    "lang": "en",
+    "usedAt": "2026-03-09T00:00:00Z",
+    "dateKST": "2026-03-09"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Delegation",
+    "title": "Delegation",
+    "lang": "en",
+    "usedAt": "2026-03-09T00:00:00Z",
+    "dateKST": "2026-03-09"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Meeting",
+    "title": "Meeting",
+    "lang": "en",
+    "usedAt": "2026-03-09T00:00:00Z",
+    "dateKST": "2026-03-09"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Knowledge_management",
+    "title": "Knowledge management",
+    "lang": "en",
+    "usedAt": "2026-03-09T00:00:00Z",
+    "dateKST": "2026-03-09"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Decision-making",
+    "title": "Decision-making",
+    "lang": "en",
+    "usedAt": "2026-03-09T00:00:00Z",
+    "dateKST": "2026-03-09"
+  },
+  {
+    "url": "https://ko.wikipedia.org/wiki/%EC%8B%9C%EA%B0%84_%EA%B4%80%EB%A6%AC",
+    "title": "시간 관리",
+    "lang": "ko",
+    "usedAt": "2026-03-09T00:00:00Z",
+    "dateKST": "2026-03-09"
+  },
+  {
+    "url": "https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B4%80%EB%A6%AC",
+    "title": "프로젝트 관리",
+    "lang": "ko",
+    "usedAt": "2026-03-09T00:00:00Z",
+    "dateKST": "2026-03-09"
+  },
+  {
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95",
+    "title": "의사결정",
+    "lang": "ko",
+    "usedAt": "2026-03-09T00:00:00Z",
+    "dateKST": "2026-03-09"
+  },
+  {
+    "url": "https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%A0%9C_%ED%95%B4%EA%B2%B0",
+    "title": "문제 해결",
+    "lang": "ko",
+    "usedAt": "2026-03-09T00:00:00Z",
+    "dateKST": "2026-03-09"
+  },
+  {
+    "url": "https://ko.wikipedia.org/wiki/%ED%98%91%EC%97%85",
+    "title": "협업",
+    "lang": "ko",
+    "usedAt": "2026-03-09T00:00:00Z",
+    "dateKST": "2026-03-09"
   }
 ]

@@ -1,12 +1,18 @@
 {
-  "generatedAt": "2026-03-06T08:00:20.757Z",
+  "generatedAt": "2026-03-08T08:00:25.506Z",
   "category": "newsletter",
   "sources": [
     {
       "source": "TLDR",
       "rss": "https://tldr.tech/rss",
-      "pickedAt": "2026-03-06T08:00:05.097Z",
+      "pickedAt": "2026-03-08T08:00:10.353Z",
       "items": [
+        {
+          "title": "GPT-5.4 🤖, Anthropic's leaked memo 📝, Claude Code auto mode 🧑‍💻",
+          "link": "https://tldr.tech/tech/2026-03-06",
+          "pubDate": "Fri, 06 Mar 2026 00:00:00 GMT",
+          "description": ""
+        },
         {
           "title": "MacBook Neo 💻, Google Workspace CLI 🧑‍💻, AI's bear case 🤖",
           "link": "https://tldr.tech/tech/2026-03-05",
@@ -18,32 +24,26 @@
           "link": "https://tldr.tech/tech/2026-03-04",
           "pubDate": "Wed, 04 Mar 2026 00:00:00 GMT",
           "description": ""
-        },
-        {
-          "title": "iPhone 17e 📱, SpaceX tower catch plan 🚀, how to save SaaS 💼`",
-          "link": "https://tldr.tech/tech/2026-03-03",
-          "pubDate": "Tue, 03 Mar 2026 00:00:00 GMT",
-          "description": ""
         }
       ],
       "chosen": {
-        "title": "MacBook Neo 💻, Google Workspace CLI 🧑‍💻, AI's bear case 🤖",
-        "link": "https://tldr.tech/tech/2026-03-05",
-        "pubDate": "Thu, 05 Mar 2026 00:00:00 GMT",
-        "fullText": "Wispr Flow users send 89% of their messages with zero edits. Straight from voice ( ) Most dictation tools create more work. You speak, then spend five minutes fixing what went wrong. You'll see the difference instantly with Wispr Flow : clean, sendable text as fast as you can speak. It's a life changer: 4x faster than typing. Emails, Slack threads, docs, code comments. All dictated in real time. Works in every app. System-wide on Mac, Windows, iOS, and Android. Zero setup, zero context switching. Millions of users worldwide. Not a side project. The voice tool people actually switch to. No cleanup. No copy/paste. Just talk and send. Try Wispr Flow Free →",
+        "title": "GPT-5.4 🤖, Anthropic's leaked memo 📝, Claude Code auto mode 🧑‍💻",
+        "link": "https://tldr.tech/tech/2026-03-06",
+        "pubDate": "Fri, 06 Mar 2026 00:00:00 GMT",
+        "fullText": "OpenClaw gives you an AI agent. Viktor gives your team an AI coworker. ( ) Viktor is an AI coworker that lives in your Slack or Microsoft Teams. No hardware, no setup, enterprise security from day one. It connects to 3,000+ tools (Stripe, HubSpot, Meta Ads, GitHub, Notion), delivers board-ready PDFs, builds web apps, and runs scheduled tasks 24/7. SOC 2 certified. Your data never trains models. Watch Viktor work -> Backed by Daniel Gross (Y Combinator), Nat Friedman (ex-GitHub CEO), and Mati Staniszewski (ElevenLabs). See why -> Give Viktor your worst task (for free) ->",
         "insightKo": {
           "track": "업무자동화",
-          "fact": "무슨 일? MacBook Neo 💻, Google Workspace CLI 🧑‍💻, AI's bear case 🤖.",
-          "why": "왜 중요? Wispr Flow users send 89% of their messages with zero edits.",
+          "fact": "무슨 일? GPT-5.4 🤖, Anthropic's leaked memo 📝, Claude Code auto mode 🧑‍💻.",
+          "why": "왜 중요? ( ) Viktor is an AI coworker that lives in your Slack or Microsoft Teams.",
           "action": "실행 포인트: 자동화 파이프라인에서 1개 병목(수집/정제/요약/발행)을 지정해 이번 주 개선 실험을 진행한다.",
-          "score": 80
+          "score": 100
         }
       }
     },
     {
       "source": "Ben's Bites",
       "rss": "https://www.bensbites.com/feed",
-      "pickedAt": "2026-03-06T08:00:15.773Z",
+      "pickedAt": "2026-03-08T08:00:21.898Z",
       "items": [
         {
           "title": "Google apps in the terminal",
@@ -68,7 +68,7 @@
         "title": "Google apps in the terminal",
         "link": "https://www.bensbites.com/p/google-apps-in-the-terminal",
         "pubDate": "Thu, 05 Mar 2026 14:15:58 GMT",
-        "fullText": "Google apps in the terminal two new models, lot of rumours and revenue Mar 05, 2026 81 1 1 I build stuff with agents, even though I’m not technical. Here’s all the stuff I’m reading and tinkering with. If you want to start building or level up your ‘vibe-coding’ skills, join our community . Hey folks, omg…1000+ of you signed up for the free ‘ become a builder’ workshop i’m hosting at 3pm UK (7am PT). So I’m doing it as a YouTube Live stream. Last chance if you want to join - it’ll be recorded if you can’t make it. Google released Gemini 3.1 Flash Lite - A fast model with better than Haiku 4.5 performance on benchmarks. But this bump in performance comes with a price increase ($0.10/$0.40 to $0.25/$1.50). At this price point, open-source models like Minimax M2.5 make a lot of sense for developers. They would give a much stronger performance (although at the cost of Flash Lite’s insane speed). OpenAI also updated its default model in ChatGPT to GPT-5.3-Instant . A lot of improvement in the model is around its behaviour. Lesser halunciation, refusals & disclaimers plus better web search usage and writing. Remember, this is the model most people use when they go to ChatGPT. Also, Codex is now on Windows as well . Google Workspace released a CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. It’s really well built with a focus on agents. One of the team members working on it also wrote a blog on rewriting your CLI for agents . The Information reports that OpenAI is building an internal alternative to GitHub . OpenAI’s browser Atlas came 11 months after The Information reported on it first. So expect this to take some time. It is also talking with The Trade Desk to put ads in ChatGPT and maybe planning an IPO as it hires a law firm , and Jensen Huang kinda leaked it . OpenAI’s ARR is now about $25B , only a little bit ahead of Anthropic’s $19B . Voice Agents need speed you trust. Two seconds of latency kills conversations. Speechmatics delivers partials Start with $200 free credits .* 🌐 What I’m consuming Top SaaS vendors on Ramp (March 2026) - Anthropic and Granola are growing the fastest, with Paper (design tool) and many “hosting for agents” products in the trending list. 3D as code - half of this post went over my head, but (I think) it makes the claim that 3D models should approach generation as creating structured code for 3D formats vs say generating the next video frame. Agent Experience - Practical reference to the patterns, surfaces, and design principles behind AI agents. (open source repo ) Turning my Twitter archive (36,000+ tweets) into a feature-rich library to write a book. Building an AI-native word processor using Cursor’s long-running agents. Rebuilding MacOS for the web on Replit. Why did someone choose Droid as their daily driver ? A practical guide to community-led growth for AI startups. Wasteland - The sequel to Gas Town. A dozen or so principles for the zen of AI coding . Software isn’t dying , but it is becoming more honest. ⚙️ Tools and demos Glaze by Raycast - Create real desktop apps with features like file access, keyboard shortcuts and more. In private beta now. Glide lets you create apps from a spreadsheet. It’s soon moving to AI from its no-code roots. Paperclip - Hire AI employees, set goals, and your business runs itself. ( github ) ASC11 - ASCII art editor to animate images, videos and live cams. Preview with HTML and export to JS. Modem - Your dev team’s auto-triage PM. Nen - All the infra you need to build reliable computer use agents. moss - Notes app that organises your work and connects your thoughts. Exa Deep - Agents that run in a loop to gather all the information for your search. Defuddle - Get the main content of a page in Markdown. Just add deffuddle.md at the beginning of the URL. Use it via curl, Skills or the CLI. Tools that let you run multiple parallel agents for coding: Polyscope - Dev environment for running parallel agents with built-in preview browser and more. Moment - A collaborative workspace to run your entire business out of a Markdown file with code at the centre of it. ( read more ) Superset - Turbocharged terminal that allows you to run many CLI coding agents. Design with AI tools: Refero MCP - Connect your agent to a curated library of real product interfaces and user flows. Kodo - Fully editable designs, generated by chatting. /playground - A design canvas for your code. 🥣 Dev Dish yt-browse - A YouTube channel search TUI. Filter, sort results by views/duration/date, use regex, order results, and ignore shorts. WebPage by Apple - they don’t call it a headless browser, but it’s just that for native apps. Hemingway - Turn your dev site into a copy editing surface with changes that sync to your codebase. Agents UI by LiveKit - Component library for building polished frontends for voice agents. Symphony - an experimental repo from OpenAI that turns project work into isolated, autonomous implementation runs. Handoff in the Codex app - a simpler way to move a thread between Local and Worktree. eval-skills - A set of skills for AI product evals ( read more ) 30+ skills to make your agent really understand developer marketing . Cursor is now available in JetBrains IDEs through the Agent Client Protocol, and it supports MCP apps now. 🍦 Afters A new device, Spectre I , claims that it can block unwanted audio recordings of you. Mintlify acquired Helicone , an “observability for LLMs” startup. Meta is planning a feature called “Name Tag” - Point your glasses, and the AI tells you exactly who they are. It is also building a new applied AI team . Qlabs is running an open experiment to train better models with limited data , given a large amount of compute. RevenueCat is hiring an agent (at $10k/month) as a developer advocate. Enjoy this ? Forward it to a friend. That’s it for today. Feel free to comment and your thoughts. 👋 Find me on X , Linkedin , or Instagram Read about me and Ben’s Bites 📷 thumbnail by @keshavatearth * s who make this possible :) Wanna partner with us for March? Last few slots available 81 1 1 Previous",
+        "fullText": "Google apps in the terminal two new models, lot of rumours and revenue Mar 05, 2026 84 1 1 I build stuff with agents, even though I’m not technical. Here’s all the stuff I’m reading and tinkering with. If you want to start building or level up your ‘vibe-coding’ skills, join our community . Hey folks, omg…1000+ of you signed up for the free ‘ become a builder’ workshop i’m hosting at 3pm UK (7am PT). So I’m doing it as a YouTube Live stream. Last chance if you want to join - it’ll be recorded if you can’t make it. Google released Gemini 3.1 Flash Lite - A fast model with better than Haiku 4.5 performance on benchmarks. But this bump in performance comes with a price increase ($0.10/$0.40 to $0.25/$1.50). At this price point, open-source models like Minimax M2.5 make a lot of sense for developers. They would give a much stronger performance (although at the cost of Flash Lite’s insane speed). OpenAI also updated its default model in ChatGPT to GPT-5.3-Instant . A lot of improvement in the model is around its behaviour. Lesser halunciation, refusals & disclaimers plus better web search usage and writing. Remember, this is the model most people use when they go to ChatGPT. Also, Codex is now on Windows as well . Google Workspace released a CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. It’s really well built with a focus on agents. One of the team members working on it also wrote a blog on rewriting your CLI for agents . The Information reports that OpenAI is building an internal alternative to GitHub . OpenAI’s browser Atlas came 11 months after The Information reported on it first. So expect this to take some time. It is also talking with The Trade Desk to put ads in ChatGPT and maybe planning an IPO as it hires a law firm , and Jensen Huang kinda leaked it . OpenAI’s ARR is now about $25B , only a little bit ahead of Anthropic’s $19B . Voice Agents need speed you trust. Two seconds of latency kills conversations. Speechmatics delivers partials Start with $200 free credits .* 🌐 What I’m consuming Top SaaS vendors on Ramp (March 2026) - Anthropic and Granola are growing the fastest, with Paper (design tool) and many “hosting for agents” products in the trending list. 3D as code - half of this post went over my head, but (I think) it makes the claim that 3D models should approach generation as creating structured code for 3D formats vs say generating the next video frame. Agent Experience - Practical reference to the patterns, surfaces, and design principles behind AI agents. (open source repo ) Turning my Twitter archive (36,000+ tweets) into a feature-rich library to write a book. Building an AI-native word processor using Cursor’s long-running agents. Rebuilding MacOS for the web on Replit. Why did someone choose Droid as their daily driver ? A practical guide to community-led growth for AI startups. Wasteland - The sequel to Gas Town. A dozen or so principles for the zen of AI coding . Software isn’t dying , but it is becoming more honest. ⚙️ Tools and demos Glaze by Raycast - Create real desktop apps with features like file access, keyboard shortcuts and more. In private beta now. Glide lets you create apps from a spreadsheet. It’s soon moving to AI from its no-code roots. Paperclip - Hire AI employees, set goals, and your business runs itself. ( github ) ASC11 - ASCII art editor to animate images, videos and live cams. Preview with HTML and export to JS. Modem - Your dev team’s auto-triage PM. Nen - All the infra you need to build reliable computer use agents. moss - Notes app that organises your work and connects your thoughts. Exa Deep - Agents that run in a loop to gather all the information for your search. Defuddle - Get the main content of a page in Markdown. Just add deffuddle.md at the beginning of the URL. Use it via curl, Skills or the CLI. Tools that let you run multiple parallel agents for coding: Polyscope - Dev environment for running parallel agents with built-in preview browser and more. Moment - A collaborative workspace to run your entire business out of a Markdown file with code at the centre of it. ( read more ) Superset - Turbocharged terminal that allows you to run many CLI coding agents. Design with AI tools: Refero MCP - Connect your agent to a curated library of real product interfaces and user flows. Kodo - Fully editable designs, generated by chatting. /playground - A design canvas for your code. 🥣 Dev Dish yt-browse - A YouTube channel search TUI. Filter, sort results by views/duration/date, use regex, order results, and ignore shorts. WebPage by Apple - they don’t call it a headless browser, but it’s just that for native apps. Hemingway - Turn your dev site into a copy editing surface with changes that sync to your codebase. Agents UI by LiveKit - Component library for building polished frontends for voice agents. Symphony - an experimental repo from OpenAI that turns project work into isolated, autonomous implementation runs. Handoff in the Codex app - a simpler way to move a thread between Local and Worktree. eval-skills - A set of skills for AI product evals ( read more ) 30+ skills to make your agent really understand developer marketing . Cursor is now available in JetBrains IDEs through the Agent Client Protocol, and it supports MCP apps now. 🍦 Afters A new device, Spectre I , claims that it can block unwanted audio recordings of you. Mintlify acquired Helicone , an “observability for LLMs” startup. Meta is planning a feature called “Name Tag” - Point your glasses, and the AI tells you exactly who they are. It is also building a new applied AI team . Qlabs is running an open experiment to train better models with limited data , given a large amount of compute. RevenueCat is hiring an agent (at $10k/month) as a developer advocate. Enjoy this ? Forward it to a friend. That’s it for today. Feel free to comment and your thoughts. 👋 Find me on X , Linkedin , or Instagram Read about me and Ben’s Bites 📷 thumbnail by @keshavatearth * s who make this possible :) Wanna partner with us for March? Last few slots available 84 1 1 Previous",
         "insightKo": {
           "track": "업무자동화",
           "fact": "무슨 일? Google released Gemini 3.1 Flash Lite - A fast model with better than Haiku 4.5 performance on benchmarks.",
@@ -81,7 +81,7 @@
     {
       "source": "Dense Discovery",
       "rss": "https://www.densediscovery.com/feed",
-      "pickedAt": "2026-03-06T08:00:18.387Z",
+      "pickedAt": "2026-03-08T08:00:24.726Z",
       "items": [
         {
           "title": "DD378 / The myth of the dying reader",
@@ -119,7 +119,7 @@
     {
       "source": "SemiAnalysis",
       "rss": "https://www.semianalysis.com/feed",
-      "pickedAt": "2026-03-06T08:00:20.757Z",
+      "pickedAt": "2026-03-08T08:00:25.506Z",
       "items": [
         {
           "title": "xAI&#8217;s Colossus 2 &#8211; First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise",

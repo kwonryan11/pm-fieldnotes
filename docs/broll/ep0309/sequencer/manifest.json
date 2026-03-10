@@ -193,5 +193,65 @@
     "emoji": "🛠️",
     "diagramType": "frame",
     "revealSteps": ["promise", "rule", "next"]
+  },
+  {
+    "id": "c016-core-intro",
+    "path": "../cuts/c016-core-intro/scene.js",
+    "title": "코어 3단계 들어갑니다",
+    "durationSec": 4,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "🎬",
+    "diagramType": "title",
+    "revealSteps": ["lead", "steps"]
+  },
+  {
+    "id": "c017-step1-no-phone",
+    "path": "../cuts/c017-step1-no-phone/scene.js",
+    "title": "1) 폰/알림 차단 (무반응 10분)",
+    "durationSec": 7,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "📵",
+    "diagramType": "card",
+    "revealSteps": ["badge", "rule", "why"]
+  },
+  {
+    "id": "c018-step2-top3-notodo",
+    "path": "../cuts/c018-step2-top3-notodo/scene.js",
+    "title": "2) 할 일 3개 + 안 할 일 1개",
+    "durationSec": 8,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "📝",
+    "diagramType": "checklist",
+    "revealSteps": ["top3", "notodo", "example"]
+  },
+  {
+    "id": "c019-step3-first-win",
+    "path": "../cuts/c019-step3-first-win/scene.js",
+    "title": "3) 첫 승리(착수 흔적)",
+    "durationSec": 8,
+    "layer": "macro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "🏁",
+    "diagramType": "flow",
+    "revealSteps": ["start", "examples", "effect"]
+  },
+  {
+    "id": "c020-core3-recap",
+    "path": "../cuts/c020-core3-recap/scene.js",
+    "title": "코어 3개 요약",
+    "durationSec": 5,
+    "layer": "micro",
+    "transitionIn": "cut",
+    "transitionOut": "cut",
+    "emoji": "✅",
+    "diagramType": "steps",
+    "revealSteps": ["1", "2", "3"]
   }
 ]

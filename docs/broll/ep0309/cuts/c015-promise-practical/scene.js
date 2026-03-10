@@ -5,7 +5,7 @@ export function mount(root){
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 18%, rgba(255,179,71,.14), transparent 48%), radial-gradient(circle at 22% 82%, rgba(122,183,255,.12), transparent 56%), linear-gradient(180deg,#0b1020,#070b14)"></div>
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 45%, black 38%, transparent 88%)"></div>
 
-    <div style="position:absolute;left:7%;top:16%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:absolute;left:7%;top:16%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div style="letter-spacing:.18em;font-size:13px;color:#ffb347;font-weight:900">PROMISE</div>
       <div id="t" style="margin-top:12px;font-size:min(56px,5.7vw);font-weight:950;line-height:1.10;opacity:0;transform:translateY(14px)">
         내 상황에서도<br/>굴러가게
@@ -13,7 +13,7 @@ export function mount(root){
       <div id="s" style="margin-top:14px;color:#c9d6e6;opacity:0;font-size:18px">이상적인 루틴 말고, 현실형 루틴으로</div>
     </div>
 
-    <div id="frame" style="position:absolute;left:7%;right:7%;top:56%;border-radius:18px;border:1px solid rgba(255,179,71,.26);background:linear-gradient(180deg,rgba(255,179,71,.10),rgba(255,255,255,.02));backdrop-filter:blur(4px);padding:16px 18px;opacity:0;transform:translateY(10px);font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div id="frame" style="position:absolute;left:7%;right:7%;top:56%;border-radius:18px;border:1px solid rgba(255,179,71,.26);background:linear-gradient(180deg,rgba(255,179,71,.10),rgba(255,255,255,.02));backdrop-filter:blur(4px);padding:16px 18px;opacity:0;transform:translateY(10px);font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
         <div style="font-weight:950">규칙:</div>
         <div style="color:#ffb347;font-weight:950">순서만 고정</div>

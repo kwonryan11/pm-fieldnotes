@@ -5,7 +5,7 @@ export function mount(root){
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 65% 18%, rgba(255,179,71,.18), transparent 44%), radial-gradient(circle at 28% 72%, rgba(122,183,255,.12), transparent 55%), linear-gradient(180deg,#0b1020,#070b14)"></div>
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:54px 54px;mask-image:radial-gradient(circle at 50% 45%, black 38%, transparent 88%)"></div>
 
-    <div style="position:absolute;left:7%;top:16%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:absolute;left:7%;top:16%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div style="letter-spacing:.18em;font-size:13px;color:#ffb347;font-weight:800;opacity:.95">CORE 3</div>
       <div style="margin-top:10px;font-size:min(46px,5.0vw);font-weight:900;line-height:1.12">내일 아침, 딱 이것만</div>
       <div style="margin-top:8px;color:#c9d6e6;opacity:.86">순서는 고정 · 시간은 유동</div>

@@ -5,7 +5,7 @@ export function mount(root){
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 18%, rgba(122,183,255,.12), transparent 52%), radial-gradient(circle at 26% 82%, rgba(255,179,71,.10), transparent 56%), linear-gradient(180deg,#0b1020,#070b14)"></div>
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 45%, black 38%, transparent 88%)"></div>
 
-    <div style="position:absolute;left:7%;top:16%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:absolute;left:7%;top:16%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div style="letter-spacing:.18em;font-size:13px;color:#ffb347;font-weight:900">SITUATION PICK</div>
       <div style="margin-top:12px;font-size:min(52px,5.4vw);font-weight:950;line-height:1.10">내 상황에 맞춰
         <br/>고르면 됩니다</div>

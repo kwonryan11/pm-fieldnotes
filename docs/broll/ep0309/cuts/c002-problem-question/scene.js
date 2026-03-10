@@ -5,7 +5,7 @@ export function mount(root){
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 35%, rgba(255,179,71,.12), transparent 45%), linear-gradient(180deg,#0b1020,#070b14)"></div>
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 45%, black 38%, transparent 85%)"></div>
 
-    <div id="card" style="position:relative;max-width:min(980px,82vw);padding:26px 30px;border-radius:18px;border:1px solid rgba(255,255,255,.20);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));backdrop-filter:blur(4px);color:#eef2f7;font-family:Inter,system-ui,sans-serif;opacity:0;transform:translateY(14px)">
+    <div id="card" style="position:relative;max-width:min(980px,82vw);padding:26px 30px;border-radius:18px;border:1px solid rgba(255,255,255,.20);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));backdrop-filter:blur(4px);color:#eef2f7;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;opacity:0;transform:translateY(14px)">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;opacity:.85">
         <div style="font-size:22px">⚠️</div>
         <div style="letter-spacing:.16em;font-size:13px;color:#ffb347;font-weight:800">THE QUESTION</div>

@@ -5,7 +5,7 @@ export function mount(root){
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 72% 20%, rgba(122,183,255,.14), transparent 44%), radial-gradient(circle at 26% 80%, rgba(255,179,71,.10), transparent 50%), linear-gradient(180deg,#0b1020,#070b14)"></div>
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 45%, black 40%, transparent 88%)"></div>
 
-    <div style="position:absolute;left:7%;top:16%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:absolute;left:7%;top:16%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div id="badge" style="display:inline-flex;gap:10px;align-items:center;opacity:0;transform:translateY(10px)">
         <div style="font-size:26px">🦉</div>
         <div style="letter-spacing:.18em;font-size:13px;color:#ffb347;font-weight:900">PERSONAL NOTE</div>
@@ -17,7 +17,7 @@ export function mount(root){
     </div>
 
     <div id="timeline" style="position:absolute;left:7%;right:7%;top:54%;opacity:0;transform:translateY(10px)">
-      <div style="display:flex;gap:16px;align-items:center;justify-content:space-between;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+      <div style="display:flex;gap:16px;align-items:center;justify-content:space-between;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
         <div style="flex:1;border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:14px 16px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));">
           <div style="font-size:12px;letter-spacing:.16em;color:#c9d6e6">PAST</div>
           <div style="margin-top:6px;font-weight:900">밤에 몰아서</div>

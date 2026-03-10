@@ -5,7 +5,7 @@ export function mount(root){
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 22%, rgba(255,179,71,.14), transparent 46%), linear-gradient(180deg,#0b1020,#070b14)"></div>
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 45%, black 36%, transparent 86%)"></div>
 
-    <div style="position:relative;max-width:min(980px,84vw);padding:24px 28px;border-radius:18px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));backdrop-filter:blur(4px);font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:relative;max-width:min(980px,84vw);padding:24px 28px;border-radius:18px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));backdrop-filter:blur(4px);font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:14px">
         <div>
           <div style="letter-spacing:.16em;font-size:13px;color:#c9d6e6;opacity:.9">REALITY CHECK</div>

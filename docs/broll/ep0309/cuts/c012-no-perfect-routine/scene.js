@@ -5,7 +5,7 @@ export function mount(root){
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 68% 18%, rgba(255,179,71,.14), transparent 48%), radial-gradient(circle at 24% 78%, rgba(122,183,255,.12), transparent 56%), linear-gradient(180deg,#0b1020,#070b14)"></div>
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 45%, black 38%, transparent 88%)"></div>
 
-    <div style="position:absolute;left:7%;top:16%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:absolute;left:7%;top:16%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div style="letter-spacing:.18em;font-size:13px;color:#ffb347;font-weight:900">RULE</div>
       <div id="t" style="margin-top:12px;font-size:min(54px,5.6vw);font-weight:950;line-height:1.10;opacity:0;transform:translateY(14px)">
         완벽한 루틴 말고<br/>안 무너지는 루틴
@@ -18,7 +18,7 @@ export function mount(root){
         <div style="margin-top:10px;color:#c9d6e6;opacity:.86">매일 60분 · 매일 100점</div>
       </div>
 
-      <div id="arrow" style="display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);font-family:Inter,system-ui,sans-serif;color:#ffb347;font-weight:950;font-size:28px">→</div>
+      <div id="arrow" style="display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#ffb347;font-weight:950;font-size:28px">→</div>
 
       <div id="o" style="border:1px solid rgba(255,179,71,.26);border-radius:16px;padding:16px 18px;background:linear-gradient(180deg,rgba(255,179,71,.10),rgba(255,255,255,.02));backdrop-filter:blur(4px);opacity:0;transform:translateY(10px)">
         <div style="display:flex;gap:10px;align-items:center"><div style="font-size:22px">✅</div><div style="font-weight:950">지속</div></div>

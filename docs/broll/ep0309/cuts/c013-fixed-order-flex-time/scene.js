@@ -5,7 +5,7 @@ export function mount(root){
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 18%, rgba(255,179,71,.14), transparent 48%), radial-gradient(circle at 22% 80%, rgba(122,183,255,.12), transparent 56%), linear-gradient(180deg,#0b1020,#070b14)"></div>
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 45%, black 38%, transparent 88%)"></div>
 
-    <div style="position:absolute;left:7%;top:16%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:absolute;left:7%;top:16%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div style="letter-spacing:.18em;font-size:13px;color:#ffb347;font-weight:900">PRINCIPLE</div>
       <div id="t" style="margin-top:12px;font-size:min(56px,5.7vw);font-weight:950;line-height:1.10;opacity:0;transform:translateY(14px)">
         순서는 고정,<br/>시간은 유동
@@ -24,7 +24,7 @@ export function mount(root){
       </div>
     </div>
 
-    <div style="position:absolute;left:7%;right:7%;bottom:22%;font-family:Inter,system-ui,sans-serif;color:#eef2f7;opacity:.0" id="chips">
+    <div style="position:absolute;left:7%;right:7%;bottom:22%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7;opacity:.0" id="chips">
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <div class="chip">라이트 20분</div>
         <div class="chip">베이직 40분</div>

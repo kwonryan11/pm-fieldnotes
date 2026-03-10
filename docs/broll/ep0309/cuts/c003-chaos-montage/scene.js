@@ -5,7 +5,7 @@ export function mount(root){
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 65% 25%, rgba(255,179,71,.10), transparent 48%), radial-gradient(circle at 25% 70%, rgba(122,183,255,.10), transparent 52%), linear-gradient(180deg,#0b1020,#070b14)"></div>
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:54px 54px;mask-image:radial-gradient(circle at 50% 45%, black 38%, transparent 88%)"></div>
 
-    <div style="position:absolute;left:7%;top:18%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:absolute;left:7%;top:18%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div style="letter-spacing:.18em;font-size:13px;color:#ffb347;font-weight:800;opacity:.9">MORNING CHAOS</div>
       <div style="margin-top:10px;font-size:min(44px,4.8vw);font-weight:850;line-height:1.12">알림이 시작을 잡아먹는다</div>
       <div style="margin-top:8px;color:#c9d6e6;opacity:.85">메일 · 메신저 · 캘린더… (반응형 루틴)</div>
@@ -13,7 +13,7 @@ export function mount(root){
 
     <div id="stack" style="position:absolute;left:7%;right:7%;top:44%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px"></div>
 
-    <div style="position:absolute;left:7%;right:7%;bottom:22%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:absolute;left:7%;right:7%;bottom:22%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div style="display:flex;align-items:center;justify-content:space-between;opacity:.85">
         <div style="letter-spacing:.16em;font-size:12px;color:#c9d6e6">CHAOS METER</div>
         <div id="pct" style="font-size:12px;color:#ffb347;font-weight:800;opacity:0">0%</div>

@@ -7,7 +7,7 @@ export function mount(root){
 
     <div style="position:absolute;left:8%;right:8%;top:18%;height:1px;background:linear-gradient(90deg,transparent,#ffb347,transparent);opacity:.7"></div>
 
-    <div style="position:absolute;left:8%;top:22%;right:8%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:absolute;left:8%;top:22%;right:8%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div id="badge" style="display:inline-flex;gap:10px;align-items:center;opacity:0;transform:translateY(10px)">
         <div style="font-size:28px">🌅</div>
         <div style="font-size:14px;letter-spacing:.18em;color:#ffb347;font-weight:800">MORNING SYSTEM</div>

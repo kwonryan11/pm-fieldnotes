@@ -5,7 +5,7 @@ export function mount(root){
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 68% 20%, rgba(255,179,71,.14), transparent 46%), radial-gradient(circle at 26% 76%, rgba(122,183,255,.12), transparent 52%), linear-gradient(180deg,#0b1020,#070b14)"></div>
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 45%, black 38%, transparent 88%)"></div>
 
-    <div style="position:absolute;left:7%;top:16%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
+    <div style="position:absolute;left:7%;top:16%;font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#eef2f7">
       <div style="letter-spacing:.18em;font-size:13px;color:#ffb347;font-weight:900">KEY REFRAME</div>
       <div id="t" style="margin-top:12px;font-size:min(56px,5.7vw);font-weight:950;line-height:1.10;opacity:0;transform:translateY(14px)">
         의지 문제가 아니라<br/>구조 문제
@@ -19,7 +19,7 @@ export function mount(root){
         <div style="margin-top:8px;color:#c9d6e6;opacity:.86;font-size:13px">그날 컨디션에 따라 흔들림</div>
       </div>
 
-      <div id="arrow" style="display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);font-family:Inter,system-ui,sans-serif;color:#ffb347;font-weight:950;font-size:28px">→</div>
+      <div id="arrow" style="display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);font-family:Inter, Pretendard, 'Noto Sans KR', system-ui, sans-serif;color:#ffb347;font-weight:950;font-size:28px">→</div>
 
       <div id="right" style="border:1px solid rgba(255,179,71,.26);border-radius:16px;padding:16px 18px;background:linear-gradient(180deg,rgba(255,179,71,.10),rgba(255,255,255,.02));backdrop-filter:blur(4px);opacity:0;transform:translateY(10px)">
         <div style="display:flex;gap:10px;align-items:center"><div style="font-size:22px">🧩</div><div style="font-weight:950">구조</div></div>

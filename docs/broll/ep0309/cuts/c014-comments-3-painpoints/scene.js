@@ -6,9 +6,10 @@ export function mount(root){
     <div style="position:absolute;inset:0;opacity:.10;background-image:linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 45%, black 38%, transparent 88%)"></div>
 
     <div style="position:absolute;left:7%;top:16%;font-family:Inter,system-ui,sans-serif;color:#eef2f7">
-      <div style="letter-spacing:.18em;font-size:13px;color:#ffb347;font-weight:900">COMMENTS</div>
-      <div style="margin-top:12px;font-size:min(52px,5.4vw);font-weight:950;line-height:1.10">댓글 공감 3가지</div>
-      <div style="margin-top:14px;color:#c9d6e6;opacity:.86;font-size:18px">“내 상황에선 안 되는데요?”</div>
+      <div style="letter-spacing:.18em;font-size:13px;color:#ffb347;font-weight:900">SITUATION PICK</div>
+      <div style="margin-top:12px;font-size:min(52px,5.4vw);font-weight:950;line-height:1.10">내 상황에 맞춰
+        <br/>고르면 됩니다</div>
+      <div style="margin-top:14px;color:#c9d6e6;opacity:.86;font-size:18px">시간이 다르면, ‘버전’만 바꾸면 돼요</div>
     </div>
 
     <div style="position:absolute;left:7%;right:7%;top:54%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
@@ -33,9 +34,9 @@ export function mount(root){
   const i2=wrap.querySelector('#i2');
   const i3=wrap.querySelector('#i3');
 
-  i1.innerHTML=`<div class="n"><div class="b">1</div><div><div class="t">의지는 있는데<br/>시간이 없다</div><div class="s">아침 20분도 빠듯</div></div></div>`;
-  i2.innerHTML=`<div class="n"><div class="b">2</div><div><div class="t">늦은 퇴근/육아로<br/>아침이 무너진다</div><div class="s">밤에 이미 방전</div></div></div>`;
-  i3.innerHTML=`<div class="n"><div class="b">3</div><div><div class="t">작심삼일만<br/>반복된다</div><div class="s">기억으로 하다가 끊김</div></div></div>`;
+  i1.innerHTML=`<div class="n"><div class="b">1</div><div><div class="t">오늘은<br/>20분밖에 없다</div><div class="s">라이트 버전으로 ‘순서만’</div></div></div>`;
+  i2.innerHTML=`<div class="n"><div class="b">2</div><div><div class="t">늦퇴/육아로<br/>아침이 흔들린다</div><div class="s">시간 줄이고 코어만 고정</div></div></div>`;
+  i3.innerHTML=`<div class="n"><div class="b">3</div><div><div class="t">작심삼일이<br/>반복된다</div><div class="s">기억 말고 체크리스트로</div></div></div>`;
 
   const a1=i1.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],{duration:420,delay:140,fill:'forwards',easing:'cubic-bezier(.2,.8,.2,1)'});
   const a2=i2.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],{duration:420,delay:360,fill:'forwards',easing:'cubic-bezier(.2,.8,.2,1)'});

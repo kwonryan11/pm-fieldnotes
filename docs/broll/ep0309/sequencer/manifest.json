@@ -173,12 +173,12 @@
   {
     "id": "c014-comments-3-painpoints",
     "path": "../cuts/c014-comments-3-painpoints/scene.js",
-    "title": "댓글 공감 3가지",
+    "title": "내 상황에 맞춰 고르기",
     "durationSec": 6,
     "layer": "micro",
     "transitionIn": "cut",
     "transitionOut": "cut",
-    "emoji": "💬",
+    "emoji": "🧩",
     "diagramType": "list",
     "revealSteps": ["1", "2", "3"]
   },
